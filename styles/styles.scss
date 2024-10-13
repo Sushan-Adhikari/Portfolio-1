@@ -263,6 +263,12 @@ section {
 .about-stats {
   padding-bottom: 4rem;
 
+  .stat-title {
+    font-size: 2rem;
+    color: var(--color-secondary); // Adjust as per your design
+    margin-bottom: 1.5rem;
+  }
+
   .progress-bars {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

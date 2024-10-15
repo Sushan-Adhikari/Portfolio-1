@@ -30,7 +30,7 @@
   --color-grey-1: #5d6870;
   --color-grey-2: #6c7983;
   --color-grey-3: #6c7983;
-  --color-grey-4: #565b60;
+  --color-grey-4: #666c72;
   --color-grey-5: #f0e8e8;
   --color-grey-6: #12181b;
 }
@@ -59,7 +59,7 @@ a {
   font-family: inherit;
 }
 header {
-  height: 100vh;
+  min-height: 100vh;
   color: var(--color-white);
   overflow: hidden;
 }
@@ -187,7 +187,7 @@ section {
 .header-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 100%;
+  min-height: 100vh;
   .left-header {
     display: flex;
     align-items: center;
@@ -760,3 +760,5 @@ section {
     }
   }
 }
+
+@import "./media";

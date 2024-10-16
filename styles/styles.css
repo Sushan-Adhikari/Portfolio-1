@@ -30,7 +30,7 @@
   --color-grey-1: #5d6870;
   --color-grey-2: #6c7983;
   --color-grey-3: #6c7983;
-  --color-grey-4: #666c72;
+  --color-grey-4: #ececf4;
   --color-grey-5: #f0e8e8;
   --color-grey-6: #12181b;
 }
@@ -638,6 +638,10 @@ section {
 .contact-content-con .right-contact {
   flex: 3;
   margin-left: 3rem;
+  /* For message inside the form */
+  /* When the message is visible */
+  /* Success message style */
+  /* Error message style */
 }
 .contact-content-con .right-contact .input-control {
   margin: 1.5rem 0;
@@ -666,6 +670,31 @@ section {
   display: flex;
   justify-content: flex-start;
 }
+.contact-content-con .right-contact .form-message {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: translateY(-20px); /* Initial position */
+}
+.contact-content-con .right-contact .form-message.show {
+  opacity: 1;
+  transform: translateY(0); /* Slide in from top */
+}
+.contact-content-con .right-contact .form-message.success {
+  color: var(--color-secondary);
+  background-color: var(--color-grey-5);
+  border: 1px solid var(--color-grey-4);
+}
+.contact-content-con .right-contact .form-message.error {
+  color: #f20808;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
 
 /*Independent Components*/
 .btn-con {
@@ -681,7 +710,6 @@ section {
   border: 1px solid var(--color-secondary);
   display: flex;
   align-self: flex-start;
-  display: flex;
   align-items: center;
   overflow: hidden;
 }
@@ -709,6 +737,62 @@ section {
   transition: all 0.4s ease-out;
 }
 .main-btn:hover::before {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  transform: translateX(0);
+}
+
+.submit-btn {
+  display: flex;
+  align-self: flex-start;
+}
+.submit-btn .main-btn {
+  border-radius: 30px;
+  color: inherit;
+  font-weight: 600;
+  position: relative;
+  border: 1px solid var(--color-secondary);
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.submit-btn .main-btn .btn-text {
+  font-size: 1rem;
+  padding: 0 2rem;
+  z-index: 1;
+  position: relative;
+}
+.submit-btn .main-btn .btn-icon {
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 1rem;
+  z-index: 1;
+  position: relative;
+}
+.submit-btn .main-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-secondary);
+  transform: translateX(100%);
+  z-index: -1;
+  transition: width 0.4s ease-out;
+}
+.submit-btn .main-btn:hover {
+  transition: all 0.4s ease-out;
+}
+.submit-btn .main-btn:hover::before {
   width: 100%;
   height: 100%;
   background-color: var(--color-secondary);
@@ -911,7 +995,7 @@ section {
     background-color: var(--color-grey-5);
   }
   .controls .control {
-    margin: 0.3rem 1rem;
+    margin: 0.2rem 0.8rem;
   }
 }
 @media screen and (max-width: 700px) {

@@ -683,7 +683,7 @@ section {
 }
 .contact-content-con .right-contact .form-message.show {
   opacity: 1;
-  transform: translateY(0); /* Slide in from top */
+  transform: translateY(0); /*  Slide in from top */
 }
 .contact-content-con .right-contact .form-message.success {
   color: var(--color-secondary);

@@ -61,8 +61,8 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 1. **Clone or Download**
 
    ```
-   git clone <your-repo-url>
-   cd <your-repo-folder>
+   git clone https://github.com/Sushan-Adhikari/Portfolio-1.git
+   cd Portfolio-1
    ```
 
 2. **Open in Browser**

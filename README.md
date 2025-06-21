@@ -1,130 +1,119 @@
-# Sushan Adhikari – Personal Portfolio Website
+# Sushan Adhikari – AI & Data Engineering Portfolio
 
-Welcome to my personal portfolio website! This project showcases my skills, projects, blogs, and contact information in a modern, responsive layout.
+Welcome to the source code for my personal portfolio website. This project is a dynamic and responsive showcase of my journey, skills, and projects in Computer Engineering, with a special focus on Artificial Intelligence, Data Engineering, and cloud infrastructure.
+
+**Live Site:** [sushanadhikari.com.np](https://sushanadhikari.com.np)
 
 ---
 
 ## 📁 Folder Structure
 
-```text
+The repository is organized as follows, based on the `tree` command:
 
-├── Sushan_Adhikari_CV.pdf # My resume/CV
-├── app.js # Main JavaScript for interactivity
-├── img # Image assets (portfolio, blogs, profile)
-│   ├── blog1.jpg
-│   ├── blog2.jpg
-│   ├── blog3.jpg
-│   ├── port1.jpg
-│   ├── port2.jpg
-│   ├── port3.jpg
-│   ├── port4.jpg
-│   ├── port5.jpg
-│   ├── port6.jpg
-│   ├── port7.jpg
-│   └── sushan.png
-├── index.html # Main HTML file
-└── styles # Styling resources
-├── _media.scss
-├── styles.css
-├── styles.css.map
-└── styles.scss
+```text
+.
+├── app.js                      # Main JavaScript for interactivity & theme switching
+├── CNAME                       # Custom domain configuration for GitHub Pages
+├── img/                        # All image assets
+│   ├── AI_Ethics.jpeg          # (Image for a blog or project)
+│   ├── docker.png              # (Image for a blog or project)
+│   ├── get_start_ML.jpeg       # (Image for a blog or project)
+│   ├── hult.png                # Hult Prize logo for 'Featured In' section
+│   ├── kantipur.jpeg           # Kantipur Media logo
+│   ├── kulogo.png              # Kathmandu University logo
+│   ├── logo_sushan.png         # Personal logo
+│   ├── modern_web.jpeg         # (Image for a blog or project)
+│   ├── nasa.jpeg               # NASA logo
+│   ├── sushan.png              # Profile picture
+│   └── techpana.png            # TechPana logo
+├── index.html                  # The single-page application's main HTML file
+├── README.md                   # This file
+├── styles/                     # Styling resources
+│   ├── _media.scss             # SCSS for responsive design
+│   ├── styles.css              # Compiled CSS file
+│   ├── styles.css.map          # CSS source map
+│   └── styles.scss             # Main SCSS file
+└── Sushan_Adhikari_CV.pdf      # My downloadable resume
 ```
 
 ---
 
 ## ✨ Features
 
-- **About Me:**  
-  Introduction, education, and interests.  
-  Skill bars for HTML5, CSS, Python, C, C++, JavaScript, Docker.
+This portfolio is a single-page application with several key sections:
 
-- **Portfolio:**  
-  Gallery of projects with images and hover effects.
+- **Dynamic Theme:** Seamlessly switch between light and dark modes.
+- **About Me:** A professional summary, key stats, and an honest representation of my skills with progress bars.
+- **My Journey:** An interactive timeline showcasing my education, work experience, and key leadership roles.
+- **Certifications:** A curated list of my most relevant credentials in AI, Deep Learning, NLP, and Data Engineering.
+- **Awards & Achievements:** A gallery highlighting my recognitions, from winning the Hult Prize and NASA Space Apps to academic scholarships.
+- **Featured In:** Logos of notable organizations that have featured my work.
+- **Responsive Design:** Fully responsive layout built with modern CSS for an optimal experience on any device.
 
-- **Blogs:**  
-  List of blog posts with images and descriptions.
+---
 
-- **Contact:**  
-  Contact form powered by EmailJS for direct email messaging.  
-  Contact info: address, email, phone, education, languages.
+## 🛠️ Technologies & Skills
 
-- **Theme Toggle:**  
-  Switch between light and dark modes.
+#### Website Built With:
 
-- **Responsive Design:**  
-  Looks great on all devices.
+- **HTML5**
+- **CSS3 / SCSS:** For modular and maintainable styling.
+- **Vanilla JavaScript:** For DOM manipulation, theme toggling, and interactivity.
+
+#### Skills & Technologies Showcased:
+
+This portfolio highlights my experience and projects built with the following technologies:
+
+- **Programming:** Python, C++, JavaScript, Solidity, C
+- **Machine Learning/Deep Learning:** PyTorch, TensorFlow, Scikit-learn, OpenCV, YOLOv8, Pandas, NumPy
+- **Data Engineering:** Apache Airflow, dbt
+- **Cloud & DevOps:** AWS, Docker, CI/CD, Containerization, Terraform
+- **Web Frameworks:** Django, React, FastAPI
+- **Databases:** PostgreSQL, SQLite
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Clone or Download**
+To run or customize this portfolio locally:
 
-   ```
-   git clone https://github.com/Sushan-Adhikari/Portfolio-1.git
-   cd Portfolio-1
-   ```
+1.  **Clone the Repository**
 
-2. **Open in Browser**
+    ```bash
+    git clone https://github.com/Sushan-Adhikari/Portfolio-1.git
+    cd Portfolio-1
+    ```
 
-   - Open `index.html` in your browser.
+2.  **Open in Browser**
 
-3. **Customize**
+    - Simply open the `index.html` file in your preferred web browser.
 
-   - Update text, projects, and blogs in `index.html`.
-   - Replace images in the `img/` folder.
-   - Update your resume by replacing `Sushan_Adhikari_CV.pdf`.
-
-4. **Styling**
-
-   - Modify `styles/styles.scss` or `_media.scss` as needed.
-   - Compile SCSS to CSS if you change SCSS files.
-
-5. **Contact Form**
-   - The contact form uses [EmailJS](https://www.emailjs.com/).
-   - Configure your EmailJS service and template IDs in `app.js` if you want to enable email functionality.
-
----
-
-## 🛠️ Technologies Used
-
-- HTML5, CSS3 (SCSS)
-- JavaScript (Vanilla)
-- EmailJS (for contact form)
-- Responsive design with CSS Grid and Flexbox
+3.  **Customization**
+    - **Content:** All text and section data can be modified directly in `index.html`.
+    - **Styling:** For style changes, edit the `styles/styles.scss` file. You will need a SASS compiler to see your changes reflected in `styles.css`.
+    - **Resume:** Replace `Sushan_Adhikari_CV.pdf` with your own PDF to update the download link.
 
 ---
 
 ## 👤 About Me
 
-I am Sushan Adhikari, currently studying Computer Engineering at Kathmandu University School of Engineering. I am passionate about Machine Learning (ML), Artificial Intelligence (AI), and web development. I love designing and building dynamic, responsive websites.
-
-**Skills:**
-
-- HTML5 (40%)
-- CSS (30%)
-- Python (70%)
-- C (50%)
-- C++ (40%)
-- JavaScript (50%)
-- Docker (50%)
+I am a results-driven Computer Engineering student with a budding interest in AI and Data Engineering, and foundational experience in cloud infrastructure, automation, and end-to-end data workflows. I have demonstrated leadership as Co-Founder and COO of Dr.Fish, leading the development of AI-powered solutions for environmental monitoring. Recognized with multiple awards, including the NASA Space Apps Challenge People's Choice Award, I am adept at designing scalable systems and delivering impactful technical solutions.
 
 ---
 
 ## 📬 Contact
 
-- **Location:** 28-Kilo, Dhulikhel, Kavre, Nepal
+- **Location:** Dhulikhel, Kavre, Nepal
 - **Email:** sushan.adhikari2060@gmail.com
-- **Phone:** +9779810538507
-- **Education:** BE in Computer Engineering, Kathmandu University SOE
-- **Languages:** Nepali, Hindi, English, German
+- **LinkedIn:** [linkedin.com/in/sushan-adhikari](https://linkedin.com/in/sushan-adhikari)
+- **Languages:** Nepali (Native), Hindi (Conversational), English (Proficient)
 
 ---
 
 ## 📄 License
 
-This project is for personal use and demonstration. Contact me for reuse or collaboration.
+This project is open for inspiration and personal use. If you wish to use significant portions of the code or collaborate, please feel free to reach out to me.
 
 ---
 
-Thank you for visiting my portfolio!
+Thank you for visiting

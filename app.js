@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     init() {
-      setTimeout(() => this.hide(), 1500);
+      setTimeout(() => this.hide(), 2000);
     }
 
     hide() {
       if (this.loadingScreen) {
-        this.loadingScreen.classList.add('fade-out');
+        this.loadingScreen.classList.add('hidden');
         setTimeout(() => {
           this.loadingScreen.style.display = 'none';
         }, 500);

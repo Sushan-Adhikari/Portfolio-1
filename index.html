@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sushan Adhikari - AI & Data Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Sushan Adhikari - AI & Data Engineer specializing in Machine Learning, Cloud Infrastructure, and Full-Stack Development"
+    />
+    <meta name="author" content="Sushan Adhikari" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sushan Adhikari - AI & Data Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio showcasing AI, Data Engineering, and Full-Stack Development projects"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/sushan.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sushan Adhikari - AI & Data Engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio showcasing AI, Data Engineering, and Full-Stack Development projects"
+    />
+    <meta name="twitter:image" content="img/sushan.png" />
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,9 +40,10 @@
       referrerpolicy="no-referrer"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <!-- EmailJS -->
     <script
       type="text/javascript"
@@ -26,367 +52,1182 @@
     <script type="text/javascript">
       (function () {
         emailjs.init({
-          publicKey: "8hPm8pzSoClj_uwHF", // Your Public Key
+          publicKey: "8hPm8pzSoClj_uwHF",
         });
       })();
     </script>
   </head>
 
   <body class="main-content">
-    <!-- HOME SECTION -->
-    <header class="section sec1 header active" id="home">
-      <div class="header-content">
-        <div class="left-header">
-          <div class="h-shape"></div>
-          <div class="image image-frame-tech">
-            <img src="img/sushan.png" alt="Sushan Adhikari" />
-            <div class="corner-decoration top-left"></div>
-            <div class="corner-decoration top-right"></div>
-            <div class="corner-decoration bottom-left"></div>
-            <div class="corner-decoration bottom-right"></div>
-          </div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Loading Amazing Portfolio...</div>
+      </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div class="particles-container">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="desktop-nav">
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="img/sushan-logo.png"
+            alt="Sushan Adhikari Logo"
+            class="logo-img"
+          />
+          <span class="logo-text">Sushan</span>
         </div>
-        <div class="right-header">
-          <h1 class="name">Hi, I am <span>Sushan Adhikari.</span></h1>
-          <p>
-            A results-driven Computer Engineering student with a passion for AI,
-            Data Engineering, and cloud infrastructure. I build scalable,
-            AI-powered solutions to solve real-world problems, from
-            environmental monitoring to legal tech.
-          </p>
-          <div class="btn-con">
-            <a
-              href="Sushan_Adhikari_CV.pdf"
-              class="main-btn"
-              target="_blank"
-              download
-            >
-              <span class="btn-text">Download CV</span>
-              <span class="btn-icon"><i class="fas fa-download"></i></span>
-            </a>
-          </div>
+        <div class="nav-links">
+          <a href="#home" class="nav-link active" data-id="home">Home</a>
+          <a href="#about" class="nav-link" data-id="about">About</a>
+          <a href="#portfolio" class="nav-link" data-id="portfolio"
+            >Portfolio</a
+          >
+          <a href="#research" class="nav-link" data-id="research">Research</a>
+          <a href="#startups" class="nav-link" data-id="startups">Startups</a>
+          <a href="#certifications" class="nav-link" data-id="certifications"
+            >Certifications</a
+          >
+          <a href="#achievements" class="nav-link" data-id="achievements"
+            >Achievements</a
+          >
+          <a href="#testimonials" class="nav-link" data-id="testimonials"
+            >Testimonials</a
+          >
+          <a href="#blogs" class="nav-link" data-id="blogs">Blog</a>
+          <a href="#contact" class="nav-link" data-id="contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <main>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-header">
+        <div class="logo">
+          <img
+            src="img/sushan-logo.png"
+            alt="Sushan Adhikari Logo"
+            class="logo-img"
+          />
+          <span class="logo-text">Sushan</span>
+        </div>
+        <button class="mobile-nav-close" id="mobileNavClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link active" data-id="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#about" class="mobile-nav-link" data-id="about">
+          <i class="fas fa-user"></i>
+          <span>About</span>
+        </a>
+        <a href="#portfolio" class="mobile-nav-link" data-id="portfolio">
+          <i class="fas fa-briefcase"></i>
+          <span>Portfolio</span>
+        </a>
+        <a href="#research" class="mobile-nav-link" data-id="research">
+          <i class="fas fa-flask"></i>
+          <span>Research</span>
+        </a>
+        <a href="#startups" class="mobile-nav-link" data-id="startups">
+          <i class="fas fa-rocket"></i>
+          <span>Startups</span>
+        </a>
+        <a
+          href="#certifications"
+          class="mobile-nav-link"
+          data-id="certifications"
+        >
+          <i class="fas fa-certificate"></i>
+          <span>Certifications</span>
+        </a>
+        <a href="#achievements" class="mobile-nav-link" data-id="achievements">
+          <i class="fas fa-trophy"></i>
+          <span>Achievements</span>
+        </a>
+        <a href="#testimonials" class="mobile-nav-link" data-id="testimonials">
+          <i class="fas fa-comments"></i>
+          <span>Testimonials</span>
+        </a>
+        <a href="#blogs" class="mobile-nav-link" data-id="blogs">
+          <i class="far fa-newspaper"></i>
+          <span>Blog</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link" data-id="contact">
+          <i class="fas fa-envelope-open"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <!-- HOME SECTION -->
+      <section class="section hero-section" id="home">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-left">
+              <div class="hero-image">
+                <div class="image-wrapper">
+                  <img
+                    src="img/sushan.png"
+                    alt="Sushan Adhikari"
+                    class="hero-photo"
+                  />
+                  <div class="image-overlay"></div>
+                </div>
+                <div class="floating-elements">
+                  <div class="float-item float-1">
+                    <i class="fab fa-python"></i>
+                  </div>
+                  <div class="float-item float-2">
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <div class="float-item float-3">
+                    <i class="fab fa-aws"></i>
+                  </div>
+                  <div class="float-item float-4">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div class="float-item float-5">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <div class="float-item float-6">
+                    <i class="fab fa-react"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="hero-text">
+                <div class="greeting">
+                  <span class="wave">👋</span>
+                  <span>Hello, I'm</span>
+                </div>
+                <h1 class="hero-title">
+                  <span class="name-first">Sushan</span>
+                  <span class="gradient-text">Adhikari</span>
+                </h1>
+                <div class="hero-subtitle">
+                  <span class="typewriter" id="typewriter"></span>
+                  <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                  A passionate Computer Engineering student specializing in
+                  <strong>AI</strong>, <strong>Data Engineering</strong>, and
+                  <strong>cloud infrastructure</strong>. I build scalable,
+                  AI-powered solutions to solve real-world problems, from
+                  environmental monitoring to legal tech innovations.
+                </p>
+                <div class="hero-stats">
+                  <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Awards</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Certifications</div>
+                  </div>
+                </div>
+                <div class="hero-actions">
+                  <a
+                    href="Sushan_Adhikari_CV.pdf"
+                    class="btn btn-primary"
+                    target="_blank"
+                    download
+                  >
+                    <span>Download CV</span>
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a href="#contact" class="btn btn-outline">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/sushan-adhikari"
+                    target="_blank"
+                    class="social-link"
+                    data-tooltip="LinkedIn"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://www.github.com/sushan-adhikari"
+                    target="_blank"
+                    class="social-link"
+                    data-tooltip="GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://medium.com/@sushan.adhikari2060"
+                    target="_blank"
+                    class="social-link"
+                    data-tooltip="Medium"
+                  >
+                    <i class="fab fa-medium"></i>
+                  </a>
+                  <a
+                    href="https://x.com/Sushan_ad2060"
+                    target="_blank"
+                    class="social-link"
+                    data-tooltip="Twitter"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="scroll-text">Scroll Down</div>
+          <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </section>
+
       <!-- ABOUT SECTION -->
-      <section class="section sec2 about" id="about">
-        <div class="main-title">
-          <h2>About <span>Me</span><span class="bg-text">My Story</span></h2>
-        </div>
-        <div class="about-container">
-          <div class="left-about">
-            <h4>Information about me</h4>
-            <p>
-              I am a Computer Engineering student at Kathmandu University (CGPA:
-              3.91/4.00), with an upcoming exchange semester at IIT Palakkad. My
-              focus is on AI, Data Engineering, and building end-to-end data
-              workflows. As a Co-Founder and leader, I've developed AI-powered
-              solutions like Dr.Fish, gaining experience in scalable systems and
-              impactful technical delivery. Recognized with awards like the NASA
-              Space Apps People's Choice, I am driven by a passion to innovate
-              and contribute to mission-driven projects.
-            </p>
-            <div class="btn-con">
-              <a
-                href="Sushan_Adhikari_CV.pdf"
-                class="main-btn"
-                target="_blank"
-                download
-              >
-                <span class="btn-text">Download CV</span>
-                <span class="btn-icon"><i class="fas fa-download"></i></span>
-              </a>
-            </div>
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Get To Know</span>
+            <h2 class="section-title">
+              About <span class="gradient-text">Me</span>
+            </h2>
           </div>
-          <div class="right-about">
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">10+</p>
-                <p class="small-text">Projects<br />Completed</p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">1+</p>
-                <p class="small-text">Years of<br />Experience</p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">10+</p>
-                <p class="small-text">Technologies<br />Explored</p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">3.91</p>
-                <p class="small-text">Cumulative<br />CGPA</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- SKILLS SECTION -->
-        <div class="about-stats">
-          <h4 class="stat-title">My Skills</h4>
-          <div class="progress-bars">
-            <div class="progress-bar">
-              <div class="prog-title">Python</div>
-              <div class="progress-con">
-                <div class="prog-text">80%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 80%"></div>
+          <div class="about-content">
+            <div class="about-left" data-aos="fade-right">
+              <div class="about-text">
+                <h3>Building the Future with AI & Data</h3>
+                <p>
+                  I am a Computer Engineering student at
+                  <strong>Kathmandu University</strong>, with an exchange
+                  semester at <strong>IIT Palakkad</strong>. My passion lies in
+                  creating intelligent systems that make a real-world impact.
+                </p>
+                <p>
+                  As a Co-Founder and leader, I've developed AI-powered
+                  solutions like <strong>Dr.Fish</strong>, gaining invaluable
+                  experience in building scalable systems and delivering
+                  impactful technical solutions. My work has been recognized
+                  with prestigious awards including the
+                  <strong>NASA Space Apps People's Choice</strong>.
+                </p>
+                <p>
+                  I'm driven by curiosity and the desire to push the boundaries
+                  of what's possible with technology, always focusing on
+                  solutions that benefit society.
+                </p>
+              </div>
+              <div class="about-highlights">
+                <div class="highlight-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <div>
+                    <h4>Education</h4>
+                    <p>Kathmandu University & IIT Palakkad</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-code"></i>
+                  <div>
+                    <h4>Specialization</h4>
+                    <p>AI, Data Engineering, Cloud Infrastructure</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-award"></i>
+                  <div>
+                    <h4>Recognition</h4>
+                    <p>NASA Space Apps Winner, Hult Prize Finalist</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="progress-bar">
-              <div class="prog-title">Machine Learning (PyTorch/TF)</div>
-              <div class="progress-con">
-                <div class="prog-text">60%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 60%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="prog-title">Cloud/DevOps (AWS/Docker/Terraform)</div>
-              <div class="progress-con">
-                <div class="prog-text">50%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 50%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="prog-title">Web Dev (Django/React/FastAPI)</div>
-              <div class="progress-con">
-                <div class="prog-text">40%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 40%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="prog-title">Apache Airflow</div>
-              <div class="progress-con">
-                <div class="prog-text">50%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 50%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="prog-title">Databases (PostgreSQL/SQLite)</div>
-              <div class="progress-con">
-                <div class="prog-text">70%</div>
-                <div class="progress">
-                  <div class="progress-fill" style="width: 70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- EDUCATION & EXPERIENCE TIMELINE -->
-        <h4 class="stat-title">My Journey</h4>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
+            <div class="about-right" data-aos="fade-left">
+              <div class="skills-section">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                  <div class="skill-category">
+                    <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
+                    <div class="skill-tags">
+                      <span class="skill-tag">Python</span>
+                      <span class="skill-tag">PyTorch</span>
+                      <span class="skill-tag">TensorFlow</span>
+                      <span class="skill-tag">Scikit-learn</span>
+                      <span class="skill-tag">NLP</span>
+                      <span class="skill-tag">Computer Vision</span>
+                    </div>
+                  </div>
+
+                  <div class="skill-category">
+                    <h4><i class="fas fa-database"></i> Data Engineering</h4>
+                    <div class="skill-tags">
+                      <span class="skill-tag">Apache Airflow</span>
+                      <span class="skill-tag">PostgreSQL</span>
+                      <span class="skill-tag">SQLite</span>
+                      <span class="skill-tag">Data Pipelines</span>
+                      <span class="skill-tag">ETL</span>
+                    </div>
+                  </div>
+
+                  <div class="skill-category">
+                    <h4><i class="fas fa-cloud"></i> Cloud & DevOps</h4>
+                    <div class="skill-tags">
+                      <span class="skill-tag">AWS</span>
+                      <span class="skill-tag">Docker</span>
+                      <span class="skill-tag">Terraform</span>
+                      <span class="skill-tag">CI/CD</span>
+                      <span class="skill-tag">Kubernetes</span>
+                    </div>
+                  </div>
+
+                  <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Development</h4>
+                    <div class="skill-tags">
+                      <span class="skill-tag">Django</span>
+                      <span class="skill-tag">FastAPI</span>
+                      <span class="skill-tag">React</span>
+                      <span class="skill-tag">JavaScript</span>
+                      <span class="skill-tag">Node.js</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="tl-duration">Jan 2025 - Present</p>
-            <h5>
-              AI & Data Engineer<span> - Mercuri.world (Non-Profit)</span>
-            </h5>
-            <p>
-              Volunteering to develop AI-driven recommendation systems and
-              backend infrastructure for a global mental health platform.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <p class="tl-duration">Jan 2023 - Present</p>
-            <h5>
-              Co-Founder & COO<span> - Dr.Fish (Aquaculture Startup)</span>
-            </h5>
-            <p>
-              Leading the development of an AI+IoT solution for predicting algae
-              blooms and fish diseases. Represented Nepal at Hult Prize Summit.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-flask"></i>
-            </div>
-            <p class="tl-duration">Oct 2024 - Present</p>
-            <h5>Research Experience<span> - Legal NLP</span></h5>
-            <p>
-              Building custom transformers and fine-tuning LLMs for translating
-              Nepali legal documents into English.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-users"></i>
-            </div>
-            <p class="tl-duration">2024</p>
-            <h5>
-              Internal Relations & Operations Lead<span>
-                - KU HackFest 2024</span
-              >
-            </h5>
-            <p>
-              Oversaw logistics, judge coordination, and stakeholder engagement
-              for Nepal's largest student-run hackathon.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <p class="tl-duration">Jan 2025 - May 2025</p>
-            <h5>B.Tech Exchange Semester<span> - IIT Palakkad</span></h5>
-            <p>
-              Focused on Advanced AI, Compiler Design, and Graph Theory with a
-              GPA of 7.61/10.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-university"></i>
-            </div>
-            <p class="tl-duration">Jan 2022 - Feb 2026</p>
-            <h5>Bachelor of Engineering<span> - Kathmandu University</span></h5>
-            <p>
-              Pursuing a degree in Computer Engineering with a 3.91/4.00 CGPA,
-              focusing on AI, networking, and software development.
-            </p>
           </div>
         </div>
       </section>
 
       <!-- PORTFOLIO SECTION -->
-      <section class="section sec3" id="portfolio">
-        <div class="main-title">
-          <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
+      <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">My Work</span>
+            <h2 class="section-title">
+              Featured <span class="gradient-text">Projects</span>
+            </h2>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Project 1: Cosmira -->
+            <div class="portfolio-card" data-aos="fade-up">
+              <div class="card-image">
+                <img
+                  src="img/cosmira-project.webp"
+                  alt="Cosmira: Interactive Solar System App"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>Cosmira: Solar System Explorer</h3>
+                    <p>
+                      NASA Space Apps Challenge People's Choice Award winner -
+                      Interactive 2D educational web app for space exploration
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">JavaScript</span>
+                      <span class="tech-tag">WebGL</span>
+                      <span class="tech-tag">CSS3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: AgniNetra -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-image">
+                <img
+                  src="img/agni-netra-project.jpg"
+                  alt="AgniNetra: AI & IoT Forest Fire Detection"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>AgniNetra: AI Fire Detection</h3>
+                    <p>
+                      Real-time forest fire detection system using IoT sensors
+                      and computer vision
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">OpenCV</span>
+                      <span class="tech-tag">IoT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Dr.Fish -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="card-image">
+                <img
+                  src="img/drfish-project.jpeg"
+                  alt="Dr.Fish Aquaculture AI"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>Dr.Fish: AI Aquaculture</h3>
+                    <p>
+                      Hult Prize winning startup - AI+IoT solution for
+                      aquaculture disease prevention
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Machine Learning</span>
+                      <span class="tech-tag">IoT</span>
+                      <span class="tech-tag">Django</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: MastiskaTrack -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="card-image">
+                <img
+                  src="img/mastiska-project.png"
+                  alt="MastiskaTrack: Mental Health Assessment"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>MastiskaTrack: AI Health</h3>
+                    <p>
+                      AI-powered mental health assessment tool using NLP and
+                      machine learning
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">NLP</span>
+                      <span class="tech-tag">GPT</span>
+                      <span class="tech-tag">LangChain</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5: Insurance Fraud Detection -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="card-image">
+                <img
+                  src="img/fraud-detection-project.webp"
+                  alt="Insurance Fraud Claims Detection"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>Insurance Fraud Detection</h3>
+                    <p>
+                      Machine learning system for detecting fraudulent insurance
+                      claims
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Scikit-learn</span>
+                      <span class="tech-tag">Pandas</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6: CrowdChain -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-image">
+                <img
+                  src="img/crowdchain-project.jpg"
+                  alt="CrowdChain: Blockchain Crowdfunding Platform"
+                />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>CrowdChain: DApp</h3>
+                    <p>
+                      Decentralized crowdfunding platform built on blockchain
+                      technology
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Solidity</span>
+                      <span class="tech-tag">Web3</span>
+                      <span class="tech-tag">React</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 7: Smart City Analytics -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="600">
+              <div class="card-image">
+                <img src="img/sushan-logo.png" alt="Smart City Analysis" />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>Smart City Analytics</h3>
+                    <p>
+                      Data analytics platform for urban planning and smart city
+                      initiatives
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Apache Spark</span>
+                      <span class="tech-tag">Tableau</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 8: Voice Assistant AI -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-delay="700">
+              <div class="card-image">
+                <img src="img/sushan-logo.png" alt="Voice Assistant AI" />
+                <div class="card-overlay">
+                  <div class="overlay-content">
+                    <h3>Voice Assistant AI</h3>
+                    <p>
+                      Multilingual voice assistant with natural language
+                      processing capabilities
+                    </p>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Speech Recognition</span>
+                      <span class="tech-tag">NLP</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-icons">
+                  <a href="#" class="card-icon" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="card-icon" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="port-text">
-          Here are some of my key projects, showcasing my skills in AI, Data
-          Engineering, and Full-Stack Development.
-        </p>
-        <div class="portfolios">
-          <div class="portfolio-item">
-            <div class="image">
-              <img
-                src="img/logo_sushan.png"
-                alt="Cosmira: Interactive Solar System App"
-              />
+      </section>
+
+      <!-- RESEARCH PAPERS SECTION -->
+      <section class="section research-section" id="research">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Research Work</span>
+            <h2 class="section-title">
+              Research <span class="gradient-text">Papers</span>
+            </h2>
+          </div>
+
+          <div class="research-grid">
+            <!-- Research Paper 1 -->
+            <div class="research-card" data-aos="fade-up">
+              <div class="research-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <div class="research-content">
+                <h3>Legal Document Translation using Fine-tuned LLMs</h3>
+                <p class="research-meta">
+                  <span class="conference">Under Model Testing</span>
+                  <span class="year">near future</span>
+                </p>
+                <p class="research-description">
+                  Built a parallel corpus (≈10k sentence pairs) from Nepali and
+                  English legal texts using OCR (PyTesseract) and manual
+                  alignment/verification performed with law-student
+                  collaborators.Fine-tuned MBART50 and custom Transformer
+                  variants for domain adaptation; baseline BLEU ∼0.42 (ongoing
+                  improvements focused on formatting, legal phrase preservation,
+                  and domain-specific tokenization)
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">NLP</span>
+                  <span class="research-tag">Legal Tech</span>
+                  <span class="research-tag">Machine Translation</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="hover-items">
-              <h3>Cosmira: Solar System App</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
+
+            <!-- Research Paper 2 -->
+            <div class="research-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="research-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="research-content">
+                <h3>
+                  Detecting Image Forgeries & Deepfakes: Comparative Study
+                </h3>
+                <p class="research-meta">
+                  <span class="conference">NCCI</span>
+                  <span class="year">2025</span>
+                </p>
+                <p class="research-description">
+                  Assembled a mixed dataset (manipulated + AI-generated)
+                  totaling over 140k images across multiple manipulation types
+                  for benchmarking image-forensics approaches. Implemented and
+                  benchmarked convolutional CNNs (InceptionV3 family) vs Vision
+                  Transformers; re- ported improved accuracy and efficiency for
+                  selected CNN baselines in our experiments (InceptionV3: 94% on
+                  our test split)
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">Computer Vision</span>
+                  <span class="research-tag">Machine Learning</span>
+                  <span class="research-tag">AI</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Research Paper 3 -->
+            <div class="research-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="research-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="research-content">
+                <h3>Enhancing Ethical Reasoning in Tiny LLMs</h3>
+                <p class="research-meta">
+                  <span class="conference">NCCI</span>
+                  <span class="year">2025</span>
+                </p>
+                <p class="research-description">
+                  Created synthetic ethical-dilemma datasets (≈1k cases)
+                  covering utilitarian, deontological, and virtue ethics
+                  perspectives for probing small LLMs. Fine-tuned TinyLlama-1.1B
+                  using LoRA-based methods to create specialized agents and
+                  evaluated consistency and robustness via human & automated
+                  metrics.
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">Ethical Reasoning</span>
+                  <span class="research-tag">NLP</span>
+                  <span class="research-tag">LLMs</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Research Paper 4 -->
+            <!-- <div class="research-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="research-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="research-content">
+                <h3>AI-Powered Environmental Monitoring</h3>
+                <p class="research-meta">
+                  <span class="conference">Submitted - NeurIPS 2025</span>
+                  <span class="year">2024</span>
+                </p>
+                <p class="research-description">
+                  Developing AI models for real-time environmental data analysis
+                  to predict and mitigate natural disasters, focusing on
+                  scalability and accuracy.
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">AI</span>
+                  <span class="research-tag">Environmental Science</span>
+                  <span class="research-tag">Data Analytics</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- Research Paper 5 -->
+            <!-- <div class="research-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="research-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="research-content">
+                <h3>Scalable Data Pipelines for IoT Systems</h3>
+                <p class="research-meta">
+                  <span class="conference">In Progress</span>
+                  <span class="year">2024</span>
+                </p>
+                <p class="research-description">
+                  Researching efficient and fault-tolerant data pipeline
+                  architectures for large-scale IoT deployments, focusing on
+                  real-time processing and storage.
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">Data Engineering</span>
+                  <span class="research-tag">IoT</span>
+                  <span class="research-tag">Cloud Computing</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- Research Paper 6 -->
+            <!-- <div class="research-card" data-aos="fade-up" data-aos-delay="500">
+              <div class="research-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="research-content">
+                <h3>Security in Cloud-Native Applications</h3>
+                <p class="research-meta">
+                  <span class="conference">Planned</span>
+                  <span class="year">2025</span>
+                </p>
+                <p class="research-description">
+                  Exploring best practices and novel techniques for securing
+                  cloud-native applications, including container security and
+                  zero-trust architectures.
+                </p>
+                <div class="research-tags">
+                  <span class="research-tag">Cloud Security</span>
+                  <span class="research-tag">DevOps</span>
+                  <span class="research-tag">Kubernetes</span>
+                </div>
+                <div class="research-actions">
+                  <a href="#" class="research-btn" title="Read Paper">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="View Code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="research-btn" title="Citation">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STARTUPS SECTION -->
+      <section class="section startups-section" id="startups">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Entrepreneurship</span>
+            <h2 class="section-title">
+              My <span class="gradient-text">Startups</span>
+            </h2>
+          </div>
+
+          <div class="startups-grid">
+            <!-- Startup 1: Dr.Fish -->
+            <div class="startup-card" data-aos="fade-up">
+              <div class="startup-header">
+                <div class="startup-logo">
+                  <i class="fas fa-fish"></i>
+                </div>
+                <div class="startup-info">
+                  <h3>Dr.Fish</h3>
+                  <p class="startup-tagline">
+                    Revolutionizing Aquaculture with AI
+                  </p>
+                </div>
+                <div class="startup-status active">
+                  <span>Active</span>
+                </div>
+              </div>
+              <div class="startup-content">
+                <p>
+                  -----------------need to edit (just a
+                  placeholder)------------An AI+IoT startup focused on
+                  predicting algae blooms and fish diseases in aquaculture.
+                  Winner of Hult Prize Campus Competition and represented Nepal
+                  at the Global Summit in Bangkok.
+                </p>
+                <div class="startup-metrics">
+                  <div class="metric">
+                    <span class="metric-value">$+</span>
+                    <span class="metric-label">edit</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">edit</span>
+                    <span class="metric-label">Farmers Impacted</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">Team Members</span>
+                  </div>
+                </div>
+                <div class="startup-tech">
+                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">IoT Sensors</span>
+                  <span class="tech-tag">Computer Vision</span>
+                  <span class="tech-tag">Django</span>
+                </div>
+              </div>
+              <div class="startup-actions">
+                <a href="#" class="startup-link">
                   <i class="fas fa-external-link-alt"></i>
+                  <span>Visit Website</span>
+                </a>
+                <a href="#" class="startup-link">
+                  <i class="fas fa-envelope"></i>
+                  <span>Contact</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Startup 2: MentalTech Solutions -->
+            <div class="startup-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="startup-header">
+                <div class="startup-logo">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="startup-info">
+                  <h3>MentalTech Solutions</h3>
+                  <p class="startup-tagline">
+                    AI-Powered Mental Health Platform
+                  </p>
+                </div>
+                <div class="startup-status concept">
+                  <span>In Development</span>
+                </div>
+              </div>
+              <div class="startup-content">
+                <p>
+                  -----------need to edit (just a
+                  placeholder)------------Developing an AI-driven platform for
+                  mental health assessment and support, leveraging NLP and
+                  behavioral analytics to provide accessible mental health
+                  screening and recommendations.
+                </p>
+                <div class="startup-metrics">
+                  <div class="metric">
+                    <span class="metric-value">edit</span>
+                    <span class="metric-label">Development Stage</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">2</span>
+                    <span class="metric-label">Co-founders</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">Q2 2025</span>
+                    <span class="metric-label">Expected Launch</span>
+                  </div>
+                </div>
+                <div class="startup-tech">
+                  <span class="tech-tag">NLP</span>
+                  <span class="tech-tag">GPT Integration</span>
+                  <span class="tech-tag">React Native</span>
+                  <span class="tech-tag">FastAPI</span>
+                </div>
+              </div>
+              <div class="startup-actions">
+                <a href="#" class="startup-link">
+                  <i class="fas fa-rocket"></i>
+                  <span>Coming Soon</span>
+                </a>
+                <a href="#contact" class="startup-link">
+                  <i class="fas fa-handshake"></i>
+                  <span>Partner With Us</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Startup 3: GreenTech Innovations -->
+            <div class="startup-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="startup-header">
+                <div class="startup-logo">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="startup-info">
+                  <h3>GreenTech Innovations</h3>
+                  <p class="startup-tagline">
+                    Sustainable Tech for a Greener Future
+                  </p>
+                </div>
+                <div class="startup-status active">
+                  <span>Active</span>
+                </div>
+              </div>
+              <div class="startup-content">
+                <p>
+                  ----------Need to edit(just a placeholder)-------------Focused
+                  on developing AI-driven solutions for environmental
+                  sustainability, including smart energy management and waste
+                  reduction technologies.
+                </p>
+                <div class="startup-metrics">
+                  <div class="metric">
+                    <span class="metric-value">edit</span>
+                    <span class="metric-label">Funding Raised</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">50+</span>
+                    <span class="metric-label">Clients</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">Team Members</span>
+                  </div>
+                </div>
+                <div class="startup-tech">
+                  <span class="tech-tag">AI</span>
+                  <span class="tech-tag">IoT</span>
+                  <span class="tech-tag">Sustainability</span>
+                  <span class="tech-tag">Cloud</span>
+                </div>
+              </div>
+              <div class="startup-actions">
+                <a href="#" class="startup-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Visit Website</span>
+                </a>
+                <a href="#" class="startup-link">
+                  <i class="fas fa-envelope"></i>
+                  <span>Contact</span>
                 </a>
               </div>
             </div>
           </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img
-                src="img/logo_sushan.png"
-                alt="AgniNetra: AI & IoT Forest Fire Detection"
-              />
-            </div>
-            <div class="hover-items">
-              <h3>AgniNetra: AI Fire Detection</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE TIMELINE SECTION -->
+      <section class="section timeline-section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">My Journey</span>
+            <h2 class="section-title">
+              Experience & <span class="gradient-text">Education</span>
+            </h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+              <div class="timeline-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-date">Jan 2025 - Present</div>
+                <h3>AI & Data Engineer</h3>
+                <h4>Mercuri.world (Non-Profit)</h4>
+                <p>
+                  Volunteering to develop AI-driven recommendation systems and
+                  backend infrastructure for a global mental health platform,
+                  focusing on scalable solutions for mental wellness support.
+                </p>
               </div>
             </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img src="img/logo_sushan.png" alt="Dr.Fish Startup" />
-            </div>
-            <div class="hover-items">
-              <h3>Dr.Fish: AI Aquaculture</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="timeline-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-date">Jan 2023 - Present</div>
+                <h3>Co-Founder & COO</h3>
+                <h4>Dr.Fish (Aquaculture Startup)</h4>
+                <p>
+                  Leading the development of an AI+IoT solution for predicting
+                  algae blooms and fish diseases. Successfully represented Nepal
+                  at the Hult Prize Summit in Bangkok, Thailand.
+                </p>
               </div>
             </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img
-                src="img/logo_sushan.png"
-                alt="MastiskaTrack: Mental Health Assessment Tool"
-              />
-            </div>
-            <div class="hover-items">
-              <h3>MastiskaTrack: AI Health</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-date">Oct 2024 - Present</div>
+                <h3>Research Experience</h3>
+                <h4>Legal NLP Project</h4>
+                <p>
+                  Building custom transformers and fine-tuning large language
+                  models (LLMs) for translating Nepali legal documents into
+                  English, contributing to legal tech accessibility.
+                </p>
               </div>
             </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img
-                src="img/logo_sushan.png"
-                alt="Insurance Fraud Claims Detection"
-              />
-            </div>
-            <div class="hover-items">
-              <h3>Insurance Fraud Detection</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-date">Jan 2025 - May 2025</div>
+                <h3>B.Tech Exchange Semester</h3>
+                <h4>IIT Palakkad, India</h4>
+                <p>
+                  Pursuing advanced coursework in AI, Compiler Design, and Graph
+                  Theory. Current GPA: 7.61/10, focusing on cutting-edge
+                  research and academic excellence.
+                </p>
               </div>
             </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img
-                src="img/logo_sushan.png"
-                alt="CrowdChain: Blockchain Crowdfunding Platform"
-              />
-            </div>
-            <div class="hover-items">
-              <h3>CrowdChain: DApp</h3>
-              <div class="icons">
-                <a href="#" class="icon" title="View Code">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon" title="Live Demo">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="timeline-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-date">Jan 2022 - Feb 2026</div>
+                <h3>Bachelor of Engineering</h3>
+                <h4>Kathmandu University, Nepal</h4>
+                <p>
+                  Pursuing Computer Engineering, focusing on AI, networking, and
+                  software development with hands-on project experience.
+                </p>
               </div>
             </div>
           </div>
@@ -394,460 +1235,538 @@
       </section>
 
       <!-- CERTIFICATIONS SECTION -->
-      <section class="section sec4" id="certifications">
-        <div class="main-title">
-          <h2>
-            My <span>Certifications</span
-            ><span class="bg-text">Credentials</span>
-          </h2>
-        </div>
-        <p class="cert-intro">
-          A collection of my key certifications, with a focus on AI, Machine
-          Learning, and Data Engineering.
-        </p>
-        <div class="certifications-container">
-          <!-- AI & Data Engineer Certification -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="cert-content">
-              <h4>AI and Data Engineer Certification</h4>
-              <p class="cert-issuer">micro1</p>
-              <p class="cert-date">2025</p>
-              <p class="cert-description">
-                Validated expertise in core principles, tools, and best
-                practices for building modern AI and data-driven systems.
-              </p>
-            </div>
+      <section class="section certifications-section" id="certifications">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Professional Growth</span>
+            <h2 class="section-title">
+              My <span class="gradient-text">Certifications</span>
+            </h2>
           </div>
 
-          <!-- Deep Learning -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-brain"></i>
+          <div class="certifications-grid">
+            <!-- AI & Data Engineer Certification -->
+            <div class="certification-card" data-aos="fade-up">
+              <div class="cert-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="cert-content">
+                <h4>AI and Data Engineer Certification</h4>
+                <p class="cert-issuer">micro1</p>
+                <p class="cert-date">2025</p>
+                <p class="cert-description">
+                  Validated expertise in core principles, tools, and best
+                  practices for building modern AI and data-driven systems.
+                </p>
+              </div>
             </div>
-            <div class="cert-content">
-              <h4>Deep Learning Specializations</h4>
-              <p class="cert-issuer">Nvidia & DataCamp</p>
-              <p class="cert-date">2025</p>
-              <p class="cert-description">
-                Completed "Fundamentals of Deep Learning" (Nvidia) and "Deep
-                Learning with PyTorch" (DataCamp) for hands-on experience with
-                neural networks.
-              </p>
-            </div>
-          </div>
 
-          <!-- NLP -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-language"></i>
+            <!-- Deep Learning -->
+            <div
+              class="certification-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="cert-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Deep Learning Specializations</h4>
+                <p class="cert-issuer">Nvidia & DataCamp</p>
+                <p class="cert-date">2025</p>
+                <p class="cert-description">
+                  Completed "Fundamentals of Deep Learning" (Nvidia) and "Deep
+                  Learning with PyTorch" (DataCamp) for hands-on neural network
+                  experience.
+                </p>
+              </div>
             </div>
-            <div class="cert-content">
-              <h4>Understanding Embeddings for NLP</h4>
-              <p class="cert-issuer">OpenHPI</p>
-              <p class="cert-date">2025</p>
-              <p class="cert-description">
-                Gained specialized knowledge in Natural Language Processing,
-                focusing on creating and utilizing vector representations of
-                text.
-              </p>
-            </div>
-          </div>
 
-          <!-- Machine Learning Foundations -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-cogs"></i>
+            <!-- NLP -->
+            <div
+              class="certification-card"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="cert-icon">
+                <i class="fas fa-language"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Understanding Embeddings for NLP</h4>
+                <p class="cert-issuer">OpenHPI</p>
+                <p class="cert-date">2025</p>
+                <p class="cert-description">
+                  Gained specialized knowledge in Natural Language Processing,
+                  focusing on creating and utilizing vector representations of
+                  text.
+                </p>
+              </div>
             </div>
-            <div class="cert-content">
-              <h4>Machine Learning Foundations</h4>
-              <p class="cert-issuer">DataCamp & Udemy</p>
-              <p class="cert-date">2025</p>
-              <p class="cert-description">
-                Completed a suite of courses covering Supervised & Unsupervised
-                Learning with Scikit-learn and the fundamentals of Machine
-                Learning.
-              </p>
-            </div>
-          </div>
 
-          <!-- Airflow -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-wind"></i>
+            <!-- Machine Learning Foundations -->
+            <div
+              class="certification-card"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="cert-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Machine Learning Foundations</h4>
+                <p class="cert-issuer">DataCamp & Udemy</p>
+                <p class="cert-date">2025</p>
+                <p class="cert-description">
+                  Completed comprehensive courses covering Supervised &
+                  Unsupervised Learning with Scikit-learn and ML fundamentals.
+                </p>
+              </div>
             </div>
-            <div class="cert-content">
-              <h4>Apache Airflow Certifications</h4>
-              <p class="cert-issuer">Astronomer</p>
-              <p class="cert-date">2024</p>
-              <p class="cert-description">
-                Certified in both <strong>Airflow Fundamentals</strong> and
-                <strong>DAG Authoring</strong>, demonstrating expertise in
-                building and managing complex data pipelines.
-              </p>
-            </div>
-          </div>
 
-          <!-- General AI -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-atom"></i>
+            <!-- Airflow -->
+            <div
+              class="certification-card"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="cert-icon">
+                <i class="fas fa-wind"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Apache Airflow Certifications</h4>
+                <p class="cert-issuer">Astronomer</p>
+                <p class="cert-date">2024</p>
+                <p class="cert-description">
+                  Certified in both <strong>Airflow Fundamentals</strong> and
+                  <strong>DAG Authoring</strong>, demonstrating expertise in
+                  complex data pipelines.
+                </p>
+              </div>
             </div>
-            <div class="cert-content">
-              <h4>AI Fundamentals & Data Literacy</h4>
-              <p class="cert-issuer">University of Helsinki & DataCamp</p>
-              <p class="cert-date">2024 - 2025</p>
-              <p class="cert-description">
-                Completed "Elements of AI" (Helsinki) for a comprehensive
-                overview of AI's philosophy and "AI Fundamentals & Data
-                Literacy" (DataCamp).
-              </p>
-            </div>
-          </div>
 
-          <!-- Design & Communication -->
-          <div class="certification-item">
-            <div class="cert-icon">
-              <i class="fas fa-lightbulb"></i>
-            </div>
-            <div class="cert-content">
-              <h4>Design & Communication Skills</h4>
-              <p class="cert-issuer">IBM & eduta.org</p>
-              <p class="cert-date">2024</p>
-              <p class="cert-description">
-                Certified as an "Enterprise Design Thinking Practitioner" (IBM)
-                and completed courses in "Effective Communication" and "Public
-                Speaking".
-              </p>
+            <!-- General AI -->
+            <div
+              class="certification-card"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="cert-icon">
+                <i class="fas fa-atom"></i>
+              </div>
+              <div class="cert-content">
+                <h4>AI Fundamentals & Data Literacy</h4>
+                <p class="cert-issuer">University of Helsinki & DataCamp</p>
+                <p class="cert-date">2024 - 2025</p>
+                <p class="cert-description">
+                  Completed "Elements of AI" for comprehensive AI overview and
+                  "AI Fundamentals & Data Literacy" certification.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ACHIEVEMENTS SECTION -->
-      <section class="container" id="achievements">
-        <div class="main-title">
-          <h2>
-            Awards & <span>Achievements</span
-            ><span class="bg-text">Recognition</span>
-          </h2>
-        </div>
-        <div class="achievements-container">
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-trophy"></i>
-            </div>
-            <h4>Hult Prize Campus Winner</h4>
-            <p class="achievement-event">Kathmandu University</p>
-            <p class="achievement-description">
-              Represented Nepal at the Hult Prize Global Summit in Bangkok for
-              the AI-powered aquaculture startup, Dr.Fish. Led team to victory
-              in campus competition.
-            </p>
+      <section class="section achievements-section" id="achievements">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Recognition</span>
+            <h2 class="section-title">
+              Awards & <span class="gradient-text">Achievements</span>
+            </h2>
           </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <h4>NASA Space Apps Winner</h4>
-            <p class="achievement-event">People's Choice Award 2024</p>
-            <p class="achievement-description">
-              Awarded People's Choice for 'Cosmira,' an interactive 2D
-              educational web app for science outreach and cross-disciplinary
-              collaboration.
-            </p>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-medal"></i>
-            </div>
-            <h4>ICT Awards 2024 Finalist</h4>
-            <p class="achievement-event">Biggest Tech Award of Nepal</p>
-            <p class="achievement-description">
-              Recognized as a finalist for significant contributions and
-              innovative projects in Nepal's national technology ecosystem.
-            </p>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-heart"></i>
-            </div>
-            <h4>AI Crusade 2023 Winner</h4>
-            <p class="achievement-event">Health Track</p>
-            <p class="achievement-description">
-              Achieved first place for developing 'MastiskaTrack,' an innovative
-              AI solution for mental health assessment using GPT and LangChain.
-            </p>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-award"></i>
-            </div>
-            <h4>Founder's Hub Conference</h4>
-            <p class="achievement-event">Runner-up</p>
-            <p class="achievement-description">
-              Secured second place in an entrepreneurship competition,
-              showcasing innovative startup ideas and business development
-              skills.
-            </p>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-calculator"></i>
-            </div>
-            <h4>KU Integration Bee</h4>
-            <p class="achievement-event">Semi-Finalist</p>
-            <p class="achievement-description">
-              Reached the semi-finals in Nepal's first Integration Bee,
-              demonstrating strong mathematical and problem-solving abilities.
-            </p>
-          </div>
-          <!-- NEW ITEM ADDED HERE -->
-          <div class="achievement-item">
-            <div class="achievement-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <h4>Mahatma Gandhi Scholarship</h4>
-            <p class="achievement-event">Awarded by Embassy of India, Nepal</p>
-            <p class="achievement-description">
-              Received a prestigious scholarship for outstanding academic
-              excellence and performance during high school studies.
-            </p>
-          </div>
-        </div>
 
-        <h4 class="featured-title">Featured In</h4>
-        <div class="featured-in-container">
-          <div class="featured-item">
-            <img src="img/nasa.jpeg" alt="NASA Space Apps" />
-            <h4>NASA Space Apps</h4>
+          <div class="achievements-grid">
+            <div class="achievement-card" data-aos="fade-up">
+              <div class="achievement-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>Hult Prize Campus Winner</h4>
+                <p class="achievement-event">Kathmandu University</p>
+                <p class="achievement-description">
+                  Represented Nepal at the Hult Prize Global Summit in Bangkok
+                  for the AI-powered aquaculture startup, Dr.Fish.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="achievement-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="achievement-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>NASA Space Apps Winner</h4>
+                <p class="achievement-event">People's Choice Award 2024</p>
+                <p class="achievement-description">
+                  Awarded People's Choice for 'Cosmira,' an interactive 2D
+                  educational web app for science outreach and collaboration.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="achievement-card"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="achievement-icon">
+                <i class="fas fa-medal"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>ICT Awards 2024 Finalist</h4>
+                <p class="achievement-event">Biggest Tech Award of Nepal</p>
+                <p class="achievement-description">
+                  Recognized as a finalist for significant contributions and
+                  innovative projects in Nepal's national technology ecosystem.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="achievement-card"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="achievement-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>AI Crusade 2023 Winner</h4>
+                <p class="achievement-event">Health Track</p>
+                <p class="achievement-description">
+                  Achieved first place for developing 'MastiskaTrack,' an
+                  innovative AI solution for mental health assessment.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="achievement-card"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="achievement-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>Mahatma Gandhi Scholarship</h4>
+                <p class="achievement-event">Embassy of India, Nepal</p>
+                <p class="achievement-description">
+                  Received prestigious scholarship for outstanding academic
+                  excellence and performance during high school studies.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="achievement-card"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="achievement-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="achievement-content">
+                <h4>KU Integration Bee Semi-Finalist</h4>
+                <p class="achievement-event">Mathematical Competition</p>
+                <p class="achievement-description">
+                  Reached semi-finals in Nepal's first Integration Bee,
+                  demonstrating strong mathematical and problem-solving
+                  abilities.
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="featured-item">
-            <img src="img/hult.png" alt="Hult Prize" />
-            <h4>Hult Prize</h4>
-          </div>
-          <div class="featured-item">
-            <img src="img/kantipur.jpeg" alt="Kantipur Media" />
-            <h4>Kantipur Media</h4>
-          </div>
-          <div class="featured-item">
-            <img src="img/techpana.png" alt="TechPana" />
-            <h4>TechPana</h4>
-          </div>
-          <div class="featured-item">
-            <img src="img/kulogo.png" alt="Kathmandu University" />
-            <h4>Kathmandu University</h4>
+
+          <!-- Featured In Section -->
+          <div class="featured-section" data-aos="fade-up" data-aos-delay="600">
+            <h3 class="featured-title">Featured In</h3>
+            <div class="featured-grid">
+              <div class="featured-item">
+                <img src="img/nasa.jpeg" alt="NASA Space Apps" />
+                <span>NASA Space Apps</span>
+              </div>
+              <div class="featured-item">
+                <img src="img/hult.png" alt="Hult Prize" />
+                <span>Hult Prize</span>
+              </div>
+              <div class="featured-item">
+                <img src="img/kantipur.jpeg" alt="Kantipur Media" />
+                <span>Kantipur Media</span>
+              </div>
+              <div class="featured-item">
+                <img src="img/techpana.png" alt="TechPana" />
+                <span>TechPana</span>
+              </div>
+              <div class="featured-item">
+                <img src="img/kulogo.png" alt="Kathmandu University" />
+                <span>Kathmandu University</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
       <!-- TESTIMONIALS SECTION -->
-      <!-- <section class="section sec6" id="testimonials">
-        <div class="main-title">
-          <h2>
-            Mentor <span>Testimonials</span><span class="bg-text">Reviews</span>
-          </h2>
-        </div>
-        <div class="testimonials-container">
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                "As a guide and mentor for the Dr.Fish project, I witnessed
-                Sushan's exceptional leadership and technical skill. He
-                successfully represented KU and Nepal at the Hult Prize Global
-                Summit in Bangkok, Thailand."
-              </p>
-              <div class="testimonial-author">
-                <h5>Prof. Dr. Gajendra Sharma</h5>
-                <span>Professor, Kathmandu University</span>
-              </div>
-            </div>
+      <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">What Others Say</span>
+            <h2 class="section-title">
+              Mentor <span class="gradient-text">Testimonials</span>
+            </h2>
           </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                "As a supervisor for his research, I've been consistently
-                impressed by Sushan's deep understanding of complex topics like
-                DSA and his drive to apply them in novel ways. He is a diligent
-                and insightful researcher."
-              </p>
-              <div class="testimonial-author">
-                <h5>Dr. Rajani Chulyadyo</h5>
-                <span>Assistant Professor, Kathmandu University</span>
+
+          <div
+            class="testimonials-slider"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="testimonials-container">
+              <div class="testimonial-card active">
+                <div class="testimonial-content">
+                  <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <p>
+                    "As a guide and mentor for the Dr.Fish project, I witnessed
+                    Sushan's exceptional leadership and technical skill. He
+                    successfully represented KU and Nepal at the Hult Prize
+                    Global Summit in Bangkok, Thailand."
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="author-info">
+                    <h5>Prof. Dr. Gajendra Sharma</h5>
+                    <span>Professor at Kathmandu University</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                "During his Introduction to AI course, Sushan showed a
-                remarkable aptitude for grasping complex concepts and a
-                proactive approach to learning. He is a truly promising
-                engineer."
-              </p>
-              <div class="testimonial-author">
-                <h5>Dr. CNK</h5>
-                <span>Associate Professor, IIT Palakkad</span>
+
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <p>
+                    "As a supervisor for his research, I've been consistently
+                    impressed by Sushan's deep understanding of complex topics
+                    like DSA and DBMS, and his drive to apply them in novel
+                    ways. He is a diligent researcher."
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="author-info">
+                    <h5>Dr. Rajani Chulyadyo</h5>
+                    <span>Assistant Professor at Kathmandu University</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <p>
+                    "During his Introduction to AI course, Sushan showed
+                    remarkable aptitude for grasping complex concepts and a
+                    proactive approach to learning. He is a truly promising
+                    engineer with great potential."
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="author-info">
+                    <h5>Dr. CNK</h5>
+                    <span>Associate Professor at IIT Palakkad</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <p>
+                    "Sushan demonstrated exceptional understanding in Graph
+                    Theory and Combinatorics. His analytical thinking and
+                    problem-solving approach make him stand out among his
+                    peers."
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="author-info">
+                    <h5>Dr. Krithika Ramaswamy</h5>
+                    <span>Associate Professor at IIT Palakkad</span>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <p>
+                    "Under my guidance in Compiler Design, Sushan designed his
+                    own simple compiler. His dedication to understanding complex
+                    systems and implementing them from scratch is truly
+                    commendable."
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="author-info">
+                    <h5>Dr. Unnikrishnan Cheramangalath</h5>
+                    <span>Assistant Professor at IIT Palakkad</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-          </div>
-          
-        </div>
-      </section> -->
-      <section class="container" id="testimonials">
-        <div class="main-title">
-          <h2>
-            Mentor <span>Testimonials</span><span class="bg-text">Reviews</span>
-          </h2>
-        </div>
-        <div class="testimonials-container">
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                As a guide and mentor for the Dr.Fish project, I witnessed
-                Sushan's exceptional leadership and technical skill. He
-                successfully represented KU and Nepal at the Hult Prize Global
-                Summit in Bangkok, Thailand.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Prof. Dr. Gajendra Sharma</h5>
-              <span>Professor at Kathmandu University</span>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                As a supervisor for his research, I've been consistently
-                impressed by Sushan's deep understanding of complex topics like
-                DSA and DBMS, and his drive to apply them in novel ways. He is a
-                diligent and insightful researcher.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Dr. Rajani Chulyadyo</h5>
-              <span>Assistant Professor at Kathmandu University</span>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                During his Introduction to AI course, Sushan showed a remarkable
-                aptitude for grasping complex concepts and a proactive approach
-                to learning. He is a truly promising engineer with great
-                potential.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Dr. CNK</h5>
-              <span>Associate Professor at IIT Palakkad</span>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                Sushan demonstrated exceptional understanding in Graph Theory
-                and Combinatorics. His analytical thinking and problem-solving
-                approach make him stand out among his peers.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Dr. Krithika Ramaswamy</h5>
-              <span>Associate Professor at IIT Palakkad</span>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                Under my guidance in Compiler Design, Sushan designed his own
-                simple compiler. His dedication to understanding complex systems
-                and implementing them from scratch is truly commendable.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Dr. Unnikrishnan Cheramangalath</h5>
-              <span>Assistant Professor at IIT Palakkad</span>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>
-                Sushan's work in Linear Algebra for Engineers showed his strong
-                mathematical foundation and ability to apply theoretical
-                concepts to practical engineering problems effectively.
-              </p>
-            </div>
-            <div class="testimonial-author">
-              <h5>Dr. Birenjith Sasidharan</h5>
-              <span>Associate Professor at IIT Palakkad</span>
+            <!-- Navigation -->
+            <div class="testimonial-navigation">
+              <button
+                class="testimonial-nav-btn active"
+                data-slide="0"
+              ></button>
+              <button class="testimonial-nav-btn" data-slide="1"></button>
+              <button class="testimonial-nav-btn" data-slide="2"></button>
+              <button class="testimonial-nav-btn" data-slide="3"></button>
+              <button class="testimonial-nav-btn" data-slide="4"></button>
             </div>
           </div>
         </div>
       </section>
 
       <!-- BLOG SECTION -->
-      <section class="section sec7" id="blogs">
-        <div class="blogs-content">
-          <div class="main-title">
-            <h2>My <span>Blogs</span><span class="bg-text">Articles</span></h2>
+      <section class="section blog-section" id="blogs">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Latest Articles</span>
+            <h2 class="section-title">
+              My <span class="gradient-text">Blog</span>
+            </h2>
           </div>
-          <p class="blog-intro">
-            I enjoy sharing my knowledge and experiences on Medium. Here are
-            some of the topics I explore in my articles.
-          </p>
-          <div class="blogs">
-            <div class="blog">
-              <img
-                src="img/get_start_ML.jpeg"
-                alt="Building End-to-End ML Pipelines"
-              />
-              <div class="blog-text">
-                <h4>Building End-to-End ML Pipelines</h4>
+
+          <div class="blog-grid">
+            <div class="blog-card" data-aos="fade-up">
+              <div class="blog-image">
+                <img
+                  src="img/get_start_ML.jpeg"
+                  alt="Building End-to-End ML Pipelines"
+                />
+                <div class="blog-category">Machine Learning</div>
+              </div>
+              <div class="blog-content">
+                <h3>Building End-to-End ML Pipelines</h3>
                 <p>
                   A deep dive into creating robust, automated machine learning
                   workflows from data ingestion to model deployment using tools
                   like Airflow.
                 </p>
+                <div class="blog-meta">
+                  <span class="blog-date">
+                    <i class="fas fa-calendar"></i>
+                    March 2024
+                  </span>
+                  <span class="blog-time">
+                    <i class="fas fa-clock"></i>
+                    8 min read
+                  </span>
+                </div>
                 <a
                   href="https://medium.com/@sushan.adhikari2060"
                   target="_blank"
                   class="blog-link"
-                  >Read More</a
                 >
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
-            <div class="blog">
-              <img src="img/modern_web.jpeg" alt="Fine-Tuning LLMs" />
-              <div class="blog-text">
-                <h4>The Art of Fine-Tuning LLMs</h4>
+
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-image">
+                <img src="img/modern_web.jpeg" alt="Fine-Tuning LLMs" />
+                <div class="blog-category">NLP</div>
+              </div>
+              <div class="blog-content">
+                <h3>The Art of Fine-Tuning LLMs</h3>
                 <p>
                   A practical guide on adapting large language models like
-                  MBART50 for specific tasks, based on my legal NLP research.
+                  MBART50 for specific tasks, based on my legal NLP research
+                  experience.
                 </p>
+                <div class="blog-meta">
+                  <span class="blog-date">
+                    <i class="fas fa-calendar"></i>
+                    February 2024
+                  </span>
+                  <span class="blog-time">
+                    <i class="fas fa-clock"></i>
+                    12 min read
+                  </span>
+                </div>
                 <a
                   href="https://medium.com/@sushan.adhikari2060"
                   target="_blank"
                   class="blog-link"
-                  >Read More</a
                 >
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
-            <div class="blog">
-              <img src="img/docker.png" alt="DevOps for Data Scientists" />
-              <div class="blog-text">
-                <h4>DevOps for Data Scientists</h4>
+
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="blog-image">
+                <img src="img/docker.png" alt="DevOps for Data Scientists" />
+                <div class="blog-category">DevOps</div>
+              </div>
+              <div class="blog-content">
+                <h3>DevOps for Data Scientists</h3>
                 <p>
                   Exploring how tools like Docker, Terraform, and CI/CD can
-                  streamline the entire machine learning lifecycle.
+                  streamline the entire machine learning lifecycle and
+                  deployment process.
                 </p>
+                <div class="blog-meta">
+                  <span class="blog-date">
+                    <i class="fas fa-calendar"></i>
+                    January 2024
+                  </span>
+                  <span class="blog-time">
+                    <i class="fas fa-clock"></i>
+                    10 min read
+                  </span>
+                </div>
                 <a
                   href="https://medium.com/@sushan.adhikari2060"
                   target="_blank"
                   class="blog-link"
-                  >Read More</a
                 >
+                  Read More <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -855,140 +1774,163 @@
       </section>
 
       <!-- CONTACT SECTION -->
-      <section class="section sec8 contact" id="contact">
-        <div class="contact-container">
-          <div class="main-title">
-            <h2>
-              Contact <span>Me</span><span class="bg-text">Get In Touch</span>
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle">Get In Touch</span>
+            <h2 class="section-title">
+              Let's <span class="gradient-text">Connect</span>
             </h2>
           </div>
-          <div class="contact-content-con">
-            <div class="left-contact">
-              <h4>Let's Connect</h4>
-              <p>
-                I'm always open to discussing new opportunities, interesting
-                projects, or just chatting about technology. Feel free to reach
-                out!
-              </p>
+
+          <div class="contact-content">
+            <div class="contact-left" data-aos="fade-right">
+              <div class="contact-text">
+                <h3>Ready to collaborate?</h3>
+                <p>
+                  I'm always open to discussing new opportunities, interesting
+                  projects, or just chatting about technology. Whether you have
+                  a project in mind, want to collaborate, or need consultation,
+                  feel free to reach out!
+                </p>
+              </div>
+
               <div class="contact-info">
                 <div class="contact-item">
-                  <div class="icon">
+                  <div class="contact-icon">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Location</span>
                   </div>
-                  <p>: Dhulikhel, Kavre, Nepal</p>
+                  <div class="contact-details">
+                    <h4>Location</h4>
+                    <p>Dhulikhel, Kavre, Nepal</p>
+                  </div>
                 </div>
+
                 <div class="contact-item">
-                  <div class="icon">
+                  <div class="contact-icon">
                     <i class="fas fa-envelope"></i>
-                    <span>Email</span>
                   </div>
-                  <p>: sushan.adhikari2060@gmail.com</p>
+                  <div class="contact-details">
+                    <h4>Email</h4>
+                    <p>sushan.adhikari2060@gmail.com</p>
+                  </div>
                 </div>
+
                 <div class="contact-item">
-                  <div class="icon">
+                  <div class="contact-icon">
                     <i class="fas fa-phone"></i>
-                    <span>Phone</span>
                   </div>
-                  <p>: +977 9810538507</p>
+                  <div class="contact-details">
+                    <h4>Phone</h4>
+                    <p>+977 9810538507</p>
+                  </div>
                 </div>
+
                 <div class="contact-item">
-                  <div class="icon">
+                  <div class="contact-icon">
                     <i class="fas fa-language"></i>
-                    <span>Languages</span>
                   </div>
-                  <p>: English, Nepali, Hindi</p>
+                  <div class="contact-details">
+                    <h4>Languages</h4>
+                    <p>English, Nepali, Hindi</p>
+                  </div>
                 </div>
               </div>
-              <div class="contact-icons">
-                <div class="contact-icon">
+
+              <div class="contact-social">
+                <h4>Find me on social media</h4>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/sushan-adhikari"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
                   <a
                     href="https://www.github.com/sushan-adhikari"
                     target="_blank"
-                    title="GitHub"
+                    class="social-link"
                   >
                     <i class="fab fa-github"></i>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/sushan-adhikari"
-                    target="_blank"
-                    title="LinkedIn"
-                  >
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a
                     href="https://medium.com/@sushan.adhikari2060"
                     target="_blank"
-                    title="Medium"
+                    class="social-link"
                   >
                     <i class="fab fa-medium"></i>
                   </a>
                   <a
                     href="https://x.com/Sushan_ad2060"
                     target="_blank"
-                    title="Twitter"
+                    class="social-link"
                   >
                     <i class="fab fa-twitter"></i>
                   </a>
                   <a
                     href="https://www.facebook.com/sushan.ad/"
                     target="_blank"
-                    title="Facebook"
+                    class="social-link"
                   >
                     <i class="fab fa-facebook-f"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/sushan.ad"
                     target="_blank"
-                    title="Instagram"
+                    class="social-link"
                   >
                     <i class="fab fa-instagram"></i>
                   </a>
                 </div>
               </div>
             </div>
-            <div class="right-contact">
-              <form action="" class="contact-form" id="contactForm">
-                <div class="input-control i-c-2">
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="YOUR NAME"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="YOUR EMAIL"
-                  />
+
+            <div class="contact-right" data-aos="fade-left">
+              <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="name" required placeholder=" " />
+                    <label>Your Name</label>
+                  </div>
                 </div>
-                <div class="input-control">
-                  <input
-                    type="text"
-                    name="subject"
-                    required
-                    placeholder="ENTER SUBJECT"
-                  />
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="email" name="email" required placeholder=" " />
+                    <label>Your Email</label>
+                  </div>
                 </div>
-                <div class="input-control">
-                  <textarea
-                    name="message"
-                    id="message"
-                    cols="15"
-                    rows="8"
-                    placeholder="Your message here..."
-                    required
-                  ></textarea>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      name="subject"
+                      required
+                      placeholder=" "
+                    />
+                    <label>Subject</label>
+                  </div>
                 </div>
-                <div class="submit-btn">
-                  <button type="submit" class="main-btn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="btn-icon"
-                      ><i class="fas fa-paper-plane"></i
-                    ></span>
-                  </button>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <textarea
+                      name="message"
+                      rows="6"
+                      required
+                      placeholder=" "
+                    ></textarea>
+                    <label>Your Message</label>
+                  </div>
                 </div>
+
+                <button type="submit" class="btn btn-primary">
+                  <span>Send Message</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+
                 <div id="formMessage" class="form-message"></div>
               </form>
             </div>
@@ -996,108 +1938,106 @@
         </div>
       </section>
     </main>
-    <!-- FOOTER SECTION (moved outside main) -->
+
+    <!-- Footer -->
     <footer class="footer-section">
-      <div class="footer-content">
-        <div class="footer-section-item">
-          <h3>About Me</h3>
-          <p>
-            Passionate Engineering student focused on AI, Data, and cloud
-            technologies. Eager to learn, innovate, and solve complex problems.
-          </p>
-          <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/sushan-adhikari"
-              aria-label="LinkedIn"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a href="https://www.github.com/sushan-adhikari" aria-label="GitHub"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="https://x.com/Sushan_ad2060" aria-label="Twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a
-              href="https://medium.com/@sushan.adhikari2060"
-              aria-label="Medium"
-              ><i class="fab fa-medium"></i
-            ></a>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-logo">
+              <img
+                src="img/sushan-logo.png"
+                alt="Sushan Adhikari Logo"
+                class="logo-img"
+              />
+              <span class="logo-text">Sushan Adhikari</span>
+            </div>
+            <p class="footer-description">
+              Passionate Engineering student focused on AI, Data, and cloud
+              technologies. Eager to learn, innovate, and solve complex problems
+              that make a difference.
+            </p>
+            <div class="footer-social">
+              <a
+                href="https://www.linkedin.com/in/sushan-adhikari"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.github.com/sushan-adhikari"
+                target="_blank"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://x.com/Sushan_ad2060"
+                target="_blank"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://medium.com/@sushan.adhikari2060"
+                target="_blank"
+                aria-label="Medium"
+              >
+                <i class="fab fa-medium"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#research">Research</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>More</h4>
+              <ul>
+                <li><a href="#startups">Startups</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#blogs">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Contact Info</h4>
+              <ul>
+                <li>
+                  <i class="fas fa-envelope"></i> sushan.adhikari2060@gmail.com
+                </li>
+                <li><i class="fas fa-phone"></i> +977 9810538507</li>
+                <li><i class="fas fa-map-marker-alt"></i> Dhulikhel, Nepal</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="footer-section-item">
-          <h3>Quick Links</h3>
-          <ul class="quick-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#blogs">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>
+            © 2025 Sushan Adhikari. Crafted with <span class="heart">❤️</span>
+            and lots of caffeine. All rights reserved.
+          </p>
         </div>
-
-        <div class="footer-section-item">
-          <h3>Get In Touch</h3>
-          <p><i class="fas fa-envelope"></i> sushan.adhikari2060@gmail.com</p>
-          <p><i class="fas fa-phone"></i> +977 9810538507</p>
-          <p><i class="fas fa-map-marker-alt"></i> Dhulikhel, Kavre, Nepal</p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>
-          © 2025 Sushan Adhikari. Built with
-          <span class="heart">❤️</span> and a lot of coffee.
-        </p>
       </div>
     </footer>
 
-    <!-- NAVIGATION CONTROLS -->
-    <div class="controls">
-      <div class="control control-1 active-btn" data-id="home" title="Home">
-        <i class="fas fa-home"></i>
-      </div>
-      <div class="control control-2" data-id="about" title="About">
-        <i class="fas fa-user"></i>
-      </div>
-      <div class="control control-3" data-id="portfolio" title="Portfolio">
-        <i class="fas fa-briefcase"></i>
-      </div>
-      <div
-        class="control control-4"
-        data-id="certifications"
-        title="Certifications"
-      >
-        <i class="fas fa-certificate"></i>
-      </div>
-      <div
-        class="control control-5"
-        data-id="achievements"
-        title="Achievements"
-      >
-        <i class="fas fa-trophy"></i>
-      </div>
-      <div
-        class="control control-6"
-        data-id="testimonials"
-        title="Testimonials"
-      >
-        <i class="fas fa-comments"></i>
-      </div>
-      <div class="control control-7" data-id="blogs" title="Blog">
-        <i class="far fa-newspaper"></i>
-      </div>
-      <div class="control control-8" data-id="contact" title="Contact">
-        <i class="fas fa-envelope-open"></i>
-      </div>
-    </div>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <!-- THEME TOGGLE -->
-    <div class="theme-btn" title="Toggle Theme">
-      <i class="fas fa-adjust"></i>
-    </div>
-
-    <script src="app.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="app.js"></script>
   </body>
 </html>

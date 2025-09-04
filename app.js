@@ -32,25 +32,25 @@ document.addEventListener('DOMContentLoaded', function() {
   // LOADING SCREEN MANAGEMENT
   // =================================================================
   
-  class LoadingScreen {
-    constructor() {
-      this.loadingScreen = document.getElementById('loadingScreen');
-      this.init();
-    }
+  // class LoadingScreen {
+  //   constructor() {
+  //     this.loadingScreen = document.getElementById('loadingScreen');
+  //     this.init();
+  //   }
 
-    init() {
-      setTimeout(() => this.hide(), 2000);
-    }
+  //   init() {
+  //     setTimeout(() => this.hide(), 2000);
+  //   }
 
-    hide() {
-      if (this.loadingScreen) {
-        this.loadingScreen.classList.add('hidden');
-        setTimeout(() => {
-          this.loadingScreen.style.display = 'none';
-        }, 500);
-      }
-    }
-  }
+  //   hide() {
+  //     if (this.loadingScreen) {
+  //       this.loadingScreen.classList.add('hidden');
+  //       setTimeout(() => {
+  //         this.loadingScreen.style.display = 'none';
+  //       }, 500);
+  //     }
+  //   }
+  // }
 
   // =================================================================
   // THEME MANAGEMENT

@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // =================================================================
   
   // Initialize all components
-  new LoadingScreen();
+  // new LoadingScreen();
   new ThemeManager();
   new NavigationManager();
   new ScrollAnimations();

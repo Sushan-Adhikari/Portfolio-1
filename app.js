@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     bindEvents() {
+      console.log('DEBUG: ThemeManager - value of this.themeToggle before addEventListener:', this.themeToggle);
       if (this.themeToggle) {
         this.themeToggle.addEventListener('click', () => this.toggleTheme());
       }

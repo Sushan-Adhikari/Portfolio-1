@@ -619,12 +619,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const typewriterElement = document.getElementById("typewriter");
   if (typewriterElement) {
     new TypewriterEffect(typewriterElement, [
-      "AI & Data Engineer",
-      "Machine Learning Expert",
-      "Full Stack Developer",
-      "Cloud Architect",
+      "Computer Engineering Student",
+      "AI and Machine Learning Enthusiast",
       "Research Enthusiast",
-      "Tech Entrepreneur",
     ]);
   }
 

@@ -69,10 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     bindEvents() {
-      console.log(
-        "DEBUG: ThemeManager - value of this.themeToggle before addEventListener:",
-        this.themeToggle
-      );
       if (this.themeToggle) {
         this.themeToggle.addEventListener("click", () => this.toggleTheme());
       }
@@ -122,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     init() {
       this.bindEvents();
       this.updateActiveLink();
+      this.handleNavbarBackground();
     }
 
     bindEvents() {
@@ -155,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
         throttle(() => {
           this.updateActiveLink();
           this.handleNavbarBackground();
-        }, 100)
+        }, 100),
+        { passive: true }
       );
 
       // Keyboard navigation
@@ -220,16 +218,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     handleNavbarBackground() {
       if (this.desktopNav) {
-        const isDark = document.body.getAttribute("data-theme") === "dark";
-        if (window.scrollY > 50) {
-          this.desktopNav.style.background = isDark
-            ? "rgba(24, 24, 27, 0.95)"
-            : "rgba(255, 255, 255, 0.95)";
-        } else {
-          this.desktopNav.style.background = isDark
-            ? "rgba(24, 24, 27, 0.9)"
-            : "rgba(255, 255, 255, 0.9)";
-        }
+        const isScrolled = window.scrollY > 50;
+        this.desktopNav.classList.toggle("scrolled", isScrolled);
       }
     }
 
@@ -394,6 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     startAutoPlay() {
+      if (this.autoPlayInterval) return;
       this.autoPlayInterval = setInterval(() => {
         this.nextSlide();
       }, 5000);
@@ -466,15 +457,16 @@ document.addEventListener("DOMContentLoaded", function () {
         "scroll",
         throttle(() => {
           this.toggleVisibility();
-        }, 100)
+        }, 100),
+        { passive: true }
       );
     }
 
     toggleVisibility() {
       if (window.pageYOffset > 300) {
-        this.button.classList.add("show");
+        this.button.classList.add("show", "visible");
       } else {
-        this.button.classList.remove("show");
+        this.button.classList.remove("show", "visible");
       }
     }
 
@@ -625,27 +617,26 @@ document.addEventListener("DOMContentLoaded", function () {
     ]);
   }
 
-  // Performance monitoring
-  window.addEventListener("load", () => {
-    if (performance.navigation && performance.navigation.loadEventEnd) {
-      const loadTime =
-        performance.timing.loadEventEnd - performance.timing.navigationStart;
-      console.log(`Portfolio loaded in ${loadTime}ms`);
-    }
-  });
+  // Lightweight parallax only on hero image (not the entire section) to avoid layout jank.
+  const heroImage = document.querySelector(".hero-image");
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  // Add smooth parallax effect to hero section
-  window.addEventListener(
-    "scroll",
-    throttle(() => {
-      const heroSection = document.querySelector(".hero-section");
-      if (heroSection) {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.3;
-        heroSection.style.transform = `translateY(${parallax}px)`;
-      }
-    }, 16)
-  );
-
-  console.log("🚀 Spectacular Portfolio Initialized Successfully!");
+  if (heroImage && !reduceMotion) {
+    let ticking = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          heroImage.style.transform = `translate3d(0, ${scrolled * 0.08}px, 0)`;
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+  }
 });

@@ -926,18 +926,18 @@ body {
 
 .about-content {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
-  gap: var(--space-12);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: var(--space-10);
+  align-items: start;
 }
 
 .about-left,
 .about-right {
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-7);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .about-left {
@@ -1013,25 +1013,31 @@ body {
   margin-bottom: var(--space-6);
 }
 
+.skills-section {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-7);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .skill-category {
-  padding: var(--space-5);
-  background: var(--background);
+  padding: var(--space-4);
+  background: var(--surface);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  height: 100%;
 }
 
 .skill-category h4 {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--space-3);
@@ -1051,7 +1057,7 @@ body {
   padding: var(--space-2) var(--space-3);
   background: var(--primary-50);
   color: var(--primary-700);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
   border-radius: var(--radius-full);
 }
@@ -2747,9 +2753,8 @@ body {
     grid-template-columns: 1fr;
     gap: var(--space-12);
   }
-  .about-left,
-  .about-right {
-    padding: var(--space-6);
+  .skills-section {
+    padding: var(--space-5);
   }
   .portfolio-grid {
     grid-template-columns: 1fr;
@@ -3191,9 +3196,8 @@ html {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  .about-left,
-  .about-right {
-    padding: var(--space-7);
+  .skills-section {
+    padding: var(--space-6);
   }
   .contact-content {
     grid-template-columns: 1fr;

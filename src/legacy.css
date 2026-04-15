@@ -1014,10 +1014,10 @@ body {
 }
 
 .skills-section {
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-7);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .skills-grid {
@@ -1230,6 +1230,7 @@ body {
   border: 1px solid var(--border);
   transition: all var(--transition-normal);
   position: relative;
+  overflow: hidden;
 }
 
 .research-card:hover {
@@ -1242,11 +1243,11 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 3px;
   background: var(--gradient-primary);
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  border-radius: var(--radius-full);
 }
 
 .research-icon {

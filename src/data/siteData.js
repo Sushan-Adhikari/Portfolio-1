@@ -113,11 +113,6 @@ export const aboutData = {
       iconClass: 'fas fa-cloud',
       tags: ['AWS', 'Docker', 'Terraform', 'CI/CD', 'EC2'],
     },
-    {
-      title: 'Specialized Tools',
-      iconClass: 'fas fa-tools',
-      tags: ['LangChain', 'LaTeX/Overleaf', 'Manim', 'PyTesseract', 'WebGL'],
-    },
   ],
 }
 
@@ -230,7 +225,7 @@ export const projectData = {
       links: [
         {
           label: 'Website',
-          href: 'https://mercuri.world',
+          href: 'https://mercuri.world/our-team',
           iconClass: 'fas fa-external-link-alt',
           external: true,
         },

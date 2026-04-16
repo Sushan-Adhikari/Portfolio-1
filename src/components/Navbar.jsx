@@ -17,6 +17,7 @@ const iconById = {
 export default function Navbar({ links }) {
   const [active, setActive] = useState('home')
   const [scrolled, setScrolled] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
 
@@ -49,6 +50,10 @@ export default function Navbar({ links }) {
     const onScroll = () => {
       const scrollY = window.scrollY
       setScrolled(scrollY > 50)
+
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight
+      const progress = scrollable > 0 ? Math.min(100, (scrollY / scrollable) * 100) : 0
+      setScrollProgress(progress)
 
       let current = 'home'
       document.querySelectorAll('.section').forEach((section) => {
@@ -101,15 +106,6 @@ export default function Navbar({ links }) {
       <nav className={`desktop-nav${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-container">
           <a href="#home" className="logo" onClick={(event) => onNavClick(event, 'home')}>
-            <img
-              src="/img/sushan-logo-64.webp"
-              alt="Sushan Adhikari Logo"
-              className="logo-img"
-              width="40"
-              height="40"
-              loading="eager"
-              decoding="async"
-            />
             <span className="logo-text">Sushan</span>
           </a>
 
@@ -142,21 +138,15 @@ export default function Navbar({ links }) {
             </button>
           </div>
         </div>
+        <div className="nav-progress" aria-hidden="true">
+          <span style={{ transform: `scaleX(${scrollProgress / 100})` }}></span>
+        </div>
       </nav>
 
       <div className={`mobile-nav-overlay${menuOpen ? ' show' : ''}`} onClick={() => setMenuOpen(false)}></div>
       <div className={`mobile-nav${menuOpen ? ' show' : ''}`}>
         <div className="mobile-nav-header">
           <a href="#home" className="logo" onClick={(event) => onNavClick(event, 'home')}>
-            <img
-              src="/img/sushan-logo-64.webp"
-              alt="Sushan Adhikari Logo"
-              className="logo-img"
-              width="40"
-              height="40"
-              loading="eager"
-              decoding="async"
-            />
             <span className="logo-text">Sushan</span>
           </a>
           <button className="mobile-nav-close" onClick={() => setMenuOpen(false)}>

@@ -15,7 +15,7 @@ export default function ResearchSection({ data }) {
 
         <div className="research-grid">
           {data.papers.map((paper) => (
-            <div className="research-card" key={paper.title}>
+            <div className="research-card tilt-card" data-tilt-strength="5" key={paper.title}>
               <div className="research-icon">
                 <i className={paper.iconClass}></i>
               </div>

@@ -10,7 +10,7 @@ export default function PortfolioSection({ data }) {
 
         <div className="portfolio-grid">
           {data.items.map((project, index) => (
-            <div className="portfolio-card" key={project.title} data-aos-delay={index * 80}>
+            <div className="portfolio-card tilt-card" key={project.title} data-tilt-strength="7" data-aos-delay={index * 80}>
               <div className="card-image">
                 <img src={project.image} alt={project.alt || project.title} loading="lazy" decoding="async" />
                 <div className="card-overlay">

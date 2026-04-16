@@ -10,7 +10,7 @@ export default function BlogSection({ data }) {
 
         <div className="blog-grid">
           {data.items.map((post) => (
-            <div className="blog-card" key={post.title}>
+            <div className="blog-card tilt-card" data-tilt-strength="5" key={post.title}>
               <div className="blog-image">
                 <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
                 <div className="blog-category">{post.category}</div>

@@ -10,7 +10,7 @@ export default function StartupsSection({ data }) {
 
         <div className="startups-grid">
           {data.items.map((startup) => (
-            <div className="startup-card" key={startup.name}>
+            <div className="startup-card tilt-card" data-tilt-strength="6" key={startup.name}>
               <div className="startup-header">
                 <div className="startup-logo">
                   <i className={startup.iconClass}></i>

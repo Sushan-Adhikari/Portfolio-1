@@ -10,7 +10,7 @@ export default function CertificationsSection({ data }) {
 
         <div className="certifications-grid">
           {data.items.map((certification) => (
-            <div className="certification-card" key={certification.title}>
+            <div className="certification-card tilt-card" data-tilt-strength="4.5" key={certification.title}>
               <div className="cert-icon">
                 <i className={certification.iconClass}></i>
               </div>

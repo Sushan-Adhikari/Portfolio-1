@@ -54,18 +54,26 @@ const STOP_WORDS = new Set([
 ])
 
 const GREETING_REGEX = /(hi|hello|hey|namaste|wassup|what\s*up|sup|yo|hola)\b/
+const APPRECIATION_REGEX = /(thanks|thank you|awesome|great|nice|cool|perfect|appreciate)/
 const PROFILE_QUERY_REGEX =
   /(tell me about sushan|tell me more about him|tell me about him|who is sushan|who is he|about sushan|about him)/
 const STARTUP_QUERY_REGEX = /(startup|startups|company|companies|cofound|founded|founder|started a company)/
 const CONTACT_QUERY_REGEX = /(contact|email|phone|location|where is he|where is sushan|where does he live|reach him)/
 const NAVIGATION_REGEX = /(take me to|go to|open|navigate|scroll to|jump to|show me)/
+const EMAIL_ONLY_REGEX = /(only email|just email|email only|email address|e mail|mail id|gmail)/
+const PHONE_ONLY_REGEX = /(only phone|just phone|phone only|phone number|phone num|phone numner|mobile number|contact number|call him)/
+const LOCATION_ONLY_REGEX = /(only location|just location|where does he live|where is he|where is sushan|location only)/
+const SELF_QUERY_REGEX = /(what are you|who are you|what can you do|what do you do|help me|help)/
+const STARTUP_FOUNDED_QUERY_REGEX =
+  /(when was .* started|when did .* start|when was .* founded|when did .* found|founded when|started when)/
 
 const QUICK_QUESTIONS = [
   'Tell me about Sushan.',
   'Which companies has Sushan co-founded?',
   'What are Sushan\'s research publications?',
   'What is Sushan\'s latest experience?',
-  'How can I contact Sushan?',
+  'Only email please.',
+  'How long did he work at KyraWorks?',
   'Take me to portfolio section.',
 ]
 
@@ -125,6 +133,158 @@ function tokenize(input) {
 
 function containsAny(normalizedQuestion, terms) {
   return terms.some((term) => normalizedQuestion.includes(normalizeText(term)))
+}
+
+const MONTH_INDEX = {
+  jan: 0,
+  feb: 1,
+  mar: 2,
+  apr: 3,
+  may: 4,
+  jun: 5,
+  jul: 6,
+  aug: 7,
+  sep: 8,
+  oct: 9,
+  nov: 10,
+  dec: 11,
+}
+
+const MONTH_NAME = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+function getContactValue(label) {
+  return contactData.methods.find((method) => method.label.toLowerCase() === label.toLowerCase())?.value
+}
+
+function parseMonthYear(value) {
+  const raw = (value || '').trim()
+  if (!raw) return null
+
+  if (raw.toLowerCase() === 'present') {
+    const now = new Date()
+    return { month: now.getMonth(), year: now.getFullYear() }
+  }
+
+  const match = raw.match(/^([A-Za-z]+)\s+(\d{4})$/)
+  if (!match) return null
+
+  const month = MONTH_INDEX[match[1].slice(0, 3).toLowerCase()]
+  const year = Number.parseInt(match[2], 10)
+  if (month == null || Number.isNaN(year)) return null
+
+  return { month, year }
+}
+
+function parseDateRange(range) {
+  const [startRaw, endRaw] = (range || '').split('-').map((part) => part.trim())
+  if (!startRaw || !endRaw) return null
+
+  const start = parseMonthYear(startRaw)
+  const end = parseMonthYear(endRaw)
+  if (!start || !end) return null
+
+  return { start, end }
+}
+
+function compareMonthYear(a, b) {
+  if (a.year !== b.year) return a.year - b.year
+  return a.month - b.month
+}
+
+function formatMonthYear(value) {
+  if (!value) return ''
+  return `${MONTH_NAME[value.month]} ${value.year}`
+}
+
+function monthsInclusive(start, end) {
+  return (end.year - start.year) * 12 + (end.month - start.month) + 1
+}
+
+function isKyraWorksDurationQuery(normalizedQuestion) {
+  if (!normalizedQuestion.includes('kyraworks')) return false
+
+  return containsAny(normalizedQuestion, [
+    'how long',
+    'how much',
+    'duration',
+    'tenure',
+    'time',
+    'months',
+    'years',
+    'worked',
+    'work in',
+    'experience in',
+  ])
+}
+
+function buildKyraWorksDurationAnswer() {
+  const kyraEntries = experienceData.timeline.filter((item) => /kyraworks/i.test(item.org))
+  if (!kyraEntries.length) return null
+
+  const parsedRanges = kyraEntries
+    .map((item) => ({ item, range: parseDateRange(item.date) }))
+    .filter((entry) => entry.range)
+
+  if (!parsedRanges.length) {
+    return {
+      answer: [
+        "Sushan's listed KyraWorks roles are:",
+        ...kyraEntries.map((item) => `- ${item.role}: ${item.date}`),
+      ].join('\n'),
+      citations: ['CV · Experience & Education'],
+    }
+  }
+
+  const earliest = parsedRanges
+    .map((entry) => entry.range.start)
+    .reduce((min, current) => (compareMonthYear(current, min) < 0 ? current : min))
+
+  const latest = parsedRanges
+    .map((entry) => entry.range.end)
+    .reduce((max, current) => (compareMonthYear(current, max) > 0 ? current : max))
+
+  const totalMonths = monthsInclusive(earliest, latest)
+
+  return {
+    answer: [
+      `Sushan worked at KyraWorks from ${formatMonthYear(earliest)} to ${formatMonthYear(latest)} (about ${totalMonths} months) across two roles:`,
+      ...kyraEntries.map((item) => `- ${item.role}: ${item.date}`),
+    ].join('\n'),
+    citations: ['CV · Experience & Education'],
+  }
+}
+
+function getStartupFromQuestion(normalizedQuestion) {
+  return startupData.items.find((item) => normalizedQuestion.includes(normalizeText(item.name)))
+}
+
+function getStartupFoundedYear(startup) {
+  return startup?.metrics?.find((metric) => /founded/i.test(metric.label))?.value
+}
+
+function isBroadContactRequest(normalizedQuestion) {
+  return containsAny(normalizedQuestion, [
+    'contact details',
+    'contact detail',
+    'contact info',
+    'contact information',
+    'how can i contact',
+    'reach him',
+    'reach sushan',
+    'contact',
+  ])
+}
+
+function isEmailQuery(normalizedQuestion) {
+  return /\b(email|e mail|mail id|gmail)\b/.test(normalizedQuestion)
+}
+
+function isPhoneQuery(normalizedQuestion) {
+  return /\b(phone|mobile|phone number|contact number|phone num|phone numner|call)\b/.test(normalizedQuestion)
+}
+
+function isLocationQuery(normalizedQuestion) {
+  return /\b(location|address|where|live)\b/.test(normalizedQuestion)
 }
 
 function buildKnowledgeBase() {
@@ -354,6 +514,9 @@ function buildStrictAnswer(question, knowledgeBase) {
   const tokens = tokenize(question)
   const intents = detectIntents(normalizedQuestion)
   const navigationTarget = detectSectionNavigation(normalizedQuestion)
+  const emailValue = getContactValue('email')
+  const phoneValue = getContactValue('phone')
+  const locationValue = getContactValue('location')
 
   if (GREETING_REGEX.test(normalizedQuestion)) {
     return {
@@ -363,11 +526,103 @@ function buildStrictAnswer(question, knowledgeBase) {
     }
   }
 
+  if (SELF_QUERY_REGEX.test(normalizedQuestion)) {
+    return {
+      answer:
+        "I am Sushan's CV Assistant. I answer only from his CV and portfolio. You can ask about experience, projects, research, startups, certifications, achievements, and contact info.",
+      citations: [],
+    }
+  }
+
+  if (APPRECIATION_REGEX.test(normalizedQuestion) && tokens.length <= 2) {
+    return {
+      answer:
+        'Happy to help. You can ask things like: "only email", "phone number", "how long did he work at KyraWorks?", or "latest experience".',
+      citations: [],
+    }
+  }
+
+  if (normalizedQuestion === 'only') {
+    return {
+      answer: 'Specify what you want only: email, phone, or location.',
+      citations: [],
+    }
+  }
+
   if (navigationTarget) {
     return {
       answer: `Sure — I have moved you to the ${navigationTarget} section.`,
       citations: ['Portfolio · Navigation'],
       action: { type: 'navigate', targetId: navigationTarget },
+    }
+  }
+
+  if (isKyraWorksDurationQuery(normalizedQuestion)) {
+    const kyraAnswer = buildKyraWorksDurationAnswer()
+    if (kyraAnswer) return kyraAnswer
+  }
+
+  const startupInQuestion = getStartupFromQuestion(normalizedQuestion)
+  if (startupInQuestion && STARTUP_FOUNDED_QUERY_REGEX.test(normalizedQuestion)) {
+    const foundedYear = getStartupFoundedYear(startupInQuestion)
+
+    if (foundedYear) {
+      return {
+        answer: `${startupInQuestion.name} was founded in ${foundedYear}.`,
+        citations: ['Portfolio · Startups'],
+      }
+    }
+
+    return {
+      answer: `The exact founding date for ${startupInQuestion.name} is not explicitly listed in Sushan's CV/portfolio.`,
+      citations: ['Portfolio · Startups'],
+    }
+  }
+
+  const asksEmail = isEmailQuery(normalizedQuestion)
+  const asksPhone = isPhoneQuery(normalizedQuestion)
+  const asksLocation = isLocationQuery(normalizedQuestion)
+  const broadContactRequest = isBroadContactRequest(normalizedQuestion)
+
+  if (asksEmail && !asksPhone && !asksLocation && !broadContactRequest && emailValue) {
+    return {
+      answer: `Sushan's email is ${emailValue}.`,
+      citations: ['CV · Contact'],
+    }
+  }
+
+  if (asksPhone && !asksEmail && !asksLocation && !broadContactRequest && phoneValue) {
+    return {
+      answer: `Sushan's phone number is ${phoneValue}.`,
+      citations: ['CV · Contact'],
+    }
+  }
+
+  if (asksLocation && !asksEmail && !asksPhone && !broadContactRequest && locationValue) {
+    return {
+      answer: `Sushan's listed location is ${locationValue}.`,
+      citations: ['CV · Contact'],
+    }
+  }
+
+  if (EMAIL_ONLY_REGEX.test(normalizedQuestion) && emailValue) {
+    return {
+      answer: `Sushan's email is ${emailValue}.`,
+      citations: ['CV · Contact'],
+    }
+  }
+
+  if (PHONE_ONLY_REGEX.test(normalizedQuestion) && phoneValue) {
+    return {
+      answer: `Sushan's phone number is ${phoneValue}.`,
+      citations: ['CV · Contact'],
+    }
+  }
+
+  if (LOCATION_ONLY_REGEX.test(normalizedQuestion) && locationValue) {
+    return {
+      answer: `Sushan's listed location is ${locationValue}.`,
+      citations: ['CV · Contact'],
     }
   }
 
@@ -399,7 +654,6 @@ function buildStrictAnswer(question, knowledgeBase) {
 
   if (CONTACT_QUERY_REGEX.test(normalizedQuestion)) {
     const contactDoc = knowledgeBase.find((doc) => doc.category === 'contact')
-    const locationValue = contactData.methods.find((method) => method.label.toLowerCase() === 'location')?.value
 
     if (/where is he|where is sushan|where is he now/.test(normalizedQuestion) && locationValue) {
       return {

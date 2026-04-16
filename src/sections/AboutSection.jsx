@@ -1,78 +1,6 @@
-import {
-  FaAws,
-  FaCodeBranch,
-  FaComments,
-  FaCogs,
-  FaCrosshairs,
-  FaDatabase,
-  FaEye,
-  FaMicrochip,
-  FaServer,
-} from 'react-icons/fa'
-import {
-  SiApacheairflow,
-  SiApachespark,
-  SiDatabricks,
-  SiDjango,
-  SiDocker,
-  SiFastapi,
-  SiFlask,
-  SiGit,
-  SiGstreamer,
-  SiNvidia,
-  SiOpencv,
-  SiPostgresql,
-  SiPytorch,
-  SiPython,
-  SiReact,
-  SiScikitlearn,
-  SiTerraform,
-  SiYolo,
-} from 'react-icons/si'
-
-const techIconMap = {
-  python: SiPython,
-  pytorch: SiPytorch,
-  scikitlearn: SiScikitlearn,
-  nlp: FaComments,
-  vision: FaEye,
-  nvidia: SiNvidia,
-  triton: FaMicrochip,
-  gstreamer: SiGstreamer,
-  yolo: SiYolo,
-  opencv: SiOpencv,
-  fastapi: SiFastapi,
-  flask: SiFlask,
-  postgresql: SiPostgresql,
-  rest: FaServer,
-  pipeline: FaCodeBranch,
-  docker: SiDocker,
-  aws: FaAws,
-  terraform: SiTerraform,
-  django: SiDjango,
-  react: SiReact,
-  databricks: SiDatabricks,
-  airflow: SiApacheairflow,
-  spark: SiApachespark,
-  sql: FaDatabase,
-  cicd: FaCogs,
-  ec2: FaServer,
-  git: SiGit,
-  target: FaCrosshairs,
-}
-
-function renderTechIcon(tech) {
-  if (tech.logo) {
-    return <img src={tech.logo} alt="" className="tech-rolling-logo-image" loading="lazy" decoding="async" />
-  }
-
-  const IconComponent = techIconMap[tech.icon]
-  if (!IconComponent) return <i className={tech.iconClass || 'fas fa-circle'}></i>
-  return <IconComponent style={tech.color ? { color: tech.color } : undefined} />
-}
-
 export default function AboutSection({ data }) {
-  const rollingTech = [...(data.techShowcase || []), ...(data.techShowcase || []), ...(data.techShowcase || [])]
+  const logoTech = (data.techShowcase || []).filter((tech) => tech.logo)
+  const rollingTech = [...logoTech, ...logoTech, ...logoTech]
 
   return (
     <section className="section about-section" id="about">
@@ -108,19 +36,36 @@ export default function AboutSection({ data }) {
             <h3>{data.skillsTitle}</h3>
 
             {data.techShowcase?.length ? (
-              <div className="tech-rolling-showcase" aria-label="Core technology stack">
-                <div className="tech-rolling-track">
+              <div
+                className="tech-rolling-showcase group/tech relative mb-0 h-[146px] overflow-hidden rounded-[2rem] border-0 bg-transparent max-[768px]:h-[122px] max-[480px]:mb-6 max-[480px]:h-[118px] motion-reduce:h-auto"
+                aria-label="Core technology stack"
+              >
+                <div className="tech-rolling-track absolute left-0 top-1/2 inline-flex w-max -translate-y-1/2 gap-4 px-6 motion-safe:animate-tech-roll group-hover/tech:[animation-play-state:paused] max-[480px]:gap-2 motion-reduce:static motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:translate-y-0 motion-reduce:px-3 motion-reduce:py-3 motion-reduce:[animation:none]">
                   {rollingTech.map((tech, index) => (
-                    <div className="tech-rolling-chip" key={`${tech.name}-${index}`}>
-                      <span className="tech-rolling-icon" aria-hidden="true">
-                        {renderTechIcon(tech)}
+                    <div
+                      className="tech-rolling-chip inline-flex h-[84px] items-center gap-3 whitespace-nowrap rounded-full border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,253,0.96))] px-5 shadow-sm transition-[transform,box-shadow,border-color] duration-300 [transform:perspective(920px)_rotateX(11deg)] hover:[transform:perspective(920px)_rotateX(2deg)_translateY(-3px)] hover:border-[var(--primary-300)] hover:shadow-lg dark:bg-[linear-gradient(180deg,rgba(30,41,59,0.97),rgba(17,24,39,0.94))] max-[768px]:h-[72px] max-[768px]:px-3 max-[480px]:h-[68px] max-[480px]:px-4"
+                      key={`${tech.name}-${index}`}
+                    >
+                      <span
+                        className="tech-rolling-icon inline-flex h-[58px] w-[58px] items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-variant)] shadow-sm dark:shadow-none max-[768px]:h-[50px] max-[768px]:w-[50px] max-[480px]:h-[46px] max-[480px]:w-[46px]"
+                        aria-hidden="true"
+                      >
+                        <img
+                          src={tech.logo}
+                          alt=""
+                          className="tech-rolling-logo-image h-[2.1rem] w-[2.1rem] object-contain max-[768px]:h-[1.75rem] max-[768px]:w-[1.75rem] max-[480px]:h-[1.6rem] max-[480px]:w-[1.6rem]"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </span>
-                      <span className="tech-rolling-name">{tech.name}</span>
+                      <span className="tech-rolling-name text-[0.95rem] font-bold tracking-[0.01em] text-[var(--text-primary)] max-[768px]:text-[0.88rem] max-[480px]:text-[0.84rem]">
+                        {tech.name}
+                      </span>
                     </div>
                   ))}
                 </div>
-                <div className="tech-rolling-fade left" aria-hidden="true"></div>
-                <div className="tech-rolling-fade right" aria-hidden="true"></div>
+                <div className="tech-rolling-fade left hidden" aria-hidden="true"></div>
+                <div className="tech-rolling-fade right hidden" aria-hidden="true"></div>
               </div>
             ) : null}
           </div>

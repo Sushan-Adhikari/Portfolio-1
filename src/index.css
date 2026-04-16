@@ -1,5 +1,215 @@
 @import './legacy.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme('fontFamily.sans');
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .container,
+  .portfolio-section .container {
+    max-width: 1200px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 5.8vw, 4.4rem);
+  }
+
+  .portfolio-grid,
+  .research-grid,
+  .startups-grid,
+  .blog-grid,
+  .certifications-grid,
+  .achievements-grid {
+    gap: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .blog-image {
+    height: clamp(170px, 18vw, 210px);
+  }
+
+  .blog-content {
+    padding: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  .blog-title,
+  .research-card h3,
+  .startup-info h3,
+  .cert-content h4,
+  .achievement-content h4,
+  .timeline-title {
+    font-size: clamp(1.08rem, 1.4vw, 1.3rem);
+    line-height: 1.35;
+  }
+
+  .blog-excerpt,
+  .research-description,
+  .startup-description,
+  .cert-description,
+  .achievement-description,
+  .timeline-description {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .custom-cursor {
+    border: 2px solid rgba(239, 68, 68, 0.58);
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.12), 0 0 8px rgba(239, 68, 68, 0.14);
+  }
+
+  .custom-cursor.visible {
+    opacity: 0.72;
+  }
+
+  .custom-cursor.is-hover {
+    border-color: rgba(239, 68, 68, 0.76);
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.18), 0 0 11px rgba(239, 68, 68, 0.2);
+  }
+
+  [data-theme='dark'] .custom-cursor {
+    border-color: rgba(248, 113, 113, 0.66);
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.14), 0 0 10px rgba(239, 68, 68, 0.18);
+  }
+
+  .nav-progress span {
+    transition: none;
+    will-change: transform;
+  }
+
+  .cv-chatbot {
+    max-width: calc(100vw - 2rem);
+  }
+
+  .cv-chatbot-panel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(1.75rem, 8vw, 2.3rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-chatbot {
+    left: max(0.75rem, env(safe-area-inset-left));
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .back-to-top {
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .cv-chatbot-toggle {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+    padding: 0 0.9rem;
+  }
+
+  .cv-chatbot-panel {
+    width: 100%;
+    height: min(76dvh, 620px);
+    max-height: calc(100dvh - 7rem);
+    min-height: 330px;
+    border-radius: 1rem;
+  }
+
+  .cv-chatbot-header {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .cv-chatbot-header h4 {
+    font-size: 0.94rem;
+  }
+
+  .cv-chatbot-messages {
+    padding: 0.7rem;
+    gap: 0.55rem;
+  }
+
+  .cv-chatbot-message .bubble {
+    max-width: 96%;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    padding: 9px 11px;
+  }
+
+  .cv-chatbot-quick-questions {
+    padding: 0.5rem 0.7rem;
+    gap: 0.35rem;
+  }
+
+  .cv-chatbot-quick-questions button {
+    font-size: 0.7rem;
+    padding: 0.33rem 0.55rem;
+  }
+
+  .cv-chatbot-input {
+    padding: 0.55rem;
+  }
+
+  .cv-chatbot-input input {
+    font-size: 16px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .cv-chatbot-input button {
+    width: 38px;
+    height: 38px;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-chatbot-panel {
+    height: min(78dvh, 580px);
+    max-height: calc(100dvh - 6.5rem);
+    min-height: 320px;
+  }
+}
+
 html,
 body,
 #root {

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 const iconById = {
   home: 'fas fa-home',
@@ -17,9 +17,10 @@ const iconById = {
 export default function Navbar({ links }) {
   const [active, setActive] = useState('home')
   const [scrolled, setScrolled] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const progressRef = useRef(null)
+  const rafRef = useRef(null)
 
   const mobileLinks = useMemo(
     () => [
@@ -47,30 +48,46 @@ export default function Navbar({ links }) {
   }, [menuOpen])
 
   useEffect(() => {
-    const onScroll = () => {
+    const updateOnScroll = () => {
       const scrollY = window.scrollY
       setScrolled(scrollY > 50)
 
       const scrollable = document.documentElement.scrollHeight - window.innerHeight
-      const progress = scrollable > 0 ? Math.min(100, (scrollY / scrollable) * 100) : 0
-      setScrollProgress(progress)
+      const progress = scrollable > 0 ? Math.min(1, scrollY / scrollable) : 0
+      if (progressRef.current) {
+        progressRef.current.style.transform = `scaleX(${progress})`
+      }
 
       let current = 'home'
+      const marker = scrollY + 200
       document.querySelectorAll('.section').forEach((section) => {
         const top = section.offsetTop
         const height = section.offsetHeight
-        const marker = window.pageYOffset + 200
         if (marker >= top && marker < top + height) {
           current = section.getAttribute('id') || current
         }
       })
 
-      setActive(current)
+      setActive((previous) => (previous === current ? previous : current))
+      rafRef.current = null
     }
 
-    onScroll()
+    const onScroll = () => {
+      if (rafRef.current !== null) return
+      rafRef.current = window.requestAnimationFrame(updateOnScroll)
+    }
+
+    updateOnScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (rafRef.current !== null) {
+        window.cancelAnimationFrame(rafRef.current)
+      }
+    }
   }, [links])
 
   useEffect(() => {
@@ -139,7 +156,7 @@ export default function Navbar({ links }) {
           </div>
         </div>
         <div className="nav-progress" aria-hidden="true">
-          <span style={{ transform: `scaleX(${scrollProgress / 100})` }}></span>
+          <span ref={progressRef}></span>
         </div>
       </nav>
 

@@ -1,10 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 export default function Hero({ data }) {
   const [typedText, setTypedText] = useState('')
   const timeoutRef = useRef(null)
   const primaryAction = data.actions.find((action) => action.primary)
   const secondaryAction = data.actions.find((action) => !action.primary)
+  const longestTypeText = useMemo(() => {
+    const words = data.typewriterTexts || []
+    return words.reduce((longest, current) => (current.length > longest.length ? current : longest), '')
+  }, [data.typewriterTexts])
+  const typewriterWidthCh = useMemo(() => {
+    const longestLength = longestTypeText.length || 24
+    return Math.min(Math.max(longestLength + 2, 24), 42)
+  }, [longestTypeText])
 
   useEffect(() => {
     const words = data.typewriterTexts || []
@@ -101,9 +109,23 @@ export default function Hero({ data }) {
                 <span className="gradient-text">{data.lastName}</span>
               </h1>
 
-              <div className="hero-subtitle">
-                <span className="typewriter">{typedText}</span>
-                <span className="cursor">|</span>
+              <div className="hero-subtitle !items-start md:!items-center">
+                <span
+                  className="relative inline-grid max-w-full text-[1.5rem] font-semibold leading-tight text-[var(--primary-600)] md:min-w-[var(--typewriter-width)]"
+                  style={{ '--typewriter-width': `${typewriterWidthCh}ch` }}
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  <span className="invisible hidden whitespace-nowrap md:inline" style={{ minWidth: `${typewriterWidthCh}ch` }}>
+                    {longestTypeText || ' '}
+                  </span>
+                  <span className="inline-flex items-center whitespace-nowrap max-md:whitespace-normal md:absolute md:inset-0">
+                    <span className="typewriter !min-w-0 whitespace-nowrap max-md:whitespace-normal">{typedText || '\u00A0'}</span>
+                    <span className="ml-1 animate-cursor-blink text-[var(--primary-600)]" aria-hidden="true">
+                      |
+                    </span>
+                  </span>
+                </span>
               </div>
 
               <p className="hero-description">{data.description}</p>
@@ -118,26 +140,32 @@ export default function Hero({ data }) {
               </div>
 
               <div className="hero-actions">
-                <div className="cv-action-group">
+                <div className="relative inline-flex w-full justify-center md:w-auto md:justify-start">
                   <a
                     href={primaryAction?.href}
-                    className="btn btn-primary"
+                    className="btn btn-primary min-w-[190px] justify-center pr-14 max-md:w-full max-md:max-w-[260px]"
                     target={primaryAction?.external ? '_blank' : undefined}
                     rel={primaryAction?.external ? 'noopener noreferrer' : undefined}
                   >
                     <span>{primaryAction?.label || 'View CV'}</span>
-                    <i className={primaryAction?.iconClass || 'fas fa-file-lines'}></i>
                   </a>
+
                   {data.helperDownload ? (
-                    <a
-                      href={data.helperDownload.href}
-                      className="btn btn-icon cv-download-btn"
-                      download={data.helperDownload.download ? 'Sushan_Adhikari_CV.pdf' : undefined}
-                      aria-label={data.helperDownload.label}
-                      title={data.helperDownload.label}
-                    >
-                      <i className={data.helperDownload.iconClass}></i>
-                    </a>
+                    <>
+                      <span
+                        className="pointer-events-none absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-[var(--primary-100)] bg-[var(--surface)] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] dark:border-[rgba(14,165,233,0.35)] dark:bg-[rgba(15,23,42,0.95)]"
+                        aria-hidden="true"
+                      ></span>
+                      <a
+                        href={data.helperDownload.href}
+                        className="absolute right-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--gradient-primary)] text-white shadow-md transition-all duration-300 hover:translate-y-[-55%] hover:bg-[var(--primary-700)] hover:shadow-lg dark:bg-[var(--primary-600)] dark:hover:bg-[var(--primary-500)]"
+                        download={data.helperDownload.download ? 'Sushan_Adhikari_CV.pdf' : undefined}
+                        aria-label={data.helperDownload.label}
+                        title={data.helperDownload.label}
+                      >
+                        <i className={data.helperDownload.iconClass}></i>
+                      </a>
+                    </>
                   ) : null}
                 </div>
 

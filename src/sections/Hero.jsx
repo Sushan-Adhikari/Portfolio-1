@@ -105,7 +105,7 @@ export default function Hero({ data }) {
               </div>
 
               <h1 className="hero-title">
-                <span className="name-first">{data.firstName}</span>
+                <span className="name-first hero-first-name">{data.firstName}</span>
                 <span className="gradient-text">{data.lastName}</span>
               </h1>
 
@@ -140,25 +140,28 @@ export default function Hero({ data }) {
               </div>
 
               <div className="hero-actions">
-                <div className="relative inline-flex w-full max-w-[260px] justify-center md:w-auto md:max-w-none md:justify-start">
+                <div className="cv-main-cta relative inline-flex w-full max-w-[260px] justify-center md:w-auto md:max-w-none md:justify-start">
                   <a
                     href={primaryAction?.href}
                     className="btn btn-primary min-w-[190px] w-full justify-center pr-14 md:w-auto"
                     target={primaryAction?.external ? '_blank' : undefined}
                     rel={primaryAction?.external ? 'noopener noreferrer' : undefined}
+                    title="View CV"
                   >
                     <span>{primaryAction?.label || 'View CV'}</span>
                   </a>
 
                   {data.helperDownload ? (
                     <>
+                      <span className="cv-download-divider" aria-hidden="true"></span>
                       <span
-                        className="pointer-events-none absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-[var(--primary-100)] bg-[var(--surface)] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] dark:border-[rgba(14,165,233,0.35)] dark:bg-[rgba(15,23,42,0.95)]"
+                        className="cv-download-shell pointer-events-none absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full"
                         aria-hidden="true"
                       ></span>
+                      <span className="cv-download-ring pointer-events-none absolute right-[5px] top-1/2 h-[46px] w-[46px] -translate-y-1/2 rounded-full border-2" aria-hidden="true"></span>
                       <a
                         href={data.helperDownload.href}
-                        className="absolute right-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--gradient-primary)] text-white shadow-md transition-all duration-300 hover:translate-y-[-55%] hover:bg-[var(--primary-700)] hover:shadow-lg dark:bg-[var(--primary-600)] dark:hover:bg-[var(--primary-500)]"
+                        className="cv-download-button absolute right-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-white shadow-md transition-all duration-300 hover:translate-y-[-55%] hover:shadow-lg"
                         download={data.helperDownload.download ? 'Sushan_Adhikari_CV.pdf' : undefined}
                         aria-label={data.helperDownload.label}
                         title={data.helperDownload.label}

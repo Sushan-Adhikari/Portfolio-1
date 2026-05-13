@@ -53,9 +53,6 @@ export default function Navbar({ links }) {
       }
     }
 
-    if (useSystemTheme) {
-      setTheme(mediaQuery.matches ? 'dark' : 'light')
-    }
     mediaQuery.addEventListener('change', syncTheme)
     return () => mediaQuery.removeEventListener('change', syncTheme)
   }, [useSystemTheme])

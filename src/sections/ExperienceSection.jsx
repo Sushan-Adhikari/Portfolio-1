@@ -1,16 +1,22 @@
+import Reveal from '../components/Reveal'
+
 export default function ExperienceSection({ data }) {
   return (
     <section className="section timeline-section" id="experience">
       <div className="container">
-        <div className="section-header">
+        <Reveal className="section-header">
           <h2 className="section-title">
             Experience and <span className="gradient-text">Education</span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="timeline">
-          {data.timeline.map((item) => (
-            <div className="timeline-item" key={`${item.date}-${item.role}`}>
+          {data.timeline.map((item, index) => (
+            <Reveal
+              className="timeline-item"
+              key={`${item.date}-${item.role}`}
+              style={{ transitionDelay: `${Math.min(index * 90, 420)}ms` }}
+            >
               <div className="timeline-icon">
                 <i className={item.iconClass}></i>
               </div>
@@ -44,7 +50,7 @@ export default function ExperienceSection({ data }) {
                   </div>
                 ) : null}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

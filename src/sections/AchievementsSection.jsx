@@ -1,53 +1,62 @@
+import Reveal from '../components/Reveal'
+
 export default function AchievementsSection({ data }) {
   const rollingFeatured = [...data.featured, ...data.featured, ...data.featured]
 
   return (
     <section className="section achievements-section" id="achievements">
       <div className="container">
-        <div className="section-header">
+        <Reveal className="section-header">
           <h2 className="section-title">
             Awards and <span className="gradient-text">Achievements</span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="achievements-grid">
-          {data.items.map((achievement) => (
-            <div className="achievement-card tilt-card" data-tilt-strength="4.5" key={achievement.title}>
-              <div className="achievement-icon">
-                <i className={achievement.iconClass}></i>
+          {data.items.map((achievement, index) => (
+            <Reveal className="h-full" key={achievement.title} style={{ transitionDelay: `${Math.min(index * 80, 320)}ms` }}>
+              <div className="achievement-card tilt-card" data-tilt-strength="2.6">
+                <div className="achievement-icon">
+                  <i className={achievement.iconClass}></i>
+                </div>
+                <div className="achievement-content">
+                  <h4>{achievement.title}</h4>
+                  <p className="achievement-event">{achievement.event}</p>
+                  <p className="achievement-description">{achievement.description}</p>
+                  {achievement.links?.length ? (
+                    <div className="achievement-links">
+                      {achievement.links.map((link) => (
+                        <a
+                          href={link.href}
+                          className="achievement-link"
+                          target={link.external === false ? undefined : '_blank'}
+                          rel={link.external === false ? undefined : 'noopener noreferrer'}
+                          key={`${achievement.title}-${link.label}`}
+                        >
+                          {link.iconClass ? <i className={link.iconClass}></i> : null}
+                          <span>{link.label}</span>
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               </div>
-              <div className="achievement-content">
-                <h4>{achievement.title}</h4>
-                <p className="achievement-event">{achievement.event}</p>
-                <p className="achievement-description">{achievement.description}</p>
-                {achievement.links?.length ? (
-                  <div className="achievement-links">
-                    {achievement.links.map((link) => (
-                      <a
-                        href={link.href}
-                        className="achievement-link"
-                        target={link.external === false ? undefined : '_blank'}
-                        rel={link.external === false ? undefined : 'noopener noreferrer'}
-                        key={`${achievement.title}-${link.label}`}
-                      >
-                        {link.iconClass ? <i className={link.iconClass}></i> : null}
-                        <span>{link.label}</span>
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="featured-section">
-          <h3 className="featured-title">Featured In</h3>
+        <Reveal className="featured-section" style={{ transitionDelay: '120ms' }}>
+          <h3 className="featured-title">
+            Featured In
+            <span className="featured-swipe-hint" aria-hidden="true">
+              Swipe to browse
+            </span>
+          </h3>
           <div
-            className="featured-rolling-showcase group/featured relative h-[130px] overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] motion-reduce:h-auto max-[768px]:h-[112px] max-[480px]:h-[100px]"
+            className="featured-rolling-showcase group/featured relative isolate flex h-[130px] items-center overflow-hidden rounded-[2rem] border-0 bg-transparent motion-reduce:h-auto max-[768px]:h-[112px] max-[480px]:h-[100px]"
             aria-label="Featured organizations"
           >
-            <div className="featured-rolling-track absolute left-0 top-1/2 inline-flex w-max -translate-y-1/2 items-center gap-5 px-6 motion-safe:animate-featured-roll group-hover/featured:[animation-play-state:paused] max-[480px]:gap-3 motion-reduce:static motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:translate-y-0 motion-reduce:px-3 motion-reduce:py-3 motion-reduce:[animation:none]">
+            <div className="featured-rolling-track inline-flex w-max items-center gap-5 px-6 motion-safe:animate-featured-roll max-[480px]:gap-3 motion-reduce:static motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:px-3 motion-reduce:py-3 motion-reduce:[animation:none]">
               {rollingFeatured.map((item, index) => (
                 <div
                   className="featured-rolling-card inline-flex h-[82px] min-w-[210px] items-center gap-3 rounded-[1.5rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] px-5 shadow-sm transition-[transform,box-shadow,border-color] duration-300 [transform:perspective(900px)_rotateX(9deg)] hover:[transform:perspective(900px)_rotateX(1deg)_translateY(-2px)] hover:border-[var(--primary-300)] hover:shadow-lg dark:bg-[linear-gradient(180deg,rgba(30,41,59,0.95),rgba(17,24,39,0.92))] max-[768px]:h-[68px] max-[768px]:min-w-[180px] max-[768px]:px-4 max-[480px]:h-[62px] max-[480px]:min-w-[162px] max-[480px]:px-3"
@@ -66,16 +75,8 @@ export default function AchievementsSection({ data }) {
                 </div>
               ))}
             </div>
-            <div
-              className="featured-rolling-fade left pointer-events-none absolute inset-y-0 left-0 z-[2] w-[78px] bg-gradient-to-r from-[var(--surface)] to-transparent motion-reduce:hidden max-[480px]:w-[44px]"
-              aria-hidden="true"
-            ></div>
-            <div
-              className="featured-rolling-fade right pointer-events-none absolute inset-y-0 right-0 z-[2] w-[78px] bg-gradient-to-l from-[var(--surface)] to-transparent motion-reduce:hidden max-[480px]:w-[44px]"
-              aria-hidden="true"
-            ></div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

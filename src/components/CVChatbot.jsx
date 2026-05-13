@@ -55,11 +55,13 @@ const STOP_WORDS = new Set([
 
 const GREETING_REGEX = /(hi|hello|hey|namaste|wassup|what\s*up|sup|yo|hola)\b/
 const APPRECIATION_REGEX = /(thanks|thank you|awesome|great|nice|cool|perfect|appreciate)/
+const CASUAL_OK_REGEX = /^(ok|okay|alright|fine|cool|nice|good|great|hmm|hmmm|got it|understood|there)$/i
+const NEGATIVE_FEEDBACK_REGEX = /\b(bad|not good|terrible|wrong|issue|problem)\b/i
 const PROFILE_QUERY_REGEX =
   /(tell me about sushan|tell me more about him|tell me about him|who is sushan|who is he|about sushan|about him)/
 const STARTUP_QUERY_REGEX = /(startup|startups|company|companies|cofound|founded|founder|started a company)/
 const CONTACT_QUERY_REGEX = /(contact|email|phone|location|where is he|where is sushan|where does he live|reach him)/
-const NAVIGATION_REGEX = /(take me to|go to|open|navigate|scroll to|jump to|show me)/
+const NAVIGATION_REGEX = /\b(take|go|open|navigate|scroll|jump|show)\b/
 const EMAIL_ONLY_REGEX = /(only email|just email|email only|email address|e mail|mail id|gmail)/
 const PHONE_ONLY_REGEX = /(only phone|just phone|phone only|phone number|phone num|phone numner|mobile number|contact number|call him)/
 const LOCATION_ONLY_REGEX = /(only location|just location|where does he live|where is he|where is sushan|location only)/
@@ -329,12 +331,16 @@ function buildKnowledgeBase() {
   })
 
   researchData.papers.forEach((paper, index) => {
+    const paperSummary = paper.descriptionLines?.length
+      ? paper.descriptionLines.join(' ')
+      : paper.description || ''
+
     docs.push({
       id: `research-${index}`,
       category: 'research',
       source: 'CV · Research & Publications',
       title: paper.title,
-      summary: `${paper.venue} · ${paper.date}. ${paper.description}`,
+      summary: `${paper.venue} · ${paper.date}. ${paperSummary}`,
       keywords: ['research', 'publication', 'paper', 'scholar', ...paper.tags],
       order: index,
     })
@@ -521,7 +527,7 @@ function buildStrictAnswer(question, knowledgeBase) {
   if (GREETING_REGEX.test(normalizedQuestion)) {
     return {
       answer:
-        "Hi! I am Sushan's CV Assistant. I answer only from his CV and portfolio. Ask me about research, experience, skills, projects, startups, certifications, or contact info.",
+        "Hey, I’m Sushan’s CV Assistant. I can help with his research, experience, projects, skills, certifications, and contact details.",
       citations: [],
     }
   }
@@ -529,15 +535,28 @@ function buildStrictAnswer(question, knowledgeBase) {
   if (SELF_QUERY_REGEX.test(normalizedQuestion)) {
     return {
       answer:
-        "I am Sushan's CV Assistant. I answer only from his CV and portfolio. You can ask about experience, projects, research, startups, certifications, achievements, and contact info.",
+        "I’m here to answer questions from Sushan’s CV and portfolio. You can ask about his experience, research, projects, achievements, certifications, or contact info.",
       citations: [],
     }
   }
 
   if (APPRECIATION_REGEX.test(normalizedQuestion) && tokens.length <= 2) {
     return {
-      answer:
-        'Happy to help. You can ask things like: "only email", "phone number", "how long did he work at KyraWorks?", or "latest experience".',
+      answer: 'Glad that helped. If you want, ask me anything specific and I’ll keep it concise.',
+      citations: [],
+    }
+  }
+
+  if (CASUAL_OK_REGEX.test(question.trim())) {
+    return {
+      answer: 'Nice. If you want, I can give a quick summary of research, experience, or startups next.',
+      citations: [],
+    }
+  }
+
+  if (NEGATIVE_FEEDBACK_REGEX.test(question.trim()) && tokens.length <= 4) {
+    return {
+      answer: 'Thanks for the direct feedback. Tell me what to fix, and I’ll answer in a cleaner way.',
       citations: [],
     }
   }
@@ -671,7 +690,7 @@ function buildStrictAnswer(question, knowledgeBase) {
   if (containsAny(normalizedQuestion, ['download cv', 'view cv', 'resume', 'curriculum vitae'])) {
     return {
       answer:
-        "You can access Sushan's CV at /Sushan_Adhikari_CV.pdf. Use View CV to open it in-browser or Download CV to save it.",
+        "You can access Sushan's CV at /Sushan_Adhikari_CV.pdf. In the hero section, the main button opens it and the round icon downloads it directly.",
       citations: ['Portfolio · CV File'],
     }
   }
@@ -772,7 +791,7 @@ export default function CVChatbot() {
     {
       role: 'assistant',
       content:
-        "I am Sushan's CV Assistant. I answer only from his CV and portfolio. Ask me about research, experience, skills, projects, startups, or contact details.",
+        "Hi, I’m Sushan’s CV Assistant. Ask me about his research, experience, projects, skills, certifications, or contact details.",
       citations: [],
     },
   ])

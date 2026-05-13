@@ -31,12 +31,12 @@ export default {
       },
       keyframes: {
         techRoll: {
-          from: { transform: 'translate3d(0, -50%, 0)' },
-          to: { transform: 'translate3d(-50%, -50%, 0)' },
+          from: { transform: 'translate3d(0, 0, 0)' },
+          to: { transform: 'translate3d(-50%, 0, 0)' },
         },
         featuredRoll: {
-          from: { transform: 'translate3d(0, -50%, 0)' },
-          to: { transform: 'translate3d(-50%, -50%, 0)' },
+          from: { transform: 'translate3d(0, 0, 0)' },
+          to: { transform: 'translate3d(-50%, 0, 0)' },
         },
         cursorBlink: {
           '0%, 50%': { opacity: '1' },

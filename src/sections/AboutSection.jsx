@@ -1,3 +1,5 @@
+import Reveal from '../components/Reveal'
+
 export default function AboutSection({ data }) {
   const logoTech = (data.techShowcase || []).filter((tech) => tech.logo)
   const rollingTech = [...logoTech, ...logoTech, ...logoTech]
@@ -5,13 +7,13 @@ export default function AboutSection({ data }) {
   return (
     <section className="section about-section" id="about">
       <div className="container">
-        <div className="section-header">
+        <Reveal className="section-header">
           <h2 className="section-title">
             About <span className="gradient-text">Me</span>
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="about-content">
+        <Reveal className="about-content">
           <div className="about-text">
             <h3>{data.heading}</h3>
             {data.paragraphs.map((paragraph) => (
@@ -19,28 +21,37 @@ export default function AboutSection({ data }) {
             ))}
           </div>
           <div className="about-highlights">
-            {data.highlights.map((item) => (
-              <div className="highlight-item" key={item.title}>
+            {data.highlights.map((item, index) => (
+              <Reveal
+                className="highlight-item"
+                key={item.title}
+                style={{ transitionDelay: `${Math.min(index * 80, 240)}ms` }}
+              >
                 <i className={item.iconClass}></i>
                 <div>
                   <h4>{item.title}</h4>
                   <p>{item.detail}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="about-skills-block">
+        <Reveal className="about-skills-block" style={{ transitionDelay: '120ms' }}>
           <div className="skills-section">
-            <h3>{data.skillsTitle}</h3>
+            <h3>
+              {data.skillsTitle}
+              <span className="featured-swipe-hint" aria-hidden="true">
+                Swipe to browse
+              </span>
+            </h3>
 
             {data.techShowcase?.length ? (
               <div
-                className="tech-rolling-showcase group/tech relative mb-0 h-[146px] overflow-hidden rounded-[2rem] border-0 bg-transparent max-[768px]:h-[122px] max-[480px]:mb-6 max-[480px]:h-[118px] motion-reduce:h-auto"
+                className="tech-rolling-showcase group/tech relative isolate mb-0 flex h-[146px] items-center overflow-hidden rounded-[2rem] border-0 bg-transparent max-[768px]:h-[122px] max-[480px]:mb-6 max-[480px]:h-[118px] motion-reduce:h-auto"
                 aria-label="Core technology stack"
               >
-                <div className="tech-rolling-track absolute left-0 top-1/2 inline-flex w-max -translate-y-1/2 gap-4 px-6 motion-safe:animate-tech-roll group-hover/tech:[animation-play-state:paused] max-[480px]:gap-2 motion-reduce:static motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:translate-y-0 motion-reduce:px-3 motion-reduce:py-3 motion-reduce:[animation:none]">
+                <div className="tech-rolling-track inline-flex w-max items-center gap-4 px-6 motion-safe:animate-tech-roll max-[480px]:gap-2 motion-reduce:static motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:px-3 motion-reduce:py-3 motion-reduce:[animation:none]">
                   {rollingTech.map((tech, index) => (
                     <div
                       className="tech-rolling-chip inline-flex h-[84px] items-center gap-3 whitespace-nowrap rounded-full border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,253,0.96))] px-5 shadow-sm transition-[transform,box-shadow,border-color] duration-300 [transform:perspective(920px)_rotateX(11deg)] hover:[transform:perspective(920px)_rotateX(2deg)_translateY(-3px)] hover:border-[var(--primary-300)] hover:shadow-lg dark:bg-[linear-gradient(180deg,rgba(30,41,59,0.97),rgba(17,24,39,0.94))] max-[768px]:h-[72px] max-[768px]:px-3 max-[480px]:h-[68px] max-[480px]:px-4"
@@ -69,7 +80,7 @@ export default function AboutSection({ data }) {
               </div>
             ) : null}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

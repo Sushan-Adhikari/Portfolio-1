@@ -8,7 +8,7 @@ export const navLinks = [
 ]
 
 export const heroData = {
-  greeting: "Hello, I'm",
+  greeting: 'Hello, I am',
   firstName: 'Sushan',
   lastName: 'Adhikari',
   typewriterTexts: [
@@ -230,7 +230,7 @@ export const projectData = {
     {
       title: 'Pension Management Platform (Nepal)',
       description:
-        'Contributed to Nepal’s national pension platform (300k+ users) with anti-spoofing liveness detection integration. Public rollout and coverage available in official launch links.',
+        'Contributed to Nepal’s national pension platform (300k+ users) by integrating anti-spoofing liveness checks and deployment-ready backend support.',
       tech: ['Spring Boot', 'PostgreSQL', 'AWS Rekognition'],
       image: '/img/sushan-logo-512.webp',
       alt: 'Pension management platform logo',
@@ -276,7 +276,7 @@ export const projectData = {
 
 export const researchData = {
   title: 'Research Publications',
-  intro: 'Every paper includes direct publication, code, and proof links so you can verify everything in one click.',
+  intro: 'Selected publications and ongoing work.',
   scholarLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
   papers: [
     {

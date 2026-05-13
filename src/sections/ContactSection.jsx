@@ -9,21 +9,28 @@ const MIN_FILL_TIME_MS = 3500
 const BOT_COOLDOWN_MS = 2 * 60 * 1000
 
 function sanitizeText(value, maxLen = 200) {
-  return (value || '')
-    .replace(/[\u0000-\u001F\u007F]/g, ' ')
-    .replace(/[<>]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, maxLen)
+  const raw = String(value || '')
+  let stripped = ''
+
+  for (const char of raw) {
+    const code = char.charCodeAt(0)
+    stripped += code < 32 || code === 127 ? ' ' : char
+  }
+
+  return stripped.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, maxLen)
 }
 
 function sanitizeMessage(value, maxLen = 1200) {
-  return (value || '')
-    .replace(/[<>]/g, '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\u0000/g, '')
-    .trim()
-    .slice(0, maxLen)
+  const normalized = String(value || '').replace(/[<>]/g, '').replace(/\r\n/g, '\n')
+  let withoutNull = ''
+
+  for (const char of normalized) {
+    if (char !== '\u0000') {
+      withoutNull += char
+    }
+  }
+
+  return withoutNull.trim().slice(0, maxLen)
 }
 
 function isValidEmail(value) {
@@ -63,7 +70,7 @@ export default function ContactSection({ data }) {
   const [cooldownSeconds, setCooldownSeconds] = useState(0)
   const [humanInteracted, setHumanInteracted] = useState(false)
   const formRef = useRef(null)
-  const formStartedAtRef = useRef(Date.now())
+  const formStartedAtRef = useRef(0)
 
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_5aezc4f'
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_cedjp6g'
@@ -72,15 +79,24 @@ export default function ContactSection({ data }) {
   const isSubmitBlocked = status === 'loading' || isCoolingDown
 
   useEffect(() => {
+    formStartedAtRef.current = Date.now()
+  }, [])
+
+  useEffect(() => {
     const now = Date.now()
     const recentSubmissions = readRateState().filter((stamp) => now - stamp <= RATE_LIMIT_WINDOW_MS)
     const lastSubmission = recentSubmissions[recentSubmissions.length - 1]
-    if (lastSubmission && now - lastSubmission < RATE_LIMIT_COOLDOWN_MS) {
-      const remaining = RATE_LIMIT_COOLDOWN_MS - (now - lastSubmission)
+
+    if (!(lastSubmission && now - lastSubmission < RATE_LIMIT_COOLDOWN_MS)) return undefined
+
+    const remaining = RATE_LIMIT_COOLDOWN_MS - (now - lastSubmission)
+    const syncTimerId = window.setTimeout(() => {
       setCooldownUntil(now + remaining)
       setStatus('info')
       setMessage(`Please wait ${formatWaitTime(remaining)} before sending another message.`)
-    }
+    }, 0)
+
+    return () => window.clearTimeout(syncTimerId)
   }, [])
 
   useEffect(() => {
@@ -97,35 +113,31 @@ export default function ContactSection({ data }) {
   }, [])
 
   useEffect(() => {
-    if (!cooldownUntil) {
-      setCooldownSeconds(0)
-      return
-    }
+    if (!cooldownUntil) return undefined
 
     const update = () => {
       const msLeft = Math.max(0, cooldownUntil - Date.now())
       setCooldownSeconds(Math.ceil(msLeft / 1000))
       if (msLeft <= 0) {
         setCooldownUntil(0)
+
+        setStatus((prevStatus) => (prevStatus === 'loading' ? prevStatus : 'idle'))
+        setMessage((prevMessage) => {
+          const normalized = (prevMessage || '').toLowerCase()
+          const isCooldownMessage =
+            normalized.startsWith('please wait') || normalized.startsWith('too many submissions')
+          return isCooldownMessage ? '' : prevMessage
+        })
       }
     }
 
-    update()
+    const kickTimerId = window.setTimeout(update, 0)
     const timerId = window.setInterval(update, 300)
-    return () => window.clearInterval(timerId)
-  }, [cooldownUntil])
-
-  useEffect(() => {
-    if (cooldownUntil || status === 'loading') return
-    const normalized = (message || '').toLowerCase()
-    const isCooldownMessage =
-      normalized.startsWith('please wait') || normalized.startsWith('too many submissions')
-
-    if (isCooldownMessage) {
-      setStatus('idle')
-      setMessage('')
+    return () => {
+      window.clearTimeout(kickTimerId)
+      window.clearInterval(timerId)
     }
-  }, [cooldownUntil, status, message])
+  }, [cooldownUntil])
 
   const activateCooldown = (durationMs, nextStatus, nextMessage) => {
     if (durationMs > 0) {

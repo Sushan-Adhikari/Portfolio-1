@@ -815,25 +815,23 @@ export default function CVChatbot() {
   }
 
   return (
-    <div className="cv-chatbot">
-      <button
-        className="cv-chatbot-toggle"
-        onClick={() => setOpen((value) => !value)}
-        aria-label="Toggle CV chatbot"
-      >
-        <i className="fas fa-comment-dots"></i>
-        <span>CV Assistant</span>
-      </button>
+    <div className={`cv-chatbot${open ? ' open' : ''}`}>
+      {!open ? (
+        <button className="cv-chatbot-toggle" onClick={() => setOpen(true)} aria-label="Open CV assistant">
+          <i className="fas fa-comment-dots"></i>
+          <span>CV Assistant</span>
+        </button>
+      ) : null}
 
-        <div className={`cv-chatbot-panel${open ? ' open' : ''}`}>
-          <div className="cv-chatbot-header">
-            <div>
-              <h4>CV Assistant</h4>
-            </div>
-            <button onClick={() => setOpen(false)} aria-label="Close chatbot">
-              <span aria-hidden="true">×</span>
-            </button>
+      <div className={`cv-chatbot-panel${open ? ' open' : ''}`}>
+        <div className="cv-chatbot-header">
+          <div>
+            <h4>CV Assistant</h4>
           </div>
+          <button onClick={() => setOpen(false)} aria-label="Close chatbot">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
 
         <div className="cv-chatbot-messages">
           {messages.map((message, index) => (

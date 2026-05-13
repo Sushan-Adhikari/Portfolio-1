@@ -170,7 +170,10 @@ export default function Hero({ data }) {
                 </div>
 
                 {secondaryAction ? (
-                  <a href={secondaryAction.href} className="btn btn-outline">
+                  <a
+                    href={secondaryAction.href}
+                    className="btn btn-outline w-full max-w-[260px] justify-center md:w-auto md:max-w-none"
+                  >
                     <span>{secondaryAction.label}</span>
                     <i className={secondaryAction.iconClass}></i>
                   </a>

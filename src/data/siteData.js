@@ -91,7 +91,7 @@ export const aboutData = {
       detail: 'ICAIL / KUSET Publications, NASA Space Apps, Hult Prize',
     },
   ],
-  skillsTitle: 'Technical Stack',
+  skillsTitle: 'Stack Used Till Date',
   skills: [
     {
       title: 'AI and Machine Learning',

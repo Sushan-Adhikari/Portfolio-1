@@ -19,6 +19,22 @@ export default function CertificationsSection({ data }) {
                 <p className="cert-issuer">{certification.issuer}</p>
                 <p className="cert-date">{certification.date}</p>
                 <p className="cert-description">{certification.description}</p>
+                {certification.links?.length ? (
+                  <div className="cert-links">
+                    {certification.links.map((link) => (
+                      <a
+                        href={link.href}
+                        className="cert-link"
+                        target={link.external === false ? undefined : '_blank'}
+                        rel={link.external === false ? undefined : 'noopener noreferrer'}
+                        key={`${certification.title}-${link.label}`}
+                      >
+                        {link.iconClass ? <i className={link.iconClass}></i> : null}
+                        <span>{link.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           ))}

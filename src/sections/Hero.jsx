@@ -140,10 +140,10 @@ export default function Hero({ data }) {
               </div>
 
               <div className="hero-actions">
-                <div className="relative inline-flex w-full justify-center md:w-auto md:justify-start">
+                <div className="relative inline-flex w-full max-w-[260px] justify-center md:w-auto md:max-w-none md:justify-start">
                   <a
                     href={primaryAction?.href}
-                    className="btn btn-primary min-w-[190px] justify-center pr-14 max-md:w-full max-md:max-w-[260px]"
+                    className="btn btn-primary min-w-[190px] w-full justify-center pr-14 md:w-auto"
                     target={primaryAction?.external ? '_blank' : undefined}
                     rel={primaryAction?.external ? 'noopener noreferrer' : undefined}
                   >

@@ -25,7 +25,13 @@ export default function ResearchSection({ data }) {
                   <span className="conference">{paper.venue}</span>
                   <span className="year">{paper.date}</span>
                 </p>
-                <p className="research-description">{paper.description}</p>
+                <ul className="research-description-list">
+                  {(paper.descriptionLines || [paper.description]).map((line) => (
+                    <li className="research-description" key={`${paper.title}-${line}`}>
+                      {line}
+                    </li>
+                  ))}
+                </ul>
                 <div className="research-tags">
                   {paper.tags.map((tag) => (
                     <span className="research-tag" key={tag}>
@@ -34,15 +40,19 @@ export default function ResearchSection({ data }) {
                   ))}
                 </div>
                 <div className="research-actions">
-                  <a href={paper.paperLink} className="research-btn" title="Read Paper" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-file-pdf"></i>
-                  </a>
-                  <a href={paper.extraLink} className="research-btn" title={paper.extraLabel} target="_blank" rel="noopener noreferrer">
-                    <i className={paper.extraIconClass}></i>
-                  </a>
-                  <a href={paper.paperLink} className="research-btn" title="Citation" target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-quote-right"></i>
-                  </a>
+                  {(paper.links || []).map((link) => (
+                    <a
+                      href={link.href}
+                      className="research-btn research-btn-text"
+                      title={link.label}
+                      target={link.external === false ? undefined : '_blank'}
+                      rel={link.external === false ? undefined : 'noopener noreferrer'}
+                      key={`${paper.title}-${link.label}`}
+                    >
+                      {link.iconClass ? <i className={link.iconClass}></i> : null}
+                      <span>{link.label}</span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

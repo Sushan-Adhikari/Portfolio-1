@@ -14,11 +14,17 @@ const iconById = {
   contact: 'fas fa-envelope-open',
 }
 
+function getSystemTheme() {
+  if (typeof window === 'undefined') return 'light'
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 export default function Navbar({ links }) {
   const [active, setActive] = useState('home')
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const [theme, setTheme] = useState(getSystemTheme)
+  const [useSystemTheme, setUseSystemTheme] = useState(true)
   const progressRef = useRef(null)
   const rafRef = useRef(null)
 
@@ -37,8 +43,22 @@ export default function Navbar({ links }) {
   useEffect(() => {
     document.body.setAttribute('data-theme', theme)
     document.body.classList.toggle('light-mode', theme === 'light')
-    localStorage.setItem('theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const syncTheme = (event) => {
+      if (useSystemTheme) {
+        setTheme(event.matches ? 'dark' : 'light')
+      }
+    }
+
+    if (useSystemTheme) {
+      setTheme(mediaQuery.matches ? 'dark' : 'light')
+    }
+    mediaQuery.addEventListener('change', syncTheme)
+    return () => mediaQuery.removeEventListener('change', syncTheme)
+  }, [useSystemTheme])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -141,7 +161,14 @@ export default function Navbar({ links }) {
           </div>
 
           <div className="nav-actions">
-            <button className="theme-toggle" aria-label="Toggle theme" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+            <button
+              className="theme-toggle"
+              aria-label="Toggle theme"
+              onClick={() => {
+                setUseSystemTheme(false)
+                setTheme(theme === 'light' ? 'dark' : 'light')
+              }}
+            >
               <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
             </button>
             <button

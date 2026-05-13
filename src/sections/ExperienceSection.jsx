@@ -17,8 +17,32 @@ export default function ExperienceSection({ data }) {
               <div className="timeline-content">
                 <div className="timeline-date">{item.date}</div>
                 <h3>{item.role}</h3>
-                <h4>{item.org}</h4>
+                <h4>
+                  {item.orgLink ? (
+                    <a href={item.orgLink} target="_blank" rel="noopener noreferrer" className="timeline-org-link">
+                      {item.org}
+                    </a>
+                  ) : (
+                    item.org
+                  )}
+                </h4>
                 <p>{item.summary}</p>
+                {item.links?.length ? (
+                  <div className="timeline-links">
+                    {item.links.map((link) => (
+                      <a
+                        href={link.href}
+                        target={link.external === false ? undefined : '_blank'}
+                        rel={link.external === false ? undefined : 'noopener noreferrer'}
+                        className="timeline-link"
+                        key={`${item.role}-${link.label}`}
+                      >
+                        {link.iconClass ? <i className={link.iconClass}></i> : null}
+                        <span>{link.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           ))}

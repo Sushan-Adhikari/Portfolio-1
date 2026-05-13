@@ -20,6 +20,22 @@ export default function AchievementsSection({ data }) {
                 <h4>{achievement.title}</h4>
                 <p className="achievement-event">{achievement.event}</p>
                 <p className="achievement-description">{achievement.description}</p>
+                {achievement.links?.length ? (
+                  <div className="achievement-links">
+                    {achievement.links.map((link) => (
+                      <a
+                        href={link.href}
+                        className="achievement-link"
+                        target={link.external === false ? undefined : '_blank'}
+                        rel={link.external === false ? undefined : 'noopener noreferrer'}
+                        key={`${achievement.title}-${link.label}`}
+                      >
+                        {link.iconClass ? <i className={link.iconClass}></i> : null}
+                        <span>{link.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           ))}

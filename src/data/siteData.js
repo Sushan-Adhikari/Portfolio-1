@@ -68,17 +68,17 @@ export const heroData = {
 
 export const aboutData = {
   title: 'About Me',
-  heading: 'Building the Future with AI and Data',
+  heading: 'From Research to Production AI Systems',
   paragraphs: [
-    'I am a Computer Engineering student at Kathmandu University, with an exchange semester at IIT Palakkad. My passion lies in creating intelligent systems that make a real-world impact.',
-    'As a co-founder and builder, I have developed AI-powered solutions and production systems used by real users. My work has also been recognized through major competitions and research publications.',
-    'I am driven by curiosity and long-term impact, always focused on practical engineering, reliable deployment, and research-backed product thinking.',
+    'I am a final-year Computer Engineering student at Kathmandu University, with an exchange semester at IIT Palakkad, building AI systems that balance research depth with practical deployment.',
+    'My work spans ML/MLOps, NLP, Computer Vision, LLMs, and RAG, with first-author publications (ICAIL 2026, KUSET) focused on low-resource language technology, explainability, and rigorous evaluation.',
+    'I have contributed to production-scale platforms including Nepal’s national pension system (300k+ users), and as a co-founder I focus on measurable impact, reliable engineering, and systems that work beyond demos.',
   ],
   highlights: [
     {
       iconClass: 'fas fa-graduation-cap',
       title: 'Education',
-      detail: 'Kathmandu University and IIT Palakkad',
+      detail: 'Kathmandu University (B.Eng.) + IIT Palakkad Exchange',
     },
     {
       iconClass: 'fas fa-code',
@@ -88,7 +88,7 @@ export const aboutData = {
     {
       iconClass: 'fas fa-award',
       title: 'Recognition',
-      detail: 'Hult Prize, NASA Space Apps, ICT Awards',
+      detail: 'ICAIL / KUSET Publications, NASA Space Apps, Hult Prize',
     },
   ],
   skillsTitle: 'Technical Stack',
@@ -276,8 +276,7 @@ export const projectData = {
 
 export const researchData = {
   title: 'Research Publications',
-  intro:
-    'The PDF icon opens the paper page directly in your browser (or the best available publication link).',
+  intro: 'Every paper includes direct publication, code, and proof links so you can verify everything in one click.',
   scholarLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
   papers: [
     {
@@ -285,98 +284,176 @@ export const researchData = {
       title: 'Directional Asymmetry in Low-Resource Legal Machine Translation: A Nepali-English Case Study',
       venue: 'ICAIL 2026',
       date: 'Apr 2026',
-      description:
-        'First-author study on low-resource legal NLP using a parallel Nepali-English corpus (~5k sentence pairs) to evaluate directional bias.',
+      descriptionLines: [
+        'Analyzes direction-dependent performance gaps in Nepali-English legal translation under low-resource constraints.',
+        'Shows where targeted corpus design improves legal MT reliability across source-to-target directions.',
+      ],
       tags: ['Legal NLP', 'Machine Translation', 'Low Resource'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Directional+Asymmetry+in+Low-Resource+Legal+Machine+Translation:+A+Nepali-English+Case+Study',
-      extraLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
-      extraIconClass: 'fas fa-user-graduate',
-      extraLabel: 'View Scholar',
+      links: [
+        {
+          label: 'Paper (ICAIL Draft)',
+          href: 'https://drive.google.com/file/d/1MkccE8bzyDjFkG5u_SOpqCuFuD6ST-9f/view?usp=sharing',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/LegalNLP',
+          iconClass: 'fab fa-github',
+        },
+        {
+          label: 'Acceptance Email',
+          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
+          iconClass: 'fas fa-envelope-open-text',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-brain',
       title: 'Enhancing Ethical Reasoning in Tiny LLMs via Fine-Tuning and Multi-Agent Consensus',
       venue: 'KUSET Vol.18 No.2',
       date: 'Dec 2024',
-      description:
-        'Fine-tuned TinyLlama-1.1B on ethical dilemma data and evaluated a multi-agent consensus strategy for consistency and robustness.',
+      descriptionLines: [
+        'Fine-tunes TinyLlama-1.1B on ethical dilemma datasets to improve decision consistency in constrained models.',
+        'Evaluates a multi-agent consensus pipeline to reduce failure cases and improve reasoning robustness.',
+      ],
       tags: ['Tiny LLMs', 'Alignment', 'Multi-Agent'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Enhancing+Ethical+Reasoning+in+Tiny+LLMs+via+Fine-Tuning+and+Multi-Agent+Consensus',
-      extraLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
-      extraIconClass: 'fas fa-user-graduate',
-      extraLabel: 'View Scholar',
+      links: [
+        {
+          label: 'Paper',
+          href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u-x6o8ySG0sC',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Code',
+          href: 'https://github.com/sunidhisharma03/EthicsAIReasoning/tree/main',
+          iconClass: 'fab fa-github',
+        },
+        {
+          label: 'NCCI Certificate',
+          href: 'https://drive.google.com/file/d/15rueRfzrtcLR-kugzBNPw_zBPYjVqSMd/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-camera-retro',
       title: 'Detecting Image Forgeries and Deepfakes: A Comparative Study of CNN and Transformer Models',
       venue: 'KUSET Vol.18 No.2',
       date: 'Dec 2024',
-      description:
-        'Built and benchmarked a 140k+ image dataset for manipulation detection, comparing CNN and transformer baselines.',
+      descriptionLines: [
+        'Compares CNN and transformer architectures for large-scale deepfake and image manipulation detection tasks.',
+        'Benchmarks performance trends over diverse forgery patterns to identify practical deployment trade-offs.',
+      ],
       tags: ['Computer Vision', 'Deepfakes', 'Benchmarking'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Detecting+Image+Forgeries+and+Deepfakes:+A+Comparative+Study+of+CNN+and+Transformer+Models',
-      extraLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
-      extraIconClass: 'fas fa-user-graduate',
-      extraLabel: 'View Scholar',
+      links: [
+        {
+          label: 'Paper',
+          href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u5HHmVD_uO8C',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Scholar Profile',
+          href: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
+          iconClass: 'fas fa-graduation-cap',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-laptop-code',
       title: 'RAG for Theoretical CS Education: Algorithm Analysis and Complexity Theory',
       venue: 'Under Review: USC 2025',
-      date: 'Ongoing',
-      description:
-        'AlgoRAG combines retrieval and LLM reasoning for theoretical CS tutoring with proof-aware retrieval.',
+      date: '2025',
+      descriptionLines: [
+        'Builds a retrieval-augmented tutoring workflow for algorithm analysis and complexity-theory learning support.',
+        'Combines proof-aware retrieval with LLM reasoning to improve conceptual clarity for advanced CS learners.',
+      ],
       tags: ['RAG', 'CS Education', 'Complexity Theory'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=RAG+for+Theoretical+CS+Education+Algorithm+Analysis+Complexity+Theory',
-      extraLink: 'https://github.com/Sushan-Adhikari/AlgoRAG',
-      extraIconClass: 'fab fa-github',
-      extraLabel: 'View Code',
+      links: [
+        {
+          label: 'Paper Draft',
+          href: 'https://drive.google.com/file/d/1PzLQ2uz0mp4CcIFcs-d7fOTDCbnhdPM0/view?usp=sharing',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/AlgoRAG',
+          iconClass: 'fab fa-github',
+        },
+        {
+          label: 'USC Certificate',
+          href: 'https://drive.google.com/file/d/1NvV3pJRLlzTDMLIi3J9V_wRCC8tgtZ3I/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-water',
       title: 'Physics-Informed Data Augmentation for Sediment Concentration Prediction in Himalayan Rivers',
       venue: 'Accepted: LEC / NepJOL',
       date: '2026',
-      description:
-        'Used physics-aware augmentation strategies to improve robustness in data-scarce Himalayan monitoring settings.',
+      descriptionLines: [
+        'Applies physics-informed augmentation to improve sediment concentration prediction in sparse Himalayan river datasets.',
+        'Improves robustness of river-monitoring models under high seasonal variance and limited labeled samples.',
+      ],
       tags: ['Physics-Informed ML', 'Hydrology', 'Data Augmentation'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Physics-Informed+Data+Augmentation+for+Sediment+Concentration+Prediction+in+Himalayan+Rivers',
-      extraLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
-      extraIconClass: 'fas fa-user-graduate',
-      extraLabel: 'View Scholar',
+      links: [
+        {
+          label: 'Paper Draft',
+          href: 'https://docs.google.com/document/d/1-Y8NIX_tfgZEMgOJUk8JeDrtiIX0CO8g/edit?usp=sharing&ouid=105878497156932390002&rtpof=true&sd=true',
+          iconClass: 'fas fa-file-alt',
+        },
+        {
+          label: 'LEC Certificate',
+          href: 'https://drive.google.com/file/d/1UiP0nTMavLSghqCXFoLWrUUs_bGGbXAy/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-chart-line',
       title: 'Automated Mathematical Animation Generation: Dataset Requirements and Validation Gaps',
-      venue: 'Ongoing',
+      venue: 'Submitted to Elsevier',
       date: '2026',
-      description:
-        'Investigates data requirements for LLM-generated Manim outputs with a 500+ snippet dataset.',
+      descriptionLines: [
+        'Studies dataset requirements for reliable LLM-generated Manim outputs in math visualization workflows.',
+        'Identifies validation gaps that affect reproducibility, clarity, and pedagogical accuracy in generated animations.',
+      ],
       tags: ['LLM', 'Math Animation', 'STEM Education'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Automated+Mathematical+Animation+Generation+Dataset+Requirements+and+Validation+Gaps',
-      extraLink: 'https://github.com/Sushan-Adhikari/Manim_Visualize',
-      extraIconClass: 'fab fa-github',
-      extraLabel: 'View Dataset',
+      links: [
+        {
+          label: 'Paper Draft',
+          href: 'https://drive.google.com/file/d/1erNUVMQRdWirFeMsn4BSBz1HChWC7hR0/view?usp=sharing',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/Manim_Visualize',
+          iconClass: 'fab fa-github',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-microscope',
       title: 'Explainability Methods for Hybrid CNN-Transformer Document Layout Analysis',
       venue: 'Ongoing',
       date: '2026',
-      description:
-        'Focuses on XAI methods for document intelligence to improve transparency, debugging, and trust.',
+      descriptionLines: [
+        'Builds explainability workflows for hybrid CNN-transformer models used in document layout understanding.',
+        'Targets interpretable debugging signals that improve trust, error analysis, and model governance.',
+      ],
       tags: ['XAI', 'Document AI', 'Hybrid Models'],
-      paperLink:
-        'https://scholar.google.com/scholar?q=Explainability+Methods+for+Hybrid+CNN-Transformer+Document+Layout+Analysis',
-      extraLink: 'https://github.com/Sushan-Adhikari/XAI_DLA',
-      extraIconClass: 'fab fa-github',
-      extraLabel: 'View Code',
+      links: [
+        {
+          label: 'Paper Draft',
+          href: 'https://drive.google.com/file/d/1Y5WzoYZoxCWUdjOAoz13yVAoHMdkBSP0/view?usp=sharing',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/XAI_DLA',
+          iconClass: 'fab fa-github',
+        },
+      ],
     },
   ],
 }
@@ -429,6 +506,13 @@ export const experienceData = {
       org: 'KyraWorks',
       summary:
         'Built CI/CD pipelines using Docker, EC2, AWS, and Terraform for automated model deployment workflows.',
+      links: [
+        {
+          label: 'Experience Certificate',
+          href: 'https://drive.google.com/file/d/1A-pLjKd0AHTz5Sgy_PZrN3HgzKiDbndo/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-video',
@@ -437,6 +521,13 @@ export const experienceData = {
       org: 'KyraWorks',
       summary:
         'Deployed and optimized 5+ models on Triton Inference Server and benchmarked DeepStream plus GStreamer for real-time multi-camera processing.',
+      links: [
+        {
+          label: 'Internship Certificate',
+          href: 'https://drive.google.com/file/d/1YqyI-eCXOgj6hBRbKYM6eQg9qQIcY4b2/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-briefcase',
@@ -445,6 +536,14 @@ export const experienceData = {
       org: 'Mercuri.world',
       summary:
         'Built an ML recommendation pipeline across 50+ job categories in collaboration with 150+ global volunteers.',
+      orgLink: 'https://mercuri.world/our-team',
+      links: [
+        {
+          label: 'Team Page',
+          href: 'https://mercuri.world/our-team',
+          iconClass: 'fas fa-external-link-alt',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-code',
@@ -453,6 +552,18 @@ export const experienceData = {
       org: 'National Pension Management System, Nepal',
       summary:
         'Contributed to a national pension platform (300k+ users), integrated anti-spoofing liveness detection, and supported DB schema design.',
+      links: [
+        {
+          label: 'Internship Certificate',
+          href: 'https://drive.google.com/file/d/1RWUujbH-p6eKUHhzRxmBQR73cBjpywHx/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+        {
+          label: 'Official System',
+          href: 'https://ipmsv2.fcgo.gov.np/#/login',
+          iconClass: 'fas fa-external-link-alt',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-university',
@@ -461,6 +572,13 @@ export const experienceData = {
       org: 'Kathmandu University, School of Engineering',
       summary:
         'CGPA: 3.88/4.0 (through 7th semester). Coursework includes Computer Vision, Databases, Computer Architecture, and Statistics.',
+      links: [
+        {
+          label: 'KU Transcript (to 6th Sem)',
+          href: 'https://drive.google.com/file/d/1fpw9rycXmfW-9w70U97yQCz2Zhl9tAK_/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-graduation-cap',
@@ -469,6 +587,13 @@ export const experienceData = {
       org: 'IIT Palakkad',
       summary:
         'Completed coursework in Introduction to AI, Linear Algebra, Compiler Design, and Graph Theory and Combinatorics.',
+      links: [
+        {
+          label: 'IIT Transcript',
+          href: 'https://drive.google.com/file/d/17qqqIROdwR9SdncBAyxqBc1G1QdUAusK/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+      ],
     },
   ],
 }
@@ -478,51 +603,48 @@ export const certificationData = {
   items: [
     {
       iconClass: 'fas fa-robot',
-      title: 'AI and Data Engineer Certification',
-      issuer: 'micro1',
-      date: '2025',
+      title: 'Coursera Verified Credential',
+      issuer: 'Coursera',
+      date: '2026',
       description:
-        'Validated expertise in core principles, tools, and best practices for building modern AI and data-driven systems.',
+        'Verified online credential covering applied AI and machine-learning fundamentals in production-oriented workflows.',
+      links: [
+        {
+          label: 'Verify Certificate',
+          href: 'https://www.coursera.org/account/accomplishments/verify/Y1R76JCCK2Q7',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
-      iconClass: 'fas fa-brain',
-      title: 'Deep Learning Specializations',
-      issuer: 'NVIDIA and DataCamp',
+      iconClass: 'fas fa-chart-line',
+      title: 'DataCamp Certifications',
+      issuer: 'DataCamp',
       date: '2025',
       description:
-        'Completed Fundamentals of Deep Learning and Deep Learning with PyTorch with hands-on neural network implementation.',
+        'Completed multiple DataCamp tracks in ML and data tooling, covering supervised/unsupervised workflows and practical implementation.',
+      links: [
+        {
+          label: 'View Certificates',
+          href: 'https://www.linkedin.com/in/sushan-adhikari/overlay/Certifications/1525981997/image-list/?profileId=ACoAADPDccEBMsWjTjMpSS-QYo1qudwj7M3aGOk',
+          iconClass: 'fab fa-linkedin',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-language',
-      title: 'Understanding Embeddings for NLP',
-      issuer: 'OpenHPI',
+      title: 'Embeddings Certificate',
+      issuer: 'LinkedIn Credential Archive',
       date: '2025',
       description:
-        'Built practical understanding of vector representations, semantic similarity, and embedding workflows for NLP tasks.',
-    },
-    {
-      iconClass: 'fas fa-cogs',
-      title: 'Machine Learning Foundations',
-      issuer: 'DataCamp and Udemy',
-      date: '2025',
-      description:
-        'Covered supervised and unsupervised learning, model evaluation, and practical deployment-oriented ML fundamentals.',
-    },
-    {
-      iconClass: 'fas fa-wind',
-      title: 'Apache Airflow Certifications',
-      issuer: 'Astronomer',
-      date: '2024',
-      description:
-        'Certified in Airflow Fundamentals and DAG Authoring for production-grade data orchestration workflows.',
-    },
-    {
-      iconClass: 'fas fa-atom',
-      title: 'AI Fundamentals and Data Literacy',
-      issuer: 'University of Helsinki and DataCamp',
-      date: '2024-2025',
-      description:
-        'Strengthened foundations in AI concepts, responsible usage, and data literacy for applied engineering contexts.',
+        'Certificate record for embeddings-focused NLP learning, including semantic representations and retrieval use cases.',
+      links: [
+        {
+          label: 'View Certificate',
+          href: 'https://www.linkedin.com/in/sushan-adhikari/overlay/Certifications/413303733/treasury/?profileId=ACoAADPDccEBMsWjTjMpSS-QYo1qudwj7M3aGOk',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
   ],
 }
@@ -543,6 +665,13 @@ export const achievementData = {
       event: '2024',
       description:
         'Recognized for Cosmira, an interactive educational web app built for science outreach and engagement.',
+      links: [
+        {
+          label: 'Winner Certificate',
+          href: 'https://drive.google.com/file/d/1_26SMajCbQyXCyQlm-jzeug-TPOgCOm2/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-medal',
@@ -557,6 +686,42 @@ export const achievementData = {
       event: 'Health Track',
       description:
         'Won health track with MastiskaTrack, an AI-assisted mental health assessment solution.',
+      links: [
+        {
+          label: 'Winner Certificate',
+          href: 'https://drive.google.com/file/d/1utprQIxIAIC94tSGqgdPxq79s6vPzw8U/view?usp=sharing',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
+    },
+    {
+      iconClass: 'fas fa-file-signature',
+      title: 'Conference and Acceptance Records',
+      event: 'USC, NCCI, ICAIL, LEC',
+      description:
+        'Attendance certificates and acceptance proof for ongoing and published research contributions.',
+      links: [
+        {
+          label: 'USC (AlgoRAG)',
+          href: 'https://drive.google.com/file/d/1NvV3pJRLlzTDMLIi3J9V_wRCC8tgtZ3I/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+        {
+          label: 'NCCI (Ethical)',
+          href: 'https://drive.google.com/file/d/15rueRfzrtcLR-kugzBNPw_zBPYjVqSMd/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+        {
+          label: 'ICAIL Acceptance',
+          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+        {
+          label: 'LEC (Sediment)',
+          href: 'https://drive.google.com/file/d/1UiP0nTMavLSghqCXFoLWrUUs_bGGbXAy/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+      ],
     },
     {
       iconClass: 'fas fa-graduation-cap',
@@ -604,13 +769,6 @@ export const testimonialData = {
         'During Introduction to AI, Sushan showed outstanding conceptual understanding and a proactive, disciplined approach to building solutions.',
       author: 'Dr. CNK',
       role: 'Associate Professor, IIT Palakkad',
-      avatarIconClass: 'fas fa-user-graduate',
-    },
-    {
-      quote:
-        'Under my guidance in Compiler Design, he built a working simple compiler. His ability to execute difficult systems from scratch is commendable.',
-      author: 'Dr. Unnikrishnan Cheramangalath',
-      role: 'Assistant Professor, IIT Palakkad',
       avatarIconClass: 'fas fa-user-graduate',
     },
     {

@@ -76,24 +76,24 @@
   }
 
   .custom-cursor {
-    border: 2px solid rgba(239, 68, 68, 0.58);
+    border: 2px solid rgba(239, 68, 68, 0.36);
     background: transparent;
-    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.12), 0 0 8px rgba(239, 68, 68, 0.14);
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.08), 0 0 6px rgba(239, 68, 68, 0.1);
   }
 
   .custom-cursor.visible {
-    opacity: 0.72;
+    opacity: 0.46;
   }
 
   .custom-cursor.is-hover {
-    border-color: rgba(239, 68, 68, 0.76);
-    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.18), 0 0 11px rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.52);
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.12), 0 0 9px rgba(239, 68, 68, 0.15);
   }
 
   [data-theme='dark'] .custom-cursor {
-    border-color: rgba(248, 113, 113, 0.66);
+    border-color: rgba(248, 113, 113, 0.42);
     background: transparent;
-    box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.14), 0 0 10px rgba(239, 68, 68, 0.18);
+    box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.1), 0 0 8px rgba(239, 68, 68, 0.14);
   }
 
   .nav-progress span {

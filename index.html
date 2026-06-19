@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preload the hero portrait (LCP element) so it starts downloading immediately. -->
+    <link rel="preload" as="image" href="/img/sushan-cutout.webp" type="image/webp" fetchpriority="high" />
     <title>Sushan Adhikari - AI/ML Engineer | CV, Research, Projects</title>
     <meta
       name="description"
-      content="Final-year Computer Engineering student focused on AI/ML, NLP, Computer Vision, and MLOps. Explore CV, publications, startups, and projects."
+      content="Computer Engineering graduate focused on AI/ML, NLP, Computer Vision, and MLOps. Explore CV, publications, startups, and projects."
     />
     <meta
       name="keywords"
@@ -26,7 +28,11 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.sushanadhikari.com.np/" />
-    <meta property="og:image" content="https://www.sushanadhikari.com.np/img/sushan.png" />
+    <meta property="og:image" content="https://www.sushanadhikari.com.np/img/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="408" />
+    <meta property="og:image:height" content="947" />
+    <meta property="og:image:alt" content="Sushan Adhikari, AI/ML Engineer" />
     <link rel="canonical" href="https://www.sushanadhikari.com.np/" />
     <link rel="alternate" hreflang="en" href="https://www.sushanadhikari.com.np/" />
     <link rel="alternate" hreflang="x-default" href="https://www.sushanadhikari.com.np/" />
@@ -37,17 +43,21 @@
       name="twitter:description"
       content="CV, publications, startups, and projects in AI/ML, NLP, and Computer Vision."
     />
-    <meta name="twitter:image" content="https://www.sushanadhikari.com.np/img/sushan.png" />
+    <meta name="twitter:image" content="https://www.sushanadhikari.com.np/img/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Sushan Adhikari, AI/ML Engineer" />
     <meta name="twitter:site" content="@Sushan_ad2060" />
     <meta name="twitter:creator" content="@Sushan_ad2060" />
 
-    <link rel="icon" href="/favicon.ico?v=20260416" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=20260416" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260416" />
-    <link rel="shortcut icon" href="/favicon.ico?v=20260416" />
-    <link rel="apple-touch-icon" href="/img/sushan-logo.png?v=20260416" />
+    <link rel="icon" href="/favicon.ico?v=20260618" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=20260618" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260618" />
+    <link rel="shortcut icon" href="/favicon.ico?v=20260618" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=20260618" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://gc.zgo.at" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -63,11 +73,44 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://www.sushanadhikari.com.np/#person",
         "name": "Sushan Adhikari",
         "url": "https://www.sushanadhikari.com.np/",
-        "image": "https://www.sushanadhikari.com.np/img/sushan.png",
+        "image": "https://www.sushanadhikari.com.np/img/og-image.jpg",
         "jobTitle": "AI/ML Engineer",
-        "description": "Final-year Computer Engineering student focused on AI/ML, NLP, Computer Vision, and MLOps.",
+        "description": "Computer Engineering graduate focused on AI/ML, NLP, Computer Vision, and MLOps.",
+        "email": "mailto:sushan.adhikari2060@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhulikhel",
+          "addressRegion": "Kavre",
+          "addressCountry": "NP"
+        },
+        "nationality": { "@type": "Country", "name": "Nepal" },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Kathmandu University",
+            "sameAs": "https://ku.edu.np/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Indian Institute of Technology Palakkad",
+            "sameAs": "https://iitpkd.ac.in/"
+          }
+        ],
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Natural Language Processing",
+          "Computer Vision",
+          "MLOps",
+          "Large Language Models",
+          "Retrieval-Augmented Generation",
+          "Deep Learning",
+          "Python",
+          "PyTorch"
+        ],
         "sameAs": [
           "https://www.linkedin.com/in/sushan-adhikari",
           "https://scholar.google.com/citations?user=k3_mHJUAAAAJ",
@@ -77,16 +120,82 @@
         ]
       }
     </script>
+    <noscript>
+      <!-- The page is prerendered, so content exists without JS. Hide the
+           JS-driven loading overlay and force scroll-reveal content visible
+           so everything is readable even when JavaScript is disabled. -->
+      <style>
+        #loadingScreen { display: none !important; }
+        .js-reveal { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Sushan Adhikari",
-        "url": "https://www.sushanadhikari.com.np/"
+        "url": "https://www.sushanadhikari.com.np/",
+        "author": { "@id": "https://www.sushanadhikari.com.np/#person" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ScholarlyArticle",
+            "headline": "Directional Asymmetry in Low-Resource Legal Machine Translation: A Nepali-English Case Study",
+            "name": "Directional Asymmetry in Low-Resource Legal Machine Translation: A Nepali-English Case Study",
+            "datePublished": "2026-04",
+            "inLanguage": "en",
+            "isPartOf": { "@type": "Periodical", "name": "International Conference on Artificial Intelligence and Law (ICAIL) 2026" },
+            "author": { "@id": "https://www.sushanadhikari.com.np/#person" },
+            "keywords": "Legal NLP, Machine Translation, Low Resource",
+            "url": "https://www.sushanadhikari.com.np/#research"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "headline": "Enhancing Ethical Reasoning in Tiny LLMs via Fine-Tuning and Multi-Agent Consensus",
+            "name": "Enhancing Ethical Reasoning in Tiny LLMs via Fine-Tuning and Multi-Agent Consensus",
+            "datePublished": "2024-12",
+            "inLanguage": "en",
+            "isPartOf": { "@type": "Periodical", "name": "Kathmandu University Journal of Science, Engineering and Technology (KUSET), Vol. 18 No. 2" },
+            "author": { "@id": "https://www.sushanadhikari.com.np/#person" },
+            "keywords": "Tiny LLMs, Alignment, Multi-Agent",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u-x6o8ySG0sC"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "headline": "Detecting Image Forgeries and Deepfakes: A Comparative Study of CNN and Transformer Models",
+            "name": "Detecting Image Forgeries and Deepfakes: A Comparative Study of CNN and Transformer Models",
+            "datePublished": "2024-12",
+            "inLanguage": "en",
+            "isPartOf": { "@type": "Periodical", "name": "Kathmandu University Journal of Science, Engineering and Technology (KUSET), Vol. 18 No. 2" },
+            "author": { "@id": "https://www.sushanadhikari.com.np/#person" },
+            "keywords": "Computer Vision, Deepfakes, Benchmarking",
+            "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u5HHmVD_uO8C"
+          }
+        ]
       }
     </script>
   </head>
   <body>
+    <script>
+      // Apply the persisted (or system) theme before first paint to avoid a wrong-theme flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+          document.body.setAttribute('data-theme', theme)
+          document.body.classList.toggle('light-mode', theme === 'light')
+        } catch (e) {}
+      })()
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

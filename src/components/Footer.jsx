@@ -29,7 +29,7 @@ export default function Footer({ links = [], social = [] }) {
               <span className="logo-text">Sushan Adhikari</span>
             </div>
             <p className="footer-description">
-              Final-year Computer Engineering student focused on AI/ML, NLP, Computer Vision, and MLOps.
+              Computer Engineering graduate focused on AI/ML, NLP, Computer Vision, and MLOps.
             </p>
             <a href="/Sushan_Adhikari_CV.pdf" download="Sushan_Adhikari_CV.pdf" className="footer-cv-link">
               <i className="fas fa-download"></i>
@@ -78,10 +78,16 @@ export default function Footer({ links = [], social = [] }) {
               <h4>Contact Info</h4>
               <ul>
                 <li>
-                  <i className="fas fa-envelope"></i> sushan.adhikari2060@gmail.com
+                  <i className="fas fa-envelope"></i>{' '}
+                  <a href="mailto:sushan.adhikari2060@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    sushan.adhikari2060@gmail.com
+                  </a>
                 </li>
                 <li>
-                  <i className="fas fa-phone"></i> +977 9810538507
+                  <i className="fas fa-phone"></i>{' '}
+                  <a href="tel:+9779810538507" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    +977 9810538507
+                  </a>
                 </li>
                 <li>
                   <i className="fas fa-map-marker-alt"></i> Dhulikhel, Nepal
@@ -93,7 +99,8 @@ export default function Footer({ links = [], social = [] }) {
 
         <div className="footer-bottom">
           <p>
-            © {year} Sushan Adhikari. Crafted with <span className="heart">❤️</span> and focus.
+            © <span suppressHydrationWarning>{year}</span> Sushan Adhikari. Crafted with{' '}
+            <span className="heart">❤️</span> and focus.
           </p>
         </div>
       </div>

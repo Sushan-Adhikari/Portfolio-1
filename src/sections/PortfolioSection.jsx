@@ -1,4 +1,5 @@
 import Reveal from '../components/Reveal'
+import { track } from '../lib/analytics'
 
 export default function PortfolioSection({ data }) {
   return (
@@ -41,6 +42,7 @@ export default function PortfolioSection({ data }) {
                         title={link.label}
                         target={link.external ? '_blank' : undefined}
                         rel={link.external ? 'noopener noreferrer' : undefined}
+                        onClick={() => track('project-click', { title: `Project: ${project.title}` })}
                       >
                         <i className={link.iconClass}></i>
                       </a>

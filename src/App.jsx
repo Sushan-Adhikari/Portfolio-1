@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import CVChatbot from './components/CVChatbot'
 import CustomCursor from './components/CustomCursor'
+import { useHideLoadingScreen } from './hooks/useHideLoadingScreen'
+import { useBackToTop } from './hooks/useBackToTop'
+import { useHeroParallax } from './hooks/useHeroParallax'
+import { useTiltCards } from './hooks/useTiltCards'
+import { useEqualizeGridHeights } from './hooks/useEqualizeGridHeights'
 import {
   aboutData,
   achievementData,
@@ -30,198 +34,18 @@ import StartupsSection from './sections/StartupsSection'
 import TestimonialsSection from './sections/TestimonialsSection'
 
 function App() {
-  const [showBackToTop, setShowBackToTop] = useState(false)
-
-  useEffect(() => {
-    const hideLoading = () => {
-      const loadingScreen = document.getElementById('loadingScreen')
-      if (!loadingScreen) return
-      window.setTimeout(() => {
-        loadingScreen.classList.add('hidden')
-      }, 80)
-    }
-
-    if (document.readyState === 'complete') {
-      hideLoading()
-    } else {
-      window.addEventListener('load', hideLoading)
-    }
-
-    return () => window.removeEventListener('load', hideLoading)
-  }, [])
-
-  useEffect(() => {
-    const onScroll = () => {
-      setShowBackToTop(window.pageYOffset > 300)
-    }
-
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    const heroImage = document.querySelector('.hero-image')
-    if (!heroImage) return undefined
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduceMotion) return undefined
-
-    let ticking = false
-
-    const onScroll = () => {
-      if (ticking) return
-      ticking = true
-      window.requestAnimationFrame(() => {
-        heroImage.style.transform = `translate3d(0, ${window.pageYOffset * 0.08}px, 0)`
-        ticking = false
-      })
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    if (reduceMotion || !finePointer) return undefined
-
-    const cards = Array.from(document.querySelectorAll('.tilt-card'))
-    if (!cards.length) return undefined
-
-    const cleanups = cards.map((card) => {
-      const strength = Number.parseFloat(card.getAttribute('data-tilt-strength') || '5.5')
-
-      const onMove = (event) => {
-        const rect = card.getBoundingClientRect()
-        const px = (event.clientX - rect.left) / rect.width
-        const py = (event.clientY - rect.top) / rect.height
-        const rotateY = (px - 0.5) * strength * 2
-        const rotateX = (0.5 - py) * strength * 1.4
-
-        card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`)
-        card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`)
-        card.style.setProperty('--glare-x', `${(px * 100).toFixed(1)}%`)
-        card.style.setProperty('--glare-y', `${(py * 100).toFixed(1)}%`)
-        card.classList.add('is-tilting')
-      }
-
-      const onLeave = () => {
-        card.style.setProperty('--tilt-x', '0deg')
-        card.style.setProperty('--tilt-y', '0deg')
-        card.style.setProperty('--glare-x', '50%')
-        card.style.setProperty('--glare-y', '50%')
-        card.classList.remove('is-tilting')
-      }
-
-      card.addEventListener('pointermove', onMove)
-      card.addEventListener('pointerleave', onLeave)
-      card.addEventListener('pointercancel', onLeave)
-
-      return () => {
-        card.removeEventListener('pointermove', onMove)
-        card.removeEventListener('pointerleave', onLeave)
-        card.removeEventListener('pointercancel', onLeave)
-      }
-    })
-
-    return () => {
-      cleanups.forEach((cleanup) => cleanup())
-    }
-  }, [])
-
-  useEffect(() => {
-    const gridSelectors = [
-      '.portfolio-grid .portfolio-card',
-      '.research-grid .research-card',
-      '.achievements-grid .achievement-card',
-      '.startups-grid .startup-card',
-      '.certifications-grid .certification-card',
-    ]
-    const mediaQuery = window.matchMedia('(max-width: 768px)')
-    let rafId = 0
-    let observer
-    let timerA = 0
-    let timerB = 0
-
-    const reset = () => {
-      gridSelectors.forEach((selector) => {
-        document.querySelectorAll(selector).forEach((card) => {
-          card.style.minHeight = ''
-        })
-      })
-    }
-
-    const equalize = () => {
-      reset()
-      if (mediaQuery.matches) return
-
-      gridSelectors.forEach((selector) => {
-        const cards = Array.from(document.querySelectorAll(selector))
-        if (!cards.length) return
-
-        let maxHeight = 0
-        cards.forEach((card) => {
-          maxHeight = Math.max(maxHeight, card.getBoundingClientRect().height)
-        })
-
-        if (!maxHeight) return
-        const normalized = `${Math.ceil(maxHeight)}px`
-        cards.forEach((card) => {
-          card.style.minHeight = normalized
-        })
-      })
-    }
-
-    const schedule = () => {
-      if (rafId) {
-        window.cancelAnimationFrame(rafId)
-      }
-      rafId = window.requestAnimationFrame(() => {
-        equalize()
-        rafId = 0
-      })
-    }
-
-    if (typeof ResizeObserver !== 'undefined') {
-      observer = new ResizeObserver(schedule)
-      document
-        .querySelectorAll('.portfolio-grid, .research-grid, .achievements-grid, .startups-grid, .certifications-grid')
-        .forEach((grid) => observer.observe(grid))
-    }
-
-    const onMediaQueryChange = () => schedule()
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', onMediaQueryChange)
-    } else if (mediaQuery.addListener) {
-      mediaQuery.addListener(onMediaQueryChange)
-    }
-
-    schedule()
-    timerA = window.setTimeout(schedule, 180)
-    timerB = window.setTimeout(schedule, 700)
-    window.addEventListener('resize', schedule, { passive: true })
-    window.addEventListener('load', schedule)
-
-    return () => {
-      reset()
-      if (timerA) window.clearTimeout(timerA)
-      if (timerB) window.clearTimeout(timerB)
-      if (rafId) window.cancelAnimationFrame(rafId)
-      window.removeEventListener('resize', schedule)
-      window.removeEventListener('load', schedule)
-      if (observer) observer.disconnect()
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener('change', onMediaQueryChange)
-      } else if (mediaQuery.removeListener) {
-        mediaQuery.removeListener(onMediaQueryChange)
-      }
-    }
-  }, [])
+  useHideLoadingScreen()
+  const showBackToTop = useBackToTop(300)
+  useHeroParallax()
+  useTiltCards()
+  useEqualizeGridHeights()
 
   return (
     <div className="main-content">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+
       <div className="loading-screen" id="loadingScreen">
         <div className="loader">
           <div className="loader-circle"></div>
@@ -239,7 +63,7 @@ function App() {
 
       <Navbar links={navLinks} />
 
-      <main className="main-wrapper">
+      <main className="main-wrapper" id="main-content" tabIndex={-1}>
         <Hero data={heroData} />
         <AboutSection data={aboutData} />
         <PortfolioSection data={projectData} />

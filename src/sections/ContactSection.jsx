@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
+import { track } from '../lib/analytics'
 
 const RATE_LIMIT_STORAGE_KEY = 'contact-form-rate-v1'
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
@@ -241,14 +241,19 @@ export default function ContactSection({ data }) {
     setMessage('Sending message...')
 
     try {
+      // Loaded on demand so the EmailJS SDK is not in the initial bundle.
+      const { default: emailjs } = await import('@emailjs/browser')
       await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
       writeRateState([...recentSubmissions, now])
+      track('contact-submit', { title: 'Contact form submitted' })
       setStatus('success')
       setMessage("Message sent successfully! I'll get back to you soon.")
       formRef.current.reset()
       formStartedAtRef.current = Date.now()
     } catch (error) {
-      console.error('Email send failed:', error)
+      if (import.meta.env.DEV) {
+        console.error('Email send failed:', error)
+      }
       setStatus('error')
       setMessage('Failed to send message. Please try again or contact me directly.')
     }
@@ -278,7 +283,22 @@ export default function ContactSection({ data }) {
                   </div>
                   <div className="contact-method-info">
                     <h4>{method.label}</h4>
-                    <p>{method.value}</p>
+                    <p>
+                      {method.label === 'Email' ? (
+                        <a href={`mailto:${method.value}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          {method.value}
+                        </a>
+                      ) : method.label === 'Phone' ? (
+                        <a
+                          href={`tel:${method.value.replace(/[^+\d]/g, '')}`}
+                          style={{ color: 'inherit', textDecoration: 'none' }}
+                        >
+                          {method.value}
+                        </a>
+                      ) : (
+                        method.value
+                      )}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -326,29 +346,29 @@ export default function ContactSection({ data }) {
               />
               <div className="form-group">
                 <div className="input-group">
-                  <input type="text" name="name" required placeholder=" " maxLength={80} minLength={2} />
-                  <label>Your Name</label>
+                  <input id="contact-name" type="text" name="name" required placeholder=" " maxLength={80} minLength={2} />
+                  <label htmlFor="contact-name">Your Name</label>
                 </div>
               </div>
 
               <div className="form-group">
                 <div className="input-group">
-                  <input type="email" name="email" required placeholder=" " maxLength={120} />
-                  <label>Your Email</label>
+                  <input id="contact-email" type="email" name="email" required placeholder=" " maxLength={120} />
+                  <label htmlFor="contact-email">Your Email</label>
                 </div>
               </div>
 
               <div className="form-group">
                 <div className="input-group">
-                  <input type="text" name="subject" required placeholder=" " maxLength={140} minLength={3} />
-                  <label>Subject</label>
+                  <input id="contact-subject" type="text" name="subject" required placeholder=" " maxLength={140} minLength={3} />
+                  <label htmlFor="contact-subject">Subject</label>
                 </div>
               </div>
 
               <div className="form-group">
                 <div className="input-group">
-                  <textarea name="message" rows="5" required placeholder=" " maxLength={1200} minLength={20}></textarea>
-                  <label>Your Message</label>
+                  <textarea id="contact-message" name="message" rows="5" required placeholder=" " maxLength={1200} minLength={20}></textarea>
+                  <label htmlFor="contact-message">Your Message</label>
                 </div>
               </div>
 

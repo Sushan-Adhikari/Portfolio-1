@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { track } from '../lib/analytics'
+import HeroCanvas from '../components/HeroCanvas'
 
 export default function Hero({ data }) {
   const [typedText, setTypedText] = useState('')
@@ -56,21 +58,25 @@ export default function Hero({ data }) {
 
   return (
     <section className="section hero-section" id="home">
+      <HeroCanvas />
       <div className="container">
         <div className="hero-content">
           <div className="hero-left">
             <div className="hero-image">
               <div className="image-wrapper hero-cutout-wrapper">
-                <img
-                  src="/img/sushan-cutout.png"
-                  alt="Sushan Adhikari"
-                  className="hero-photo"
-                  width="408"
-                  height="947"
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                />
+                <picture>
+                  <source srcSet="/img/sushan-cutout.webp" type="image/webp" />
+                  <img
+                    src="/img/sushan-cutout.png"
+                    alt="Sushan Adhikari"
+                    className="hero-photo"
+                    width="408"
+                    height="947"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
+                </picture>
                 <div className="image-overlay"></div>
               </div>
 
@@ -99,6 +105,13 @@ export default function Hero({ data }) {
 
           <div className="hero-right">
             <div className="hero-text">
+              {data.availability?.available ? (
+                <div className="availability-pill">
+                  <span className="availability-dot" aria-hidden="true"></span>
+                  <span>{data.availability.label}</span>
+                </div>
+              ) : null}
+
               <div className="greeting">
                 <span className="wave">👋</span>
                 <span>{data.greeting}</span>
@@ -107,6 +120,7 @@ export default function Hero({ data }) {
               <h1 className="hero-title">
                 <span className="name-first hero-first-name">{data.firstName}</span>
                 <span className="gradient-text">{data.lastName}</span>
+                <span className="sr-only"> — AI/ML Engineer</span>
               </h1>
 
               <div className="hero-subtitle !items-start md:!items-center">
@@ -147,6 +161,7 @@ export default function Hero({ data }) {
                     target={primaryAction?.external ? '_blank' : undefined}
                     rel={primaryAction?.external ? 'noopener noreferrer' : undefined}
                     title="View CV"
+                    onClick={() => track('cv-view', { title: 'CV viewed' })}
                   >
                     <span>{primaryAction?.label || 'View CV'}</span>
                   </a>
@@ -165,6 +180,7 @@ export default function Hero({ data }) {
                         download={data.helperDownload.download ? 'Sushan_Adhikari_CV.pdf' : undefined}
                         aria-label={data.helperDownload.label}
                         title={data.helperDownload.label}
+                        onClick={() => track('cv-download', { title: 'CV downloaded' })}
                       >
                         <i className={data.helperDownload.iconClass}></i>
                       </a>

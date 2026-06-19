@@ -14,17 +14,31 @@ const iconById = {
   contact: 'fas fa-envelope-open',
 }
 
+function getStoredTheme() {
+  if (typeof window === 'undefined') return null
+  try {
+    const stored = window.localStorage.getItem('theme')
+    return stored === 'dark' || stored === 'light' ? stored : null
+  } catch {
+    return null
+  }
+}
+
 function getSystemTheme() {
   if (typeof window === 'undefined') return 'light'
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
+function getInitialTheme() {
+  return getStoredTheme() || getSystemTheme()
 }
 
 export default function Navbar({ links }) {
   const [active, setActive] = useState('home')
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [theme, setTheme] = useState(getSystemTheme)
-  const [useSystemTheme, setUseSystemTheme] = useState(true)
+  const [theme, setTheme] = useState(getInitialTheme)
+  const [useSystemTheme, setUseSystemTheme] = useState(() => getStoredTheme() === null)
   const progressRef = useRef(null)
   const rafRef = useRef(null)
 
@@ -150,6 +164,7 @@ export default function Navbar({ links }) {
                 href={`#${link.id}`}
                 className={`nav-link${active === link.id ? ' active' : ''}`}
                 data-id={link.id}
+                aria-current={active === link.id ? 'true' : undefined}
                 onClick={(event) => onNavClick(event, link.id)}
               >
                 {link.label}
@@ -162,11 +177,20 @@ export default function Navbar({ links }) {
               className="theme-toggle"
               aria-label="Toggle theme"
               onClick={() => {
+                const next = theme === 'light' ? 'dark' : 'light'
                 setUseSystemTheme(false)
-                setTheme(theme === 'light' ? 'dark' : 'light')
+                setTheme(next)
+                try {
+                  window.localStorage.setItem('theme', next)
+                } catch {
+                  // ignore storage failures
+                }
               }}
             >
-              <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
+              {/* Both icons are always rendered; CSS shows the right one based on
+                  the body theme class set pre-paint, so this stays hydration-safe. */}
+              <i className="fas fa-moon theme-icon theme-icon-moon" aria-hidden="true"></i>
+              <i className="fas fa-sun theme-icon theme-icon-sun" aria-hidden="true"></i>
             </button>
             <button
               className={`mobile-menu-btn${menuOpen ? ' active' : ''}`}
@@ -202,6 +226,7 @@ export default function Navbar({ links }) {
               href={`#${link.id}`}
               className={`mobile-nav-link${active === link.id ? ' active' : ''}`}
               data-id={link.id}
+              aria-current={active === link.id ? 'true' : undefined}
               onClick={(event) => onNavClick(event, link.id)}
             >
               <i className={iconById[link.id] || 'fas fa-link'}></i>

@@ -29,7 +29,9 @@ export default function Reveal({ children, className = '', ...rest }) {
       ref={ref}
       {...rest}
       className={[
-        'motion-reduce:transition-none motion-reduce:transform-none transition-all duration-700',
+        // js-reveal is a stable hook so the no-JS fallback (see index.html
+        // <noscript>) can force prerendered content visible without JavaScript.
+        'js-reveal motion-reduce:transition-none motion-reduce:transform-none transition-all duration-700',
         visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         className,
       ].join(' ')}

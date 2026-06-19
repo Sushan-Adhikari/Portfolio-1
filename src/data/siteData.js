@@ -11,13 +11,18 @@ export const heroData = {
   greeting: 'Hello, I am',
   firstName: 'Sushan',
   lastName: 'Adhikari',
+  // Set available:false to hide the hero status pill, or edit the label.
+  availability: {
+    available: true,
+    label: 'Open to new opportunities',
+  },
   typewriterTexts: [
-    'Computer Engineering Student',
+    'Computer Engineering Graduate',
     'AI and Machine Learning Enthusiast',
     'Research Enthusiast',
   ],
   description:
-    'Final-year Computer Engineering student (Kathmandu University) with research and industry experience in AI/ML, NLP, Computer Vision, and MLOps. First author on multiple publications and builder of production-focused systems for real users.',
+    'Computer Engineering graduate (Kathmandu University) with research and industry experience in AI/ML, NLP, Computer Vision, and MLOps. First author on multiple publications and builder of production-focused systems for real users.',
   stats: [
     { value: '3+', label: 'Publications' },
     { value: '300K+', label: 'Users Impacted' },
@@ -70,7 +75,7 @@ export const aboutData = {
   title: 'About Me',
   heading: 'From Research to Production AI Systems',
   paragraphs: [
-    'I am a final-year Computer Engineering student at Kathmandu University, with an exchange semester at IIT Palakkad, building AI systems that balance research depth with practical deployment.',
+    'I am a Computer Engineering graduate from Kathmandu University, with an exchange semester at IIT Palakkad, building AI systems that balance research depth with practical deployment.',
     'My work spans ML/MLOps, NLP, Computer Vision, LLMs, and RAG, with first-author publications (ICAIL 2026, KUSET) focused on low-resource language technology, explainability, and rigorous evaluation.',
     'I have contributed to production-scale platforms including Nepal’s national pension system (300k+ users), and as a co-founder I focus on measurable impact, reliable engineering, and systems that work beyond demos.',
   ],
@@ -571,7 +576,7 @@ export const experienceData = {
       role: 'B.Eng. Computer Engineering',
       org: 'Kathmandu University, School of Engineering',
       summary:
-        'CGPA: 3.88/4.0 (through 7th semester). Coursework includes Computer Vision, Databases, Computer Architecture, and Statistics.',
+        'Completed the B.Eng. with coursework in Computer Vision, Databases, Computer Architecture, and Statistics, alongside first-author AI/ML research.',
       links: [
         {
           label: 'KU Transcript (to 6th Sem)',

@@ -713,7 +713,7 @@ body.light-mode .theme-toggle .theme-icon-sun {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .hero-section > .container {
@@ -3462,8 +3462,8 @@ body.light-mode .theme-toggle .theme-icon-sun {
     gap: var(--space-2);
   }
   .theme-toggle {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     font-size: 1rem;
   }
   .timeline {
@@ -3564,7 +3564,29 @@ body.light-mode .theme-toggle .theme-icon-sun {
   .testimonials-container {
     min-height: 500px;
   }
+  /* Keep the 3 hero stats from overflowing/clipping on small phones. */
+  .hero-stats {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-item {
+    min-width: 0;
+  }
 }
+
+/* Comfortable touch targets for the primary nav controls on touch devices. */
+@media (pointer: coarse) {
+  .theme-toggle,
+  .mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
 /* =================================================================
    ANIMATIONS & UTILITIES
    ================================================================= */
@@ -3921,6 +3943,33 @@ html {
   }
   .contact-form {
     max-width: 100%;
+  }
+  /* Collapse the hero to a single centered column on tablets/small laptops
+     (it previously stayed a cramped 2-col until 768px), and let the typewriter
+     spacer breathe in the now full-width column. */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    text-align: center;
+  }
+  .hero-left {
+    order: -1;
+  }
+  .greeting,
+  .hero-stats,
+  .hero-subtitle,
+  .hero-actions,
+  .social-links {
+    justify-content: center;
+  }
+  .availability-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Footer's minmax(520px,2fr) column overflowed the container ~769-860px. */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 }
 

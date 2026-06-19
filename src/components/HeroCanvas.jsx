@@ -18,8 +18,8 @@ export default function HeroCanvas() {
     if (!ctx) return undefined
 
     const ACCENT = '14, 165, 233' // sky-500 — reads well on both light and dark
-    const LINK_DIST = 130
-    const POINTER_DIST = 170
+    const LINK_DIST = 150
+    const POINTER_DIST = 200
 
     let width = 0
     let height = 0
@@ -30,15 +30,15 @@ export default function HeroCanvas() {
     let intersecting = true // last-known hero visibility (true until an observer says otherwise)
     const pointer = { x: -9999, y: -9999, active: false }
 
-    const countForWidth = (w) => (w < 640 ? 26 : w < 1024 ? 42 : 60)
+    const countForWidth = (w) => (w < 640 ? 34 : w < 1024 ? 54 : 78)
 
     const makeParticles = () => {
       particles = Array.from({ length: countForWidth(width) }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
-        r: Math.random() * 1.5 + 0.7,
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.32,
+        r: Math.random() * 1.7 + 0.9,
       }))
     }
 
@@ -69,11 +69,11 @@ export default function HeroCanvas() {
         let r = p.r
         if (pointer.active) {
           const d = Math.hypot(pointer.x - p.x, pointer.y - p.y)
-          if (d < 120) r = p.r + (1 - d / 120) * 1.6
+          if (d < 130) r = p.r + (1 - d / 130) * 1.9
         }
         ctx.beginPath()
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${ACCENT}, 0.5)`
+        ctx.fillStyle = `rgba(${ACCENT}, 0.7)`
         ctx.fill()
       }
 
@@ -86,8 +86,8 @@ export default function HeroCanvas() {
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(${ACCENT}, ${0.16 * (1 - dist / LINK_DIST)})`
-            ctx.lineWidth = 1
+            ctx.strokeStyle = `rgba(${ACCENT}, ${0.26 * (1 - dist / LINK_DIST)})`
+            ctx.lineWidth = 1.1
             ctx.stroke()
           }
         }
@@ -100,8 +100,8 @@ export default function HeroCanvas() {
             ctx.beginPath()
             ctx.moveTo(pointer.x, pointer.y)
             ctx.lineTo(p.x, p.y)
-            ctx.strokeStyle = `rgba(${ACCENT}, ${0.28 * (1 - dist / POINTER_DIST)})`
-            ctx.lineWidth = 1
+            ctx.strokeStyle = `rgba(${ACCENT}, ${0.4 * (1 - dist / POINTER_DIST)})`
+            ctx.lineWidth = 1.1
             ctx.stroke()
           }
         }

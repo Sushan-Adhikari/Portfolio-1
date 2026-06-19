@@ -394,8 +394,8 @@ export const researchData = {
     {
       iconClass: 'fas fa-water',
       title: 'Physics-Informed Data Augmentation for Sediment Concentration Prediction in Himalayan Rivers',
-      venue: 'Accepted: LEC / NepJOL',
-      date: '2026',
+      venue: 'IJETID Vol.2 No.2',
+      date: 'Feb 2026',
       descriptionLines: [
         'Applies physics-informed augmentation to improve sediment concentration prediction in sparse Himalayan river datasets.',
         'Improves robustness of river-monitoring models under high seasonal variance and limited labeled samples.',
@@ -403,9 +403,9 @@ export const researchData = {
       tags: ['Physics-Informed ML', 'Hydrology', 'Data Augmentation'],
       links: [
         {
-          label: 'Paper Draft',
-          href: 'https://docs.google.com/document/d/1-Y8NIX_tfgZEMgOJUk8JeDrtiIX0CO8g/edit?usp=sharing&ouid=105878497156932390002&rtpof=true&sd=true',
-          iconClass: 'fas fa-file-alt',
+          label: 'Paper',
+          href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:d1gkVwhDpl0C',
+          iconClass: 'fas fa-file-pdf',
         },
         {
           label: 'LEC Certificate',
@@ -417,7 +417,7 @@ export const researchData = {
     {
       iconClass: 'fas fa-chart-line',
       title: 'Automated Mathematical Animation Generation: Dataset Requirements and Validation Gaps',
-      venue: 'Submitted to Elsevier',
+      venue: 'In Preparation: Elsevier',
       date: '2026',
       descriptionLines: [
         'Studies dataset requirements for reliable LLM-generated Manim outputs in math visualization workflows.',
@@ -579,8 +579,8 @@ export const experienceData = {
         'Completed the B.Eng. with coursework in Computer Vision, Databases, Computer Architecture, and Statistics, alongside first-author AI/ML research.',
       links: [
         {
-          label: 'KU Transcript (to 6th Sem)',
-          href: 'https://drive.google.com/file/d/1fpw9rycXmfW-9w70U97yQCz2Zhl9tAK_/view?usp=sharing',
+          label: 'KU Transcript',
+          href: 'https://drive.google.com/file/d/1V_rIg0sF7fv4v6pXA_tp21jMiBBTQjw_/view?usp=sharing',
           iconClass: 'fas fa-file-lines',
         },
       ],
@@ -608,15 +608,35 @@ export const certificationData = {
   items: [
     {
       iconClass: 'fas fa-robot',
-      title: 'Coursera Verified Credential',
-      issuer: 'Coursera',
+      title: 'Machine Learning Specialization',
+      issuer: 'Andrew Ng — Stanford / Coursera',
       date: '2026',
       description:
-        'Verified online credential covering applied AI and machine-learning fundamentals in production-oriented workflows.',
+        "Andrew Ng's Machine Learning Specialization: supervised and unsupervised learning, neural networks, and applied ML best practices.",
       links: [
         {
           label: 'Verify Certificate',
           href: 'https://www.coursera.org/account/accomplishments/verify/Y1R76JCCK2Q7',
+          iconClass: 'fas fa-certificate',
+        },
+      ],
+    },
+    {
+      iconClass: 'fas fa-diagram-project',
+      title: 'Apache Airflow Certifications',
+      issuer: 'Astronomer',
+      date: '2024',
+      description:
+        'Astronomer certifications for Apache Airflow 2 — DAG Authoring and Fundamentals — covering pipeline orchestration and workflow design.',
+      links: [
+        {
+          label: 'DAG Authoring',
+          href: 'https://www.credly.com/badges/a9983745-30bc-420f-8cd5-68d3444351d6/public_url',
+          iconClass: 'fas fa-certificate',
+        },
+        {
+          label: 'Fundamentals',
+          href: 'https://www.credly.com/badges/855e4952-a79f-4dbb-a4a8-f8a969b2fd39/public_url',
           iconClass: 'fas fa-certificate',
         },
       ],
@@ -627,7 +647,7 @@ export const certificationData = {
       issuer: 'DataCamp',
       date: '2025',
       description:
-        'Completed multiple DataCamp tracks in ML and data tooling, covering supervised/unsupervised workflows and practical implementation.',
+        'Tracks in Supervised & Unsupervised Learning, AI Fundamentals, PySpark, and SQL — hands-on ML and data tooling.',
       links: [
         {
           label: 'View Certificates',
@@ -638,11 +658,11 @@ export const certificationData = {
     },
     {
       iconClass: 'fas fa-language',
-      title: 'Embeddings Certificate',
-      issuer: 'LinkedIn Credential Archive',
+      title: 'Embeddings for NLP',
+      issuer: 'OpenHPI',
       date: '2025',
       description:
-        'Certificate record for embeddings-focused NLP learning, including semantic representations and retrieval use cases.',
+        'Embeddings-focused NLP course covering semantic representations and retrieval use cases.',
       links: [
         {
           label: 'View Certificate',
@@ -659,10 +679,10 @@ export const achievementData = {
   items: [
     {
       iconClass: 'fas fa-trophy',
-      title: 'Hult Prize Campus Winner',
+      title: 'Hult Prize OnCampus Winner',
       event: 'Kathmandu University',
       description:
-        'Represented Nepal at the Hult Prize Global Summit in Bangkok with an AI-driven aquaculture innovation.',
+        'Led a computer-vision pipeline for fish-disease classification (Dr.Fish) and represented Nepal at the Hult Prize Regional Summit in Bangkok.',
     },
     {
       iconClass: 'fas fa-rocket',

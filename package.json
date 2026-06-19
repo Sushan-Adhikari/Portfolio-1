@@ -9,6 +9,7 @@
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "fa:subset": "node scripts/build-fa-subset.mjs",
+    "fonts:self-host": "node scripts/build-fonts.mjs",
     "lint": "eslint .",
     "test": "node --test",
     "preview": "vite preview"

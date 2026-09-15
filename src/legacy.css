@@ -1637,6 +1637,23 @@ body.light-mode .theme-toggle .theme-icon-sun {
   background: var(--neutral-400);
 }
 
+.research-authors {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: -0.5rem 0 var(--space-4);
+  line-height: 1.5;
+}
+
+.research-authors strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.research-author-note {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .research-card h3 {
   font-size: 1.2rem;
   font-weight: 700;

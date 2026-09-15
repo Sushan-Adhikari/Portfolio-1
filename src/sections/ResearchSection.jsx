@@ -23,10 +23,27 @@ export default function ResearchSection({ data }) {
                   <i className={paper.iconClass}></i>
                 </div>
                 <div className="research-content">
+                  {paper.status ? (
+                    <span className={`research-status${paper.statusClass ? ` ${paper.statusClass}` : ''}`}>
+                      {paper.status}
+                    </span>
+                  ) : null}
                   <h3>{paper.title}</h3>
+                  {paper.authors?.length ? (
+                    <p className="research-authors">
+                      {paper.authors.map((author, authorIndex) => (
+                        <span key={author}>
+                          {author === 'Sushan Adhikari' ? <strong>{author}</strong> : author}
+                          {authorIndex < paper.authors.length - 1 ? ', ' : ''}
+                        </span>
+                      ))}
+                      {paper.authorNote ? <span className="research-author-note"> · {paper.authorNote}</span> : null}
+                    </p>
+                  ) : null}
                   <p className="research-meta">
                     <span className="conference">{paper.venue}</span>
                     <span className="year">{paper.date}</span>
+                    {paper.note ? <span className="year">{paper.note}</span> : null}
                   </p>
                   <div className="research-actions">
                     {(paper.links || []).map((link) => {

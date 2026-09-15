@@ -13,24 +13,24 @@ export const heroData = {
   lastName: 'Adhikari',
   // Set available:false to hide the hero status pill, or edit the label.
   availability: {
-    available: true,
+    available: false,
     label: 'Open to new opportunities',
   },
   typewriterTexts: [
-    'Computer Engineering Graduate',
-    'AI and Machine Learning Enthusiast',
-    'Research Enthusiast',
+    'AI/ML Researcher',
+    'Co-founder, Nurvexa',
+    'NLP · RAG · Explainable AI',
   ],
   description:
-    'Computer Engineering graduate (Kathmandu University) with research and industry experience in AI/ML, NLP, Computer Vision, and MLOps. First author on multiple publications and builder of production-focused systems for real users.',
+    'I build and publish in low-resource NLP, LLM alignment, retrieval-augmented generation, and explainable AI. First author on an ACM ICAIL 2026 paper on Nepali-English legal machine translation, with five total publications across NLP, computer vision, and applied ML. Currently co-founding Nurvexa, an AI medical exam-prep platform deployed in Nepal.',
   stats: [
-    { value: '3+', label: 'Publications' },
+    { value: '5', label: 'Publications' },
     { value: '300K+', label: 'Users Impacted' },
     { value: '2', label: 'AI Startups' },
   ],
   actions: [
     {
-      label: 'View CV',
+      label: 'CV (PDF)',
       href: '/Sushan_Adhikari_CV.pdf',
       iconClass: 'fas fa-file-lines',
       primary: true,
@@ -45,7 +45,7 @@ export const heroData = {
     },
   ],
   helperDownload: {
-    label: 'Download CV',
+    label: 'Download CV (PDF)',
     href: '/Sushan_Adhikari_CV.pdf',
     iconClass: 'fas fa-download',
     download: true,
@@ -75,9 +75,9 @@ export const aboutData = {
   title: 'About Me',
   heading: 'From Research to Production AI Systems',
   paragraphs: [
-    'I am a Computer Engineering graduate from Kathmandu University, with an exchange semester at IIT Palakkad, building AI systems that balance research depth with practical deployment.',
-    'My work spans ML/MLOps, NLP, Computer Vision, LLMs, and RAG, with first-author publications (ICAIL 2026, KUSET) focused on low-resource language technology, explainability, and rigorous evaluation.',
-    'I have contributed to production-scale platforms including Nepal’s national pension system (300k+ users), and as a co-founder I focus on measurable impact, reliable engineering, and systems that work beyond demos.',
+    'I am a Computer Engineering graduate from Kathmandu University (CGPA 3.90/4.0), with an exchange semester at IIT Palakkad. My work spans low-resource NLP, LLM alignment, retrieval-augmented generation, and explainable AI.',
+    'I am first author on an ACM ICAIL 2026 paper on Nepali-English legal machine translation, with five total publications spanning legal NLP, tiny-LLM ethical reasoning, deepfake detection, and physics-informed hydrology — plus ongoing preprints in RAG and explainability.',
+    'As co-founder of Nurvexa, I build AI systems that ship: a RAG-based medical exam-prep platform deployed for nursing students in Nepal. I have also built real-time computer-vision inference pipelines at KyraWorks and contributed to Nepal’s national pension platform, which serves 300k+ users.',
   ],
   highlights: [
     {
@@ -88,64 +88,50 @@ export const aboutData = {
     {
       iconClass: 'fas fa-code',
       title: 'Core Focus',
-      detail: 'AI/ML, NLP, Computer Vision, and MLOps',
+      detail: 'Low-Resource NLP, LLM Alignment, RAG, and XAI',
     },
     {
       iconClass: 'fas fa-award',
       title: 'Recognition',
-      detail: 'ICAIL / KUSET Publications, NASA Space Apps, Hult Prize',
+      detail: 'ACM ICAIL 2026 (First Author), KUSET Publications, Hult Prize',
     },
   ],
   skillsTitle: 'Stack Used Till Date',
   skills: [
     {
-      title: 'AI and Machine Learning',
+      title: 'Languages & ML',
       iconClass: 'fas fa-brain',
-      tags: ['Python', 'PyTorch', 'Scikit-learn', 'NLP', 'Computer Vision', 'Django', 'React'],
+      tags: ['Python', 'PyTorch', 'Scikit-Learn', 'OpenCV', 'YOLOv8', 'Pandas', 'NumPy', 'HuggingFace'],
     },
     {
-      title: 'Computer Vision and Inference',
+      title: 'Inference & CV',
       iconClass: 'fas fa-video',
-      tags: ['NVIDIA DeepStream', 'Triton Inference Server', 'GStreamer', 'YOLOv8', 'OpenCV'],
+      tags: ['NVIDIA DeepStream', 'Triton Inference Server', 'GStreamer', 'TensorRT'],
     },
     {
-      title: 'Data and Backend',
-      iconClass: 'fas fa-database',
-      tags: ['FastAPI', 'Flask', 'PostgreSQL', 'SQL', 'REST APIs', 'Data Pipelines'],
-    },
-    {
-      title: 'Cloud and DevOps',
+      title: 'MLOps & Backend',
       iconClass: 'fas fa-cloud',
-      tags: ['AWS', 'Docker', 'Terraform', 'CI/CD', 'EC2', 'Airflow', 'Databricks', 'PySpark'],
+      tags: ['Docker', 'AWS', 'Git', 'FastAPI', 'PostgreSQL', 'Redis'],
+    },
+    {
+      title: 'Other',
+      iconClass: 'fas fa-code',
+      tags: ['ChromaDB', 'LangChain', 'LaTeX/Overleaf'],
     },
   ],
   techShowcase: [
     { name: 'Python', icon: 'python', color: '#3776AB', logo: '/img/tech/python.png' },
-    { name: 'Django', icon: 'django', color: '#0C4B33', logo: '/img/tech/django.png' },
-    { name: 'React', icon: 'react', color: '#61DAFB', logo: '/img/tech/react.png' },
     { name: 'PyTorch', icon: 'pytorch', color: '#EE4C2C', logo: '/img/tech/pytorch.png' },
     { name: 'Scikit-learn', icon: 'scikitlearn', color: '#F7931E', logo: '/img/tech/scikit.png' },
-    { name: 'Computer Vision', icon: 'vision', color: '#0284C7', logo: '/img/tech/computervision.png' },
+    { name: 'OpenCV', icon: 'opencv', color: '#5C3EE8', logo: '/img/tech/opencv.png' },
+    { name: 'YOLOv8', icon: 'yolo', color: '#7C3AED', logo: '/img/tech/yolo.png' },
     { name: 'NVIDIA DeepStream', icon: 'nvidia', color: '#76B900', logo: '/img/tech/deepstream.png' },
     { name: 'Triton Inference', icon: 'triton', color: '#475569', logo: '/img/tech/triton.png' },
     { name: 'GStreamer', icon: 'gstreamer', color: '#1F2937', logo: '/img/tech/gstreamer.png' },
-    { name: 'YOLOv8', icon: 'yolo', color: '#7C3AED', logo: '/img/tech/yolo.png' },
-    { name: 'OpenCV', icon: 'opencv', color: '#5C3EE8', logo: '/img/tech/opencv.png' },
     { name: 'FastAPI', icon: 'fastapi', color: '#009688', logo: '/img/tech/fastapi.svg' },
-    { name: 'Flask', icon: 'flask', color: '#111827', logo: '/img/tech/flask.webp' },
     { name: 'PostgreSQL', icon: 'postgresql', color: '#336791', logo: '/img/tech/postgres.png' },
-    { name: 'SQL', icon: 'sql', color: '#2563EB', logo: '/img/tech/sql.png' },
-    { name: 'REST APIs', icon: 'rest', color: '#0F172A', logo: '/img/tech/restapi.webp' },
-    { name: 'Data Pipelines', icon: 'pipeline', color: '#0369A1', logo: '/img/tech/datapipelines.png' },
     { name: 'Docker', icon: 'docker', color: '#2496ED', logo: '/img/tech/docker.webp' },
     { name: 'AWS', icon: 'aws', color: '#FF9900', logo: '/img/tech/aws.png' },
-    { name: 'EC2', icon: 'ec2', color: '#334155', logo: '/img/tech/ec2.png' },
-    { name: 'Terraform', icon: 'terraform', color: '#7B42BC' },
-    { name: 'Airflow', icon: 'airflow', color: '#017CEE', logo: '/img/tech/airflow.png' },
-    { name: 'Databricks', icon: 'databricks', color: '#FF3621', logo: '/img/tech/databricks.png' },
-    { name: 'PySpark', icon: 'spark', color: '#E25A1C', logo: '/img/tech/pyspark.png' },
-    { name: 'CI/CD', icon: 'cicd', color: '#1D4ED8' },
-    { name: 'Git', icon: 'git', color: '#F05032' },
   ],
 }
 
@@ -153,32 +139,64 @@ export const projectData = {
   title: 'Featured Projects',
   items: [
     {
-      title: 'Cosmira: Solar System Explorer',
-      description:
-        "NASA Space Apps People's Choice winner. Interactive educational web app for space exploration and outreach.",
-      tech: ['JavaScript', 'WebGL', 'CSS3'],
-      image: '/img/cosmira-project.webp',
-      alt: 'Cosmira project preview',
-      links: [
-        {
-          label: 'Code',
-          href: 'https://github.com/Sushan-Adhikari/Cosmira',
-          iconClass: 'fab fa-github',
-          external: true,
-        },
-      ],
-    },
-    {
       title: 'AgniNetra: AI Fire Detection',
       description:
-        'Real-time forest fire detection system using IoT sensors and computer vision for early alerts.',
-      tech: ['Python', 'OpenCV', 'IoT'],
+        "Fine-tuned YOLOv8n for real-time fire and smoke detection on a Raspberry Pi, with an ESP32 GPS/GPRS module for location-tagged alerts — built in response to Nepal's 6,279 recorded forest fires in 2021.",
+      tech: ['Python', 'YOLOv8n', 'Raspberry Pi', 'ESP32'],
       image: '/img/agni-netra-project.jpg',
       alt: 'AgniNetra project preview',
       links: [
         {
           label: 'Code',
           href: 'https://github.com/Sushan-Adhikari/Agni-Netra',
+          iconClass: 'fab fa-github',
+          external: true,
+        },
+      ],
+    },
+    {
+      title: 'AlgoRAG: RAG for CS Education',
+      description:
+        'Five-stage retrieval-augmented generation pipeline over 1,200+ theoretical CS artifacts, combining dense and sparse retrieval with a pedagogical re-ranker for algorithm and complexity-theory education.',
+      tech: ['RAG', 'ChromaDB', 'LangChain'],
+      image: '/img/sushan-logo-512.webp',
+      alt: 'AlgoRAG project logo',
+      links: [
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/AlgoRAG',
+          iconClass: 'fab fa-github',
+          external: true,
+        },
+      ],
+    },
+    {
+      title: 'ManimCalc-1493',
+      description:
+        'The largest execution-validated Manim calculus animation dataset (1,493 scripts across 20 function categories), built with a four-stage syntax-to-execution validation pipeline.',
+      tech: ['Python', 'Manim', 'LLM Fine-Tuning'],
+      image: '/img/sushan-logo-512.webp',
+      alt: 'ManimCalc-1493 project logo',
+      links: [
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/Manim_Visualize',
+          iconClass: 'fab fa-github',
+          external: true,
+        },
+      ],
+    },
+    {
+      title: 'Statistics & Probability for ML',
+      description:
+        'Public, daily-updated compendium of probability theory, MLE/MAP, Bayesian inference, Gaussian processes, information theory, and concentration inequalities, with NumPy implementations.',
+      tech: ['Python', 'NumPy', 'Probability Theory'],
+      image: '/img/sushan-logo-512.webp',
+      alt: 'Statistics and Probability for ML repository logo',
+      links: [
+        {
+          label: 'Code',
+          href: 'https://github.com/Sushan-Adhikari/statistics-probability-ml',
           iconClass: 'fab fa-github',
           external: true,
         },
@@ -217,25 +235,9 @@ export const projectData = {
       ],
     },
     {
-      title: 'CrowdChain: Decentralized Funding',
-      description:
-        'Blockchain-based crowdfunding platform with transparent smart-contract logic and on-chain accountability.',
-      tech: ['Solidity', 'Web3', 'React'],
-      image: '/img/crowdchain-project.jpg',
-      alt: 'CrowdChain project preview',
-      links: [
-        {
-          label: 'Code',
-          href: 'https://github.com/Sushan-Adhikari/CrowdFunding-Blockchain',
-          iconClass: 'fab fa-github',
-          external: true,
-        },
-      ],
-    },
-    {
       title: 'Pension Management Platform (Nepal)',
       description:
-        'Contributed to Nepal’s national pension platform (300k+ users) by integrating anti-spoofing liveness checks and deployment-ready backend support.',
+        'Designed the UI/UX and 50+ database schemas, and integrated anti-spoofing liveness detection (Amazon Rekognition), for Nepal’s national pension platform (300k+ users).',
       tech: ['Spring Boot', 'PostgreSQL', 'AWS Rekognition'],
       image: '/img/sushan-logo-512.webp',
       alt: 'Pension management platform logo',
@@ -261,10 +263,10 @@ export const projectData = {
       ],
     },
     {
-      title: 'Mercuri.world ML Recommendation',
+      title: 'Mercuri.world Job Taxonomy',
       description:
-        'Built ML recommendation pipeline across 50+ job types to improve employment access for people with mental illness.',
-      tech: ['Python', 'Scikit-learn', 'FastAPI'],
+        'Sole Nepali member among 150+ global volunteers; designed job taxonomy and pipeline planning for a mental-health employment platform.',
+      tech: ['Data Taxonomy', 'Pipeline Design'],
       image: '/img/sushan-logo-512.webp',
       alt: 'Mercuri recommendation pipeline logo',
       links: [
@@ -281,33 +283,41 @@ export const projectData = {
 
 export const researchData = {
   title: 'Research Publications',
-  intro: 'Selected publications and ongoing work.',
+  intro: 'Peer-reviewed publications and preprints in low-resource NLP, LLM alignment, RAG, and explainable AI.',
   scholarLink: 'https://scholar.google.com/citations?user=k3_mHJUAAAAJ',
   papers: [
     {
       iconClass: 'fas fa-language',
       title: 'Directional Asymmetry in Low-Resource Legal Machine Translation: A Nepali-English Case Study',
-      venue: 'ICAIL 2026',
-      date: 'Apr 2026',
+      authors: ['Sushan Adhikari', 'S. Sharma', 'D. Lamichhane', 'R. Chulyadyo', 'B. K. Bal'],
+      venue: 'ACM ICAIL 2026',
+      date: 'Jun 2026',
+      note: 'DOI processing',
+      status: 'Published',
+      statusClass: '',
       descriptionLines: [
-        'Analyzes direction-dependent performance gaps in Nepali-English legal translation under low-resource constraints.',
-        'Shows where targeted corpus design improves legal MT reliability across source-to-target directions.',
+        'Built the first public Nepali-English legal parallel corpus (5,024 pairs) and found translation quality is direction-dependent — bidirectional training gained BLEU on Nepali→English but lost it on English→Nepali.',
       ],
-      tags: ['Legal NLP', 'Machine Translation', 'Low Resource'],
+      tags: ['Legal NLP', 'Machine Translation', 'Low-Resource NLP'],
       links: [
         {
-          label: 'Paper (ICAIL Draft)',
-          href: 'https://drive.google.com/file/d/1MkccE8bzyDjFkG5u_SOpqCuFuD6ST-9f/view?usp=sharing',
+          label: 'Manuscript',
+          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
           iconClass: 'fas fa-file-pdf',
         },
         {
-          label: 'Code',
+          label: 'GitHub',
           href: 'https://github.com/Sushan-Adhikari/LegalNLP',
           iconClass: 'fab fa-github',
         },
         {
+          label: 'Poster',
+          href: 'https://drive.google.com/file/d/1Khaj4Ls5tq9IS_ytoXCU6vVa9b5QLJya/view?usp=sharing',
+          iconClass: 'fas fa-file-lines',
+        },
+        {
           label: 'Acceptance Email',
-          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
+          href: 'https://drive.google.com/file/d/1A-pLjKd0AHTz5Sgy_PZrN3HgzKiDbndo/view?usp=sharing',
           iconClass: 'fas fa-envelope-open-text',
         },
       ],
@@ -315,44 +325,44 @@ export const researchData = {
     {
       iconClass: 'fas fa-brain',
       title: 'Enhancing Ethical Reasoning in Tiny LLMs via Fine-Tuning and Multi-Agent Consensus',
-      venue: 'KUSET Vol.18 No.2',
+      authors: ['Sushan Adhikari', 'S. Sharma', 'D. Lamichhane', 'S. Sigdel'],
+      venue: 'KUSET Vol. 18 No. 2',
       date: 'Dec 2024',
+      status: 'Published',
+      statusClass: '',
       descriptionLines: [
-        'Fine-tunes TinyLlama-1.1B on ethical dilemma datasets to improve decision consistency in constrained models.',
-        'Evaluates a multi-agent consensus pipeline to reduce failure cases and improve reasoning robustness.',
+        'Fine-tuned three TinyLlama-1.1B agents — utilitarian, deontological, and virtue-ethics — and combined them via confidence-weighted consensus, validated by a 55-participant human study.',
       ],
-      tags: ['Tiny LLMs', 'Alignment', 'Multi-Agent'],
+      tags: ['Tiny LLMs', 'LLM Alignment', 'Multi-Agent Systems'],
       links: [
         {
-          label: 'Paper',
+          label: 'Manuscript',
           href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u-x6o8ySG0sC',
           iconClass: 'fas fa-file-pdf',
         },
         {
-          label: 'Code',
+          label: 'GitHub',
           href: 'https://github.com/sunidhisharma03/EthicsAIReasoning/tree/main',
           iconClass: 'fab fa-github',
-        },
-        {
-          label: 'NCCI Certificate',
-          href: 'https://drive.google.com/file/d/15rueRfzrtcLR-kugzBNPw_zBPYjVqSMd/view?usp=sharing',
-          iconClass: 'fas fa-certificate',
         },
       ],
     },
     {
       iconClass: 'fas fa-camera-retro',
       title: 'Detecting Image Forgeries and Deepfakes: A Comparative Study of CNN and Transformer Models',
-      venue: 'KUSET Vol.18 No.2',
+      authors: ['P. Kafle', 'Sushan Adhikari', 'A. M. Shakya', 'N. Ghimire', 'G. Sharma'],
+      authorNote: 'Corresponding author',
+      venue: 'KUSET Vol. 18 No. 2',
       date: 'Dec 2024',
+      status: 'Published',
+      statusClass: '',
       descriptionLines: [
-        'Compares CNN and transformer architectures for large-scale deepfake and image manipulation detection tasks.',
-        'Benchmarks performance trends over diverse forgery patterns to identify practical deployment trade-offs.',
+        'Benchmarked CNN and transformer detectors on 140,000+ images spanning classical manipulation and GAN-generated forgeries; InceptionV3 outperformed ViT-Base by 5.51% accuracy.',
       ],
-      tags: ['Computer Vision', 'Deepfakes', 'Benchmarking'],
+      tags: ['Computer Vision', 'Deepfake Detection', 'Benchmarking'],
       links: [
         {
-          label: 'Paper',
+          label: 'Manuscript',
           href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:u5HHmVD_uO8C',
           iconClass: 'fas fa-file-pdf',
         },
@@ -364,46 +374,20 @@ export const researchData = {
       ],
     },
     {
-      iconClass: 'fas fa-laptop-code',
-      title: 'RAG for Theoretical CS Education: Algorithm Analysis and Complexity Theory',
-      venue: 'Under Review: USC 2025',
-      date: '2025',
-      descriptionLines: [
-        'Builds a retrieval-augmented tutoring workflow for algorithm analysis and complexity-theory learning support.',
-        'Combines proof-aware retrieval with LLM reasoning to improve conceptual clarity for advanced CS learners.',
-      ],
-      tags: ['RAG', 'CS Education', 'Complexity Theory'],
-      links: [
-        {
-          label: 'Paper Draft',
-          href: 'https://drive.google.com/file/d/1PzLQ2uz0mp4CcIFcs-d7fOTDCbnhdPM0/view?usp=sharing',
-          iconClass: 'fas fa-file-pdf',
-        },
-        {
-          label: 'Code',
-          href: 'https://github.com/Sushan-Adhikari/AlgoRAG',
-          iconClass: 'fab fa-github',
-        },
-        {
-          label: 'USC Certificate',
-          href: 'https://drive.google.com/file/d/1NvV3pJRLlzTDMLIi3J9V_wRCC8tgtZ3I/view?usp=sharing',
-          iconClass: 'fas fa-certificate',
-        },
-      ],
-    },
-    {
       iconClass: 'fas fa-water',
       title: 'Physics-Informed Data Augmentation for Sediment Concentration Prediction in Himalayan Rivers',
-      venue: 'IJETID Vol.2 No.2',
+      authors: ['U. Adhikari', 'M. R. Kafle', 'Sushan Adhikari'],
+      venue: 'InJET-InDev Vol. 2 No. 2',
       date: 'Feb 2026',
+      status: 'Published',
+      statusClass: '',
       descriptionLines: [
-        'Applies physics-informed augmentation to improve sediment concentration prediction in sparse Himalayan river datasets.',
-        'Improves robustness of river-monitoring models under high seasonal variance and limited labeled samples.',
+        'Benchmarked 10 data-augmentation strategies on 51 years of Himalayan river records; a physics-informed ensemble cut RMSE by 24.3% over the best classical baseline.',
       ],
       tags: ['Physics-Informed ML', 'Hydrology', 'Data Augmentation'],
       links: [
         {
-          label: 'Paper',
+          label: 'Manuscript',
           href: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=k3_mHJUAAAAJ&citation_for_view=k3_mHJUAAAAJ:d1gkVwhDpl0C',
           iconClass: 'fas fa-file-pdf',
         },
@@ -415,23 +399,50 @@ export const researchData = {
       ],
     },
     {
-      iconClass: 'fas fa-chart-line',
-      title: 'Automated Mathematical Animation Generation: Dataset Requirements and Validation Gaps',
-      venue: 'In Preparation: Elsevier',
-      date: '2026',
+      iconClass: 'fas fa-laptop-code',
+      title: 'AlgoRAG: Retrieval-Augmented Generation for Theoretical Computer Science Education',
+      authors: ['Sushan Adhikari'],
+      venue: 'arXiv:2609.14572',
+      date: 'Sep 2026',
+      status: 'Preprint',
+      statusClass: 'in-progress',
       descriptionLines: [
-        'Studies dataset requirements for reliable LLM-generated Manim outputs in math visualization workflows.',
-        'Identifies validation gaps that affect reproducibility, clarity, and pedagogical accuracy in generated animations.',
+        'Built a five-stage RAG pipeline over 1,200+ theoretical CS artifacts; found BLEU inadequate for logically-equivalent proofs and proposed a 6-criterion pedagogical quality metric instead.',
       ],
-      tags: ['LLM', 'Math Animation', 'STEM Education'],
+      tags: ['RAG', 'CS Education', 'Complexity Theory'],
       links: [
         {
-          label: 'Paper Draft',
+          label: 'arXiv',
+          href: 'https://arxiv.org/abs/2609.14572',
+          iconClass: 'fas fa-file-pdf',
+        },
+        {
+          label: 'GitHub',
+          href: 'https://github.com/Sushan-Adhikari/AlgoRAG',
+          iconClass: 'fab fa-github',
+        },
+      ],
+    },
+    {
+      iconClass: 'fas fa-chart-line',
+      title: 'How Much Data Is Enough? Validation Gaps in Manim-Based Mathematical Animation Code Generation',
+      authors: ['Sushan Adhikari'],
+      venue: 'Preprint',
+      date: 'Sep 2026',
+      status: 'Preprint',
+      statusClass: 'in-progress',
+      descriptionLines: [
+        'Built ManimCalc-1493, the largest execution-validated Manim dataset (1,493 scripts across 20 categories), and quantified the data scale needed to close the zero-shot-to-fine-tuned execution gap.',
+      ],
+      tags: ['Code Generation', 'LLM Evaluation', 'Dataset Scaling'],
+      links: [
+        {
+          label: 'Preprint',
           href: 'https://drive.google.com/file/d/1erNUVMQRdWirFeMsn4BSBz1HChWC7hR0/view?usp=sharing',
           iconClass: 'fas fa-file-pdf',
         },
         {
-          label: 'Code',
+          label: 'GitHub',
           href: 'https://github.com/Sushan-Adhikari/Manim_Visualize',
           iconClass: 'fab fa-github',
         },
@@ -440,21 +451,23 @@ export const researchData = {
     {
       iconClass: 'fas fa-microscope',
       title: 'Explainability Methods for Hybrid CNN-Transformer Document Layout Analysis',
-      venue: 'Ongoing',
+      authors: ['Sushan Adhikari'],
+      venue: 'Preprint',
       date: '2026',
+      status: 'Preprint',
+      statusClass: 'in-progress',
       descriptionLines: [
-        'Builds explainability workflows for hybrid CNN-transformer models used in document layout understanding.',
-        'Targets interpretable debugging signals that improve trust, error analysis, and model governance.',
+        'Compared Grad-CAM, Attention Rollout, and LIME on a hybrid CNN-Transformer document layout model, introducing four new interpretability metrics to quantify boundary alignment and structural consistency.',
       ],
-      tags: ['XAI', 'Document AI', 'Hybrid Models'],
+      tags: ['Explainable AI', 'Document AI', 'Interpretability'],
       links: [
         {
-          label: 'Paper Draft',
+          label: 'Preprint',
           href: 'https://drive.google.com/file/d/1Y5WzoYZoxCWUdjOAoz13yVAoHMdkBSP0/view?usp=sharing',
           iconClass: 'fas fa-file-pdf',
         },
         {
-          label: 'Code',
+          label: 'GitHub',
           href: 'https://github.com/Sushan-Adhikari/XAI_DLA',
           iconClass: 'fab fa-github',
         },
@@ -505,12 +518,28 @@ export const experienceData = {
   title: 'Experience and Education',
   timeline: [
     {
+      iconClass: 'fas fa-user-nurse',
+      date: 'Jul 2025 - Present',
+      role: 'Co-founder',
+      org: 'Nurvexa',
+      summary:
+        "Co-founded an AI medical exam-prep platform for Nepal's healthcare ecosystem: multi-stage RAG pipeline with SSE token streaming, 2,200+ OCR-extracted quiz questions, Gemini Vision, hybrid search, and cross-encoder rerankers.",
+      orgLink: 'https://nurvexalabs.com',
+      links: [
+        {
+          label: 'Website',
+          href: 'https://nurvexalabs.com',
+          iconClass: 'fas fa-external-link-alt',
+        },
+      ],
+    },
+    {
       iconClass: 'fas fa-cogs',
       date: 'Jan 2026 - Apr 2026',
       role: 'Junior MLOps Developer',
       org: 'KyraWorks',
       summary:
-        'Built CI/CD pipelines using Docker, EC2, AWS, and Terraform for automated model deployment workflows.',
+        'Promoted from Computer Vision Intern; set up monorepo and CODEOWNERS governance across 10+ team members, SAST/DAST scanning (DefectDojo, CodeRabbit), and 3+ AWS EC2 instances via Terraform.',
       links: [
         {
           label: 'Experience Certificate',
@@ -525,7 +554,7 @@ export const experienceData = {
       role: 'Computer Vision Intern',
       org: 'KyraWorks',
       summary:
-        'Deployed and optimized 5+ models on Triton Inference Server and benchmarked DeepStream plus GStreamer for real-time multi-camera processing.',
+        'Built real-time inference pipelines with NVIDIA DeepStream and Triton; deployed YOLOv8 across 10+ simultaneous camera streams at ~60 fps aggregate throughput.',
       links: [
         {
           label: 'Internship Certificate',
@@ -535,28 +564,12 @@ export const experienceData = {
       ],
     },
     {
-      iconClass: 'fas fa-briefcase',
-      date: 'Jan 2025 - Present',
-      role: 'AI and Data Engineer (Volunteer)',
-      org: 'Mercuri.world',
-      summary:
-        'Built an ML recommendation pipeline across 50+ job categories in collaboration with 150+ global volunteers.',
-      orgLink: 'https://mercuri.world/our-team',
-      links: [
-        {
-          label: 'Team Page',
-          href: 'https://mercuri.world/our-team',
-          iconClass: 'fas fa-external-link-alt',
-        },
-      ],
-    },
-    {
       iconClass: 'fas fa-code',
       date: 'Jun 2025 - Oct 2025',
       role: 'Full-Stack Development Intern',
       org: 'National Pension Management System, Nepal',
       summary:
-        'Contributed to a national pension platform (300k+ users), integrated anti-spoofing liveness detection, and supported DB schema design.',
+        'Designed the UI/UX and 50+ database schemas (Spring Boot, PostgreSQL) and integrated liveness detection via Amazon Rekognition for a national platform serving 300k+ users.',
       links: [
         {
           label: 'Internship Certificate',
@@ -571,12 +584,28 @@ export const experienceData = {
       ],
     },
     {
+      iconClass: 'fas fa-briefcase',
+      date: 'Jan 2025 - Present',
+      role: 'AI Data Volunteer',
+      org: 'Mercuri.world',
+      summary:
+        'Sole Nepali member among 150+ global volunteers; designed job taxonomy and pipeline planning for a mental-health employment platform.',
+      orgLink: 'https://mercuri.world/our-team',
+      links: [
+        {
+          label: 'Team Page',
+          href: 'https://mercuri.world/our-team',
+          iconClass: 'fas fa-external-link-alt',
+        },
+      ],
+    },
+    {
       iconClass: 'fas fa-university',
       date: 'Jan 2022 - Feb 2026',
       role: 'B.Eng. Computer Engineering',
       org: 'Kathmandu University, School of Engineering',
       summary:
-        'Completed the B.Eng. with coursework in Computer Vision, Databases, Computer Architecture, and Statistics, alongside first-author AI/ML research.',
+        'CGPA 3.90/4.0. Coursework in Computer Vision, Databases, Computer Architecture, and Statistics, alongside first-author AI/ML research.',
       links: [
         {
           label: 'KU Transcript',
@@ -845,7 +874,7 @@ export const blogData = {
 export const contactData = {
   title: "Let's Connect",
   lead:
-    'I am always open to discussing opportunities, research collaborations, or impactful engineering work. If you have something in mind, let us talk.',
+    'I welcome research collaborations, technical discussions, and interesting engineering problems. If you have something in mind, let us talk.',
   methods: [
     {
       iconClass: 'fas fa-map-marker-alt',

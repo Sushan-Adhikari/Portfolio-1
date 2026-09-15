@@ -302,7 +302,7 @@ export const researchData = {
       links: [
         {
           label: 'Manuscript',
-          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
+          href: 'http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/ICAIL2026/74/10935027-8d1f-11f1-949e-16ffef0ebbf1/OUT/icail2026-74.html',
           iconClass: 'fas fa-file-pdf',
         },
         {
@@ -317,7 +317,7 @@ export const researchData = {
         },
         {
           label: 'Acceptance Email',
-          href: 'https://drive.google.com/file/d/1A-pLjKd0AHTz5Sgy_PZrN3HgzKiDbndo/view?usp=sharing',
+          href: 'https://drive.google.com/file/d/1DfY9lvDPHF1mADP0wmQ4X4L4BdBLcqU6/view?usp=sharing',
           iconClass: 'fas fa-envelope-open-text',
         },
       ],
